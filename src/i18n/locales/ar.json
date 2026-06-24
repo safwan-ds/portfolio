@@ -1,0 +1,179 @@
+{
+	"hero": {
+		"title": "صفوان",
+		"subtitle": "طالب هندسة كهرباء وإلكترونيات ومطور",
+		"description": "طالب هندسة كهرباء وإلكترونيات في سنتي الأخيرة بجامعة أرزينجان بن علي يلدريم. مصري، مقيم بين الكويت وتركيا. أبني عند تقاطع العتاد والبرمجيات — الأنظمة المدمجة، معالجة الإشارات، الرسوميات ثلاثية الأبعاد، وتطوير الألعاب.",
+		"cta_explore": "استكشف",
+		"cta_contact": "تواصل",
+		"scroll": "اسحب"
+	},
+	"nav": {
+		"home": "الرئيسية",
+		"about": "حول",
+		"skills": "المهارات",
+		"languages": "اللغات",
+		"projects": "المشاريع",
+		"contact": "اتصل"
+	},
+	"about": {
+		"label": "حولي",
+		"title": "الشخص خلف الشاشة",
+		"bio_1": "أنا طالب في السنة الأخيرة في هندسة الكهرباء والإلكترونيات بجامعة أرزينجان بن علي يلدريم. أصلاً من مصر، وأقسم وقتي بين الكويت وتركيا.",
+		"bio_2": "يمتد عملي عبر الأنظمة المدمجة (Arduino، STM32)، معالجة الإشارات (FFT، تصميم المرشحات)، وتطوير الويب الشامل. أشعر بالراحة في تصحيح الدوائر وهندسة تطبيقات React. أؤمن أن أفضل المهندسين يفهمون الطبقتين.",
+		"bio_3": "خارج الدراسة، أطور ألعاباً بـ Godot 4.7 (مشروعي AstroDodge)، وأبني تجارب ويب ثلاثية الأبعاد بـ Three.js و React Three Fiber، وأعمل على مشاريع إنترنت الأشياء والتعرف على الإيماءات.",
+		"name_label": "الاسم",
+		"name_val": "صفوان عماد",
+		"location_label": "الموقع",
+		"location_val": "تركيا / الكويت",
+		"education_label": "التعليم",
+		"education_val": "بكالوريوس هندسة كهرباء وإلكترونيات",
+		"education_school": "جامعة أرزينجان بن علي يلدريم",
+		"interests_label": "الاهتمامات",
+		"interests": {
+			"embedded": "الأنظمة المدمجة",
+			"signal": "معالجة الإشارات",
+			"control": "أنظمة التحكم",
+			"web": "تطوير الويب",
+			"game": "تطوير الألعاب",
+			"3d": "الرسوميات ثلاثية الأبعاد",
+			"ai": "الذكاء الاصطناعي وتعلم الآلة",
+			"nn": "الشبكات العصبية",
+			"llm": "النماذج اللغوية الكبيرة والوكلاء",
+			"ml": "تعلم الآلة"
+		}
+	},
+	"skills": {
+		"label": "المهارات",
+		"title": "ما أعمل به",
+		"categories": {
+			"electrical": {
+				"title": "الهندسة الكهربائية",
+				"skills": {
+					"circuit_analysis": "تحليل الدوائر",
+					"embedded_systems": "الأنظمة المدمجة",
+					"signal_processing": "معالجة الإشارات",
+					"control_systems": "أنظمة التحكم",
+					"arduino_stm32": "Arduino / STM32",
+					"matlab_simulink": "MATLAB / Simulink",
+					"verilog_fpga": "Verilog / FPGA",
+					"iot_sensors": "إنترنت الأشياء والحساسات"
+				}
+			},
+			"software": {
+				"title": "تطوير البرمجيات",
+				"skills": {
+					"typescript": "TypeScript",
+					"react_nextjs": "React / Next.js",
+					"threejs_r3f": "Three.js / R3F",
+					"python": "Python",
+					"c_cpp": "C / C++",
+					"tailwind_css": "Tailwind CSS",
+					"nodejs": "Node.js",
+					"gdscript_godot": "GDScript (Godot)"
+				}
+			},
+			"tools": {
+				"title": "الأدوات وسير العمل",
+				"skills": {
+					"git_github": "Git / GitHub",
+					"vs_code": "VS Code",
+					"godot_engine": "Godot Engine",
+					"blender": "Blender",
+					"docker": "Docker",
+					"linux_bash": "Linux / Bash",
+					"llm_apis": "LLM وواجهات الذكاء الاصطناعي",
+					"obsidian": "Obsidian"
+				}
+			}
+		}
+	},
+	"projects": {
+		"label": "المشاريع",
+		"title": "ما بنيته",
+		"github_cta": "شاهد المزيد على GitHub",
+		"tags": {
+			"arduino": "Arduino",
+			"python": "Python",
+			"cpp": "C++",
+			"embedded": "مدمج",
+			"signal_processing": "معالجة الإشارات",
+			"power_electronics": "إلكترونيات القدرة",
+			"godot": "Godot",
+			"gdscript": "GDScript",
+			"game_design": "تصميم الألعاب",
+			"pygame": "Pygame",
+			"react": "React",
+			"threejs": "Three.js",
+			"r3f": "R3F",
+			"tailwind_css": "Tailwind CSS",
+			"i18n": "تدويل"
+		},
+		"items": {
+			"astrododge": {
+				"title": "AstroDodge",
+				"description": "لعبة تفادي فضائية ثنائية الأبعاد مبنية بـ Godot 4.7. تتميز بتوليد عوائق إجرائي وتأثيرات جسيمات ونظام تسجيل نقاط. مشروعي المستمر في تطوير الألعاب."
+			},
+			"sign2speech": {
+				"title": "Sign2Speech",
+				"description": "نظام تعرف على الإيماءات لتحويلها إلى كلام. يحول إيماءات اليد الملتقطة عبر حساسات إلى مخرجات صوتية. يدمج العتاد المدمج مع معالجة الإشارات للتواصل الميسر."
+			},
+			"portfolio": {
+				"title": "3D Portfolio",
+				"description": "هذا الموقع — محفظة تفاعلية ثلاثية الأبعاد باستخدام React Three Fiber وإضاءة bloom سينمائية وتحريك كاميرا مدفوع بالتمرير مع دعم كامل للتعدد اللغوي."
+			},
+			"dsp-toolkit": {
+				"title": "DSP Toolkit",
+				"description": "مجموعة أدوات Python لمقررات معالجة الإشارات الرقمية: تحليل FFT، تصميم مرشحات FIR/IIR، توليد المخططات الطيفية، وتصور صوتي مباشر باستخدام Matplotlib."
+			},
+			"boost_converter_pwm": {
+				"title": "Boost Converter PWM",
+				"description": "تحكم PWM قائم على Arduino لمحول رفع الجهد. يشمل تنظيم الجهد بحلقة مغلقة، مسح دورة العمل، ومراقبة فورية عبر الاتصال التسلسلي."
+			},
+			"astrododge-pygame": {
+				"title": "AstroDodge (Pygame)",
+				"description": "نسخة Python/Pygame من لعبة AstroDodge الفضائية. تتميز بعرض قائم على الصور، كشف التصادم، تسجيل النقاط، وتدرج الصعوبة."
+			}
+		}
+	},
+	"languages": {
+		"label": "اللغات",
+		"title": "أتحدث",
+		"items": {
+			"arabic": "العربية",
+			"english": "الإنجليزية",
+			"turkish": "التركية"
+		},
+		"levels": {
+			"native": "لغتي الأم",
+			"c1": "C1 (متقدم)",
+			"c2": "C2 (متمكن)"
+		}
+	},
+	"contact": {
+		"label": "اتصل",
+		"title": "لنتواصل",
+		"name": "الاسم",
+		"name_placeholder": "اسمك",
+		"email": "البريد الإلكتروني",
+		"email_placeholder": "example@domain.com",
+		"message": "الرسالة",
+		"message_placeholder": "رسالتك...",
+		"send": "إرسال الرسالة",
+		"sending": "جاري الإرسال...",
+		"sent_title": "تم الإرسال!",
+		"sent_desc": "سأعود إليك في أقرب وقت ممكن.",
+		"send_another": "إرسال رسالة أخرى",
+		"error": "حدث خطأ. يرجى المحاولة مرة أخرى أو مراسلتي مباشرة.",
+		"email_direct": "راسلني مباشرة",
+		"find_me": "تابعني على"
+	},
+	"footer": {
+		"copyright": "صفوان",
+		"madewith": "صنع بحب"
+	},
+	"language": {
+		"en": "English",
+		"ar": "العربية",
+		"tr": "Türkçe"
+	}
+}

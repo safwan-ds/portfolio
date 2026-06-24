@@ -1,0 +1,179 @@
+{
+	"hero": {
+		"title": "Safwan",
+		"subtitle": "EEE Öğrencisi ve Geliştirici",
+		"description": "Erzincan Binali Yıldırım Üniversitesi'nde son sınıf Elektrik-Elektronik Mühendisliği öğrencisi. Mısırlı, Kuveyt ve Türkiye arasında yaşıyor. Donanım ve yazılımın kesişiminde çalışıyor — gömülü sistemler, sinyal işleme, 3D grafikler ve oyun geliştirme.",
+		"cta_explore": "Keşfet",
+		"cta_contact": "İletişim",
+		"scroll": "Kaydır"
+	},
+	"nav": {
+		"home": "Ana Sayfa",
+		"about": "Hakkımda",
+		"skills": "Yetenekler",
+		"languages": "Diller",
+		"projects": "Projeler",
+		"contact": "İletişim"
+	},
+	"about": {
+		"label": "Hakkımda",
+		"title": "Ekranın ardındaki kişi",
+		"bio_1": "Erzincan Binali Yıldırım Üniversitesi'nde Elektrik-Elektronik Mühendisliği son sınıf öğrencisiyim. Aslen Mısırlıyım, zamanımı Kuveyt ve Türkiye arasında geçiriyorum.",
+		"bio_2": "Çalışmalarım gömülü sistemler (Arduino, STM32), sinyal işleme (FFT, filtre tasarımı) ve full-stack geliştirmeyi kapsıyor. Bir devreyi hata ayıklamakta da, bir React uygulamasını mimarlandırmakta da aynı rahatlığa sahibim. En iyi mühendislerin her iki katmanı da anladığına inanıyorum.",
+		"bio_3": "Dersler dışında Godot 4.7 ile oyun geliştiriyorum (AstroDodge projem), Three.js ve React Three Fiber ile 3D web deneyimleri inşa ediyorum, IoT ve jest tanıma projeleriyle uğraşıyorum.",
+		"name_label": "İsim",
+		"name_val": "Safwan Emad",
+		"location_label": "Konum",
+		"location_val": "Türkiye / Kuveyt",
+		"education_label": "Eğitim",
+		"education_val": "Lisans, Elektrik-Elektronik Mühendisliği",
+		"education_school": "Erzincan Binali Yıldırım Üniversitesi",
+		"interests_label": "İlgi Alanları",
+		"interests": {
+			"embedded": "Gömülü Sistemler",
+			"signal": "Sinyal İşleme",
+			"control": "Kontrol Sistemleri",
+			"web": "Web Geliştirme",
+			"game": "Oyun Geliştirme",
+			"3d": "3D Grafikler",
+			"ai": "AI ve Makine Öğrenmesi",
+			"nn": "Sinir Ağları",
+			"llm": "Büyük Dil Modelleri ve Ajanlar",
+			"ml": "Makine Öğrenmesi"
+		}
+	},
+	"skills": {
+		"label": "Yetenekler",
+		"title": "Nelerle çalışıyorum",
+		"categories": {
+			"electrical": {
+				"title": "Elektrik Mühendisliği",
+				"skills": {
+					"circuit_analysis": "Devre Analizi",
+					"embedded_systems": "Gömülü Sistemler",
+					"signal_processing": "Sinyal İşleme",
+					"control_systems": "Kontrol Sistemleri",
+					"arduino_stm32": "Arduino / STM32",
+					"matlab_simulink": "MATLAB / Simulink",
+					"verilog_fpga": "Verilog / FPGA",
+					"iot_sensors": "IoT ve Sensörler"
+				}
+			},
+			"software": {
+				"title": "Yazılım Geliştirme",
+				"skills": {
+					"typescript": "TypeScript",
+					"react_nextjs": "React / Next.js",
+					"threejs_r3f": "Three.js / R3F",
+					"python": "Python",
+					"c_cpp": "C / C++",
+					"tailwind_css": "Tailwind CSS",
+					"nodejs": "Node.js",
+					"gdscript_godot": "GDScript (Godot)"
+				}
+			},
+			"tools": {
+				"title": "Araçlar ve İş Akışı",
+				"skills": {
+					"git_github": "Git / GitHub",
+					"vs_code": "VS Code",
+					"godot_engine": "Godot Engine",
+					"blender": "Blender",
+					"docker": "Docker",
+					"linux_bash": "Linux / Bash",
+					"llm_apis": "LLM API'leri ve Ajanlar",
+					"obsidian": "Obsidian"
+				}
+			}
+		}
+	},
+	"projects": {
+		"label": "Projeler",
+		"title": "Geliştirdiklerim",
+		"github_cta": "GitHub'da daha fazlasını gör",
+		"tags": {
+			"arduino": "Arduino",
+			"python": "Python",
+			"cpp": "C++",
+			"embedded": "Gömülü",
+			"signal_processing": "Sinyal İşleme",
+			"power_electronics": "Güç Elektroniği",
+			"godot": "Godot",
+			"gdscript": "GDScript",
+			"game_design": "Oyun Tasarımı",
+			"pygame": "Pygame",
+			"react": "React",
+			"threejs": "Three.js",
+			"r3f": "R3F",
+			"tailwind_css": "Tailwind CSS",
+			"i18n": "Uluslararasılaştırma"
+		},
+		"items": {
+			"astrododge": {
+				"title": "AstroDodge",
+				"description": "Godot 4.7 ile geliştirilmiş 2D uzay kaçma oyunu. Prosedürel engel üretimi, parçacık efektleri ve puanlama sistemi içerir. Devam eden oyun geliştirme projem."
+			},
+			"sign2speech": {
+				"title": "Sign2Speech",
+				"description": "El hareketlerini konuşmaya dönüştüren jest tanıma sistemi. Sensörlerle yakalanan el hareketlerini sesli çıktıya çevirir. Erişilebilir iletişim için gömülü donanım ve sinyal işlemeyi birleştirir."
+			},
+			"portfolio": {
+				"title": "3D Portfolio",
+				"description": "Bu web sitesi — React Three Fiber, sinematik bloom aydınlatma, kaydırma kontrollü kamera animasyonu ve tam i18n desteği (EN/AR/TR) ile etkileşimli 3D portfolyo."
+			},
+			"dsp-toolkit": {
+				"title": "DSP Toolkit",
+				"description": "Sayısal sinyal işleme dersleri için Python araç seti: FFT analizi, FIR/IIR filtre tasarımı, spektrogram oluşturma ve Matplotlib ile gerçek zamanlı ses görselleştirme."
+			},
+			"boost_converter_pwm": {
+				"title": "Boost Converter PWM",
+				"description": "Arduino tabanlı PWM kontrollü yükseltici dönüştürücü. Kapalı döngü voltaj regülasyonu, görev döngüsü taraması ve seri iletişim üzerinden gerçek zamanlı izleme içerir."
+			},
+			"astrododge-pygame": {
+				"title": "AstroDodge (Pygame)",
+				"description": "AstroDodge uzay oyununun Python/Pygame sürümü. Sprite tabanlı render, çarpışma algılama, puanlama ve zorluk ölçeklendirme özelliklerine sahiptir."
+			}
+		}
+	},
+	"languages": {
+		"label": "Diller",
+		"title": "Konuştuğum diller",
+		"items": {
+			"arabic": "Arapça",
+			"english": "İngilizce",
+			"turkish": "Türkçe"
+		},
+		"levels": {
+			"native": "Ana dil",
+			"c1": "C1 (İleri)",
+			"c2": "C2 (Yetkin)"
+		}
+	},
+	"contact": {
+		"label": "İletişim",
+		"title": "Bağlanalım",
+		"name": "İsim",
+		"name_placeholder": "Adınız",
+		"email": "E-posta",
+		"email_placeholder": "ornek@domain.com",
+		"message": "Mesaj",
+		"message_placeholder": "Mesajınız...",
+		"send": "Gönder",
+		"sending": "Gönderiliyor...",
+		"sent_title": "Mesaj gönderildi!",
+		"sent_desc": "En kısa sürede size dönüş yapacağım.",
+		"send_another": "Başka bir mesaj gönder",
+		"error": "Bir şeyler yanlış gitti. Lütfen tekrar deneyin veya doğrudan e-posta gönderin.",
+		"email_direct": "Doğrudan e-posta gönder",
+		"find_me": "Beni bulun"
+	},
+	"footer": {
+		"copyright": "Safwan",
+		"madewith": "Sevgiyle yapıldı"
+	},
+	"language": {
+		"en": "English",
+		"ar": "العربية",
+		"tr": "Türkçe"
+	}
+}

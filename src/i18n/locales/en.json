@@ -1,0 +1,179 @@
+{
+	"hero": {
+		"title": "Safwan",
+		"subtitle": "EEE Student & Developer",
+		"description": "Electrical & Electronics Engineering student in my final year at Erzincan Binali Yıldırım University. Egyptian, based between Kuwait and Turkey. I build at the intersection of hardware and software — embedded systems, signal processing, 3D graphics, and game development.",
+		"cta_explore": "Explore",
+		"cta_contact": "Contact",
+		"scroll": "Scroll"
+	},
+	"nav": {
+		"home": "Home",
+		"about": "About",
+		"skills": "Skills",
+		"languages": "Languages",
+		"projects": "Projects",
+		"contact": "Contact"
+	},
+	"about": {
+		"label": "About Me",
+		"title": "The person behind the screen",
+		"bio_1": "I'm a final-year Electrical & Electronics Engineering student at Erzincan Binali Yıldırım University. Originally from Egypt, I split my time between Kuwait and Turkey.",
+		"bio_2": "My work spans embedded systems (Arduino, STM32), signal processing (FFT, filter design), and full-stack development. I'm equally comfortable debugging a circuit and architecting a React app. I believe the best engineers understand both layers.",
+		"bio_3": "Outside coursework, I develop games in Godot 4.7 (my project AstroDodge), build 3D web experiences with Three.js and React Three Fiber, and tinker with IoT and gesture-recognition projects.",
+		"name_label": "Name",
+		"name_val": "Safwan Emad",
+		"location_label": "Location",
+		"location_val": "Turkey / Kuwait",
+		"education_label": "Education",
+		"education_val": "B.Sc. Electrical & Electronics Engineering",
+		"education_school": "Erzincan Binali Yıldırım University",
+		"interests_label": "Interests",
+		"interests": {
+			"embedded": "Embedded Systems",
+			"signal": "Signal Processing",
+			"control": "Control Systems",
+			"web": "Web Dev",
+			"game": "Game Dev",
+			"3d": "3D Graphics",
+			"ai": "AI & Machine Learning",
+			"nn": "Neural Networks",
+			"llm": "LLMs & Agents",
+			"ml": "Machine Learning"
+		}
+	},
+	"skills": {
+		"label": "Skills",
+		"title": "What I work with",
+		"categories": {
+			"electrical": {
+				"title": "Electrical Engineering",
+				"skills": {
+					"circuit_analysis": "Circuit Analysis",
+					"embedded_systems": "Embedded Systems",
+					"signal_processing": "Signal Processing",
+					"control_systems": "Control Systems",
+					"arduino_stm32": "Arduino / STM32",
+					"matlab_simulink": "MATLAB / Simulink",
+					"verilog_fpga": "Verilog / FPGA",
+					"iot_sensors": "IoT & Sensors"
+				}
+			},
+			"software": {
+				"title": "Software Development",
+				"skills": {
+					"typescript": "TypeScript",
+					"react_nextjs": "React / Next.js",
+					"threejs_r3f": "Three.js / R3F",
+					"python": "Python",
+					"c_cpp": "C / C++",
+					"tailwind_css": "Tailwind CSS",
+					"nodejs": "Node.js",
+					"gdscript_godot": "GDScript (Godot)"
+				}
+			},
+			"tools": {
+				"title": "Tools & Workflow",
+				"skills": {
+					"git_github": "Git / GitHub",
+					"vs_code": "VS Code",
+					"godot_engine": "Godot Engine",
+					"blender": "Blender",
+					"docker": "Docker",
+					"linux_bash": "Linux / Bash",
+					"llm_apis": "LLM APIs & Agents",
+					"obsidian": "Obsidian"
+				}
+			}
+		}
+	},
+	"projects": {
+		"label": "Projects",
+		"title": "Things I've built",
+		"github_cta": "View more on GitHub",
+		"tags": {
+			"arduino": "Arduino",
+			"python": "Python",
+			"cpp": "C++",
+			"embedded": "Embedded",
+			"signal_processing": "Signal Processing",
+			"power_electronics": "Power Electronics",
+			"godot": "Godot",
+			"gdscript": "GDScript",
+			"game_design": "Game Design",
+			"pygame": "Pygame",
+			"react": "React",
+			"threejs": "Three.js",
+			"r3f": "R3F",
+			"tailwind_css": "Tailwind CSS",
+			"i18n": "i18n"
+		},
+		"items": {
+			"astrododge": {
+				"title": "AstroDodge",
+				"description": "A 2D space dodging game built with Godot 4.7. Features procedural obstacle generation, particle effects, and a scoring system. My ongoing game dev project."
+			},
+			"sign2speech": {
+				"title": "Sign2Speech",
+				"description": "Gesture-to-speech recognition system. Converts hand gestures captured via sensors into spoken output. Combines embedded hardware with signal processing for accessible communication."
+			},
+			"portfolio": {
+				"title": "3D Portfolio",
+				"description": "This website — an interactive 3D portfolio with React Three Fiber, cinematic bloom lighting, scroll-driven camera animation, and full i18n support (EN/AR/TR)."
+			},
+			"dsp-toolkit": {
+				"title": "DSP Toolkit",
+				"description": "Python toolkit for digital signal processing coursework: FFT analysis, FIR/IIR filter design, spectrogram generation, and real-time audio visualization with Matplotlib."
+			},
+			"boost_converter_pwm": {
+				"title": "Boost Converter PWM",
+				"description": "Arduino-based PWM control for a boost converter. Includes closed-loop voltage regulation, duty cycle sweep, and real-time monitoring via serial communication."
+			},
+			"astrododge-pygame": {
+				"title": "AstroDodge (Pygame)",
+				"description": "A Python/Pygame port of the AstroDodge space game. Features sprite-based rendering, collision detection, scoring, and difficulty scaling."
+			}
+		}
+	},
+	"languages": {
+		"label": "Languages",
+		"title": "I speak",
+		"items": {
+			"arabic": "Arabic",
+			"english": "English",
+			"turkish": "Turkish"
+		},
+		"levels": {
+			"native": "Mother tongue",
+			"c1": "C1 (Advanced)",
+			"c2": "C2 (Proficient)"
+		}
+	},
+	"contact": {
+		"label": "Contact",
+		"title": "Let's connect",
+		"name": "Name",
+		"name_placeholder": "Your name",
+		"email": "Email",
+		"email_placeholder": "you@example.com",
+		"message": "Message",
+		"message_placeholder": "Your message...",
+		"send": "Send Message",
+		"sending": "Sending...",
+		"sent_title": "Message sent!",
+		"sent_desc": "I'll get back to you as soon as possible.",
+		"send_another": "Send another",
+		"error": "Something went wrong. Please try again or email me directly.",
+		"email_direct": "Email me directly",
+		"find_me": "Find me on"
+	},
+	"footer": {
+		"copyright": "Safwan",
+		"madewith": "Made with love"
+	},
+	"language": {
+		"en": "English",
+		"ar": "العربية",
+		"tr": "Türkçe"
+	}
+}
