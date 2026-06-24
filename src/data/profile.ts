@@ -33,7 +33,7 @@ export interface Profile {
 
 const profile: Profile = {
 	name: "Safwan Emad",
-	title: "EEE Student & Developer",
+	title: "EEE Student & AI Developer",
 	location: "Turkey / Kuwait",
 	education: "B.Sc. Electrical & Electronics Engineering",
 	school: "Erzincan Binali Yıldırım University",
@@ -44,12 +44,12 @@ const profile: Profile = {
 		"embedded",
 		"signal",
 		"control",
-		"web",
-		"game",
-		"3d",
 		"ai",
 		"nn",
+		"ml",
 		"llm",
+		"game",
+		"3d",
 	],
 };
 

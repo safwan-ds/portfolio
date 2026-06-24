@@ -1,8 +1,8 @@
 {
 	"hero": {
 		"title": "Safwan",
-		"subtitle": "EEE Öğrencisi ve Geliştirici",
-		"description": "Erzincan Binali Yıldırım Üniversitesi'nde son sınıf Elektrik-Elektronik Mühendisliği öğrencisi. Mısırlı, Kuveyt ve Türkiye arasında yaşıyor. Donanım ve yazılımın kesişiminde çalışıyor — gömülü sistemler, sinyal işleme, 3D grafikler ve oyun geliştirme.",
+		"subtitle": "Elektrik-Elektronik Mühendisliği Öğrencisi & AI Geliştirici",
+		"description": "Erzincan Binali Yıldırım Üniversitesi Elektrik-Elektronik Mühendisliği son sınıf öğrencisiyim. Aslen Mısırlıyım, Kuveyt'te yaşıyorum ve eğitimime Türkiye'de devam ediyorum. Donanım ve yapay zekanın kesişim noktasında projeler üretiyorum — gömülü sistemler, sinyal işleme, sinir ağları ve makine öğrenmesi.",
 		"cta_explore": "Keşfet",
 		"cta_contact": "İletişim",
 		"scroll": "Kaydır"
@@ -17,10 +17,10 @@
 	},
 	"about": {
 		"label": "Hakkımda",
-		"title": "Ekranın ardındaki kişi",
-		"bio_1": "Erzincan Binali Yıldırım Üniversitesi'nde Elektrik-Elektronik Mühendisliği son sınıf öğrencisiyim. Aslen Mısırlıyım, zamanımı Kuveyt ve Türkiye arasında geçiriyorum.",
-		"bio_2": "Çalışmalarım gömülü sistemler (Arduino, STM32), sinyal işleme (FFT, filtre tasarımı) ve full-stack geliştirmeyi kapsıyor. Bir devreyi hata ayıklamakta da, bir React uygulamasını mimarlandırmakta da aynı rahatlığa sahibim. En iyi mühendislerin her iki katmanı da anladığına inanıyorum.",
-		"bio_3": "Dersler dışında Godot 4.7 ile oyun geliştiriyorum (AstroDodge projem), Three.js ve React Three Fiber ile 3D web deneyimleri inşa ediyorum, IoT ve jest tanıma projeleriyle uğraşıyorum.",
+		"title": "Benimle Tanışın",
+		"bio_1": "Erzincan Binali Yıldırım Üniversitesi'nde Elektrik-Elektronik Mühendisliği son sınıf öğrencisiyim. Aslen Mısırlıyım, Kuveyt'te yaşıyorum ve eğitimime Türkiye'de devam ediyorum.",
+		"bio_2": "İlgi alanlarım ve çalışmalarım gömülü sistemler (Arduino, STM32), sinyal işleme (FFT, filtre tasarımı) ve Yapay Zeka alanlarını kapsıyor. Karmaşık bir devrede hata ayıklamak ne kadar ilgimi çekiyorsa, bir sinir ağı (neural network) modelini eğitmek de o kadar heyecan verici. En başarılı mühendislerin hem donanım hem de akıllı yazılım katmanlarına hakim olması gerektiğine inanıyorum.",
+		"bio_3": "Akademik çalışmalarımın yanı sıra derin öğrenme mimarilerini araştırıyor, Godot 4.7 oyun motoruyla oyunlar geliştiriyor (AstroDodge projem) ve Nesnelerin İnterneti (IoT) ile el hareketleri tanıma gibi yenilikçi projeler üzerinde çalışıyorum.",
 		"name_label": "İsim",
 		"name_val": "Safwan Emad",
 		"location_label": "Konum",
@@ -30,21 +30,20 @@
 		"education_school": "Erzincan Binali Yıldırım Üniversitesi",
 		"interests_label": "İlgi Alanları",
 		"interests": {
+			"ai": "Yapay Zeka ve Makine Öğrenmesi",
+			"nn": "Sinir Ağları",
+			"ml": "Makine Öğrenmesi",
+			"llm": "Büyük Dil Modelleri (LLM)",
 			"embedded": "Gömülü Sistemler",
 			"signal": "Sinyal İşleme",
 			"control": "Kontrol Sistemleri",
-			"web": "Web Geliştirme",
 			"game": "Oyun Geliştirme",
-			"3d": "3D Grafikler",
-			"ai": "AI ve Makine Öğrenmesi",
-			"nn": "Sinir Ağları",
-			"llm": "Büyük Dil Modelleri ve Ajanlar",
-			"ml": "Makine Öğrenmesi"
+			"3d": "3D Grafikler"
 		}
 	},
 	"skills": {
 		"label": "Yetenekler",
-		"title": "Nelerle çalışıyorum",
+		"title": "Kullandığım Teknolojiler",
 		"categories": {
 			"electrical": {
 				"title": "Elektrik Mühendisliği",
@@ -60,15 +59,14 @@
 				}
 			},
 			"software": {
-				"title": "Yazılım Geliştirme",
+				"title": "Yazılım ve Yapay Zeka",
 				"skills": {
-					"typescript": "TypeScript",
-					"react_nextjs": "React / Next.js",
-					"threejs_r3f": "Three.js / R3F",
 					"python": "Python",
+					"pytorch": "PyTorch",
+					"neural_networks": "Sinir Ağları",
+					"machine_learning": "Makine Öğrenmesi",
 					"c_cpp": "C / C++",
-					"tailwind_css": "Tailwind CSS",
-					"nodejs": "Node.js",
+					"typescript": "TypeScript",
 					"gdscript_godot": "GDScript (Godot)"
 				}
 			},
@@ -77,6 +75,9 @@
 				"skills": {
 					"git_github": "Git / GitHub",
 					"vs_code": "VS Code",
+					"opencode": "Opencode",
+					"hermes_agent": "Hermes Agent",
+					"touch_typing": "On Parmak Klavye",
 					"godot_engine": "Godot Engine",
 					"blender": "Blender",
 					"docker": "Docker",
@@ -89,8 +90,8 @@
 	},
 	"projects": {
 		"label": "Projeler",
-		"title": "Geliştirdiklerim",
-		"github_cta": "GitHub'da daha fazlasını gör",
+		"title": "Öne Çıkan Projelerim",
+		"github_cta": "Daha fazlası için GitHub profilimi ziyaret edin",
 		"tags": {
 			"arduino": "Arduino",
 			"python": "Python",
@@ -111,65 +112,65 @@
 		"items": {
 			"astrododge": {
 				"title": "AstroDodge",
-				"description": "Godot 4.7 ile geliştirilmiş 2D uzay kaçma oyunu. Prosedürel engel üretimi, parçacık efektleri ve puanlama sistemi içerir. Devam eden oyun geliştirme projem."
+				"description": "Godot 4.7 ile geliştirdiğim 2D uzay temalı bir kaçış oyunu. Prosedürel engel üretimi, görsel parçacık efektleri ve dinamik bir puanlama sistemi içeriyor. Oyun geliştirme serüvenimdeki aktif projelerimden biri."
 			},
 			"sign2speech": {
 				"title": "Sign2Speech",
-				"description": "El hareketlerini konuşmaya dönüştüren jest tanıma sistemi. Sensörlerle yakalanan el hareketlerini sesli çıktıya çevirir. Erişilebilir iletişim için gömülü donanım ve sinyal işlemeyi birleştirir."
+				"description": "El hareketlerini algılayarak sese dönüştüren bir jest tanıma sistemi. Özel sensörler aracılığıyla yakalanan hareketleri işleyerek sesli metne çeviriyor. İşitme veya konuşma engelli bireylerin iletişimini kolaylaştırmak için gömülü donanım ve sinyal işleme tekniklerini bir araya getiriyor."
 			},
 			"portfolio": {
 				"title": "3D Portfolio",
-				"description": "Bu web sitesi — React Three Fiber, sinematik bloom aydınlatma, kaydırma kontrollü kamera animasyonu ve tam i18n desteği (EN/AR/TR) ile etkileşimli 3D portfolyo."
+				"description": "Şu an incelediğiniz bu web sitesi; React Three Fiber, sinematik ışıklandırma efektleri ve kaydırma duyarlı kamera animasyonları kullanılarak geliştirilmiş interaktif bir 3D portfolyodur. Aynı zamanda Türkçe, İngilizce ve Arapça dillerini tam olarak desteklemektedir."
 			},
 			"dsp-toolkit": {
 				"title": "DSP Toolkit",
-				"description": "Sayısal sinyal işleme dersleri için Python araç seti: FFT analizi, FIR/IIR filtre tasarımı, spektrogram oluşturma ve Matplotlib ile gerçek zamanlı ses görselleştirme."
+				"description": "Sayısal Sinyal İşleme (DSP) dersleri için geliştirdiğim kapsamlı bir Python araç seti. Hızlı Fourier Dönüşümü (FFT) analizi, FIR/IIR filtre tasarımı, spektrogram oluşturma ve Matplotlib kullanılarak gerçek zamanlı ses görselleştirme özelliklerini barındırıyor."
 			},
 			"boost_converter_pwm": {
 				"title": "Boost Converter PWM",
-				"description": "Arduino tabanlı PWM kontrollü yükseltici dönüştürücü. Kapalı döngü voltaj regülasyonu, görev döngüsü taraması ve seri iletişim üzerinden gerçek zamanlı izleme içerir."
+				"description": "Arduino tabanlı, PWM (Darbe Genişlik Modülasyonu) kontrollü bir gerilim yükseltici (Boost Converter). Kapalı döngü voltaj regülasyonu, duty cycle analizi ve seri port üzerinden anlık veri takibi gibi özellikleri içeriyor."
 			},
 			"astrododge-pygame": {
 				"title": "AstroDodge (Pygame)",
-				"description": "AstroDodge uzay oyununun Python/Pygame sürümü. Sprite tabanlı render, çarpışma algılama, puanlama ve zorluk ölçeklendirme özelliklerine sahiptir."
+				"description": "AstroDodge oyununun Python ve Pygame kullanılarak geliştirilmiş özel bir sürümü. Sprite tabanlı 2D render motoru, hassas çarpışma algılama, puanlama sistemi ve giderek artan zorluk seviyeleri ile klasik arcade deneyimi sunuyor."
 			}
 		}
 	},
 	"languages": {
 		"label": "Diller",
-		"title": "Konuştuğum diller",
+		"title": "Konuştuğum Diller",
 		"items": {
 			"arabic": "Arapça",
 			"english": "İngilizce",
 			"turkish": "Türkçe"
 		},
 		"levels": {
-			"native": "Ana dil",
-			"c1": "C1 (İleri)",
-			"c2": "C2 (Yetkin)"
+			"native": "Ana Dil",
+			"c1": "İleri Seviye (C1)",
+			"c2": "Yetkin Seviye (C2)"
 		}
 	},
 	"contact": {
 		"label": "İletişim",
-		"title": "Bağlanalım",
+		"title": "İletişime Geçin",
 		"name": "İsim",
 		"name_placeholder": "Adınız",
 		"email": "E-posta",
 		"email_placeholder": "ornek@domain.com",
 		"message": "Mesaj",
 		"message_placeholder": "Mesajınız...",
-		"send": "Gönder",
+		"send": "Mesajı Gönder",
 		"sending": "Gönderiliyor...",
-		"sent_title": "Mesaj gönderildi!",
+		"sent_title": "Mesajınız Başarıyla Gönderildi!",
 		"sent_desc": "En kısa sürede size dönüş yapacağım.",
 		"send_another": "Başka bir mesaj gönder",
-		"error": "Bir şeyler yanlış gitti. Lütfen tekrar deneyin veya doğrudan e-posta gönderin.",
-		"email_direct": "Doğrudan e-posta gönder",
-		"find_me": "Beni bulun"
+		"error": "Bir hata oluştu. Lütfen tekrar deneyin veya doğrudan bana e-posta gönderin.",
+		"email_direct": "Doğrudan E-posta Gönder",
+		"find_me": "Beni Buralarda Bulabilirsiniz"
 	},
 	"footer": {
 		"copyright": "Safwan",
-		"madewith": "Sevgiyle yapıldı"
+		"madewith": "Sevgiyle Geliştirildi"
 	},
 	"language": {
 		"en": "English",
