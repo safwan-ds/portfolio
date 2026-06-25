@@ -57,9 +57,9 @@ export default function App() {
         </SceneErrorBoundary>
       </div>
 
-      <div className="relative z-10 pointer-events-none">
-        <Navbar />
+      <Navbar />
 
+      <div className="relative z-10 pointer-events-none">
         <section id="home" className="relative flex min-h-screen flex-col items-center justify-center px-4 sm:px-6">
           <div className="text-center pointer-events-auto bg-void/40 backdrop-blur-md p-10 rounded-3xl border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.5)]">
             <h1 className="font-display text-6xl font-bold tracking-tight sm:text-7xl md:text-8xl drop-shadow-lg">
