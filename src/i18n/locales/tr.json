@@ -83,7 +83,8 @@
 					"docker": "Docker",
 					"linux_bash": "Linux / Bash",
 					"llm_apis": "LLM API'leri ve Ajanlar",
-					"obsidian": "Obsidian"
+					"obsidian": "Obsidian",
+					"latex": "LaTeX"
 				}
 			}
 		}

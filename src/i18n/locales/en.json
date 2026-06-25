@@ -83,7 +83,8 @@
 					"docker": "Docker",
 					"linux_bash": "Linux / Bash",
 					"llm_apis": "LLM APIs & Agents",
-					"obsidian": "Obsidian"
+					"obsidian": "Obsidian",
+					"latex": "LaTeX"
 				}
 			}
 		}

@@ -83,7 +83,8 @@
 					"docker": "Docker",
 					"linux_bash": "Linux / Bash",
 					"llm_apis": "واجهات النماذج اللغوية الكبيرة",
-					"obsidian": "Obsidian"
+					"obsidian": "Obsidian",
+					"latex": "LaTeX"
 				}
 			}
 		}
