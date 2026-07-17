@@ -37,7 +37,7 @@ const profile: Profile = {
 	location: "Turkey / Kuwait",
 	education: "B.Sc. Electrical & Electronics Engineering",
 	school: "Erzincan Binali Yıldırım University",
-	email: "safwan.mohamed@ogr.ebyu.edu.tr",
+	email: "safwanemad2002@gmail.com",
 	github: "safwan-ds",
 	linkedin: "safwan-e-6438a398",
 	interestKeys: [

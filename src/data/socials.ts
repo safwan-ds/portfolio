@@ -5,6 +5,7 @@
 
 import type { IconType } from "react-icons";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import FiverrIcon from "./FiverrIcon";
 import profile from "./profile";
 
 export interface SocialLink {
@@ -26,6 +27,12 @@ const socials: readonly SocialLink[] = [
 		href: `https://linkedin.com/in/${profile.linkedin}`,
 		icon: FaLinkedin,
 		hoverColor: "hover:text-[#0A66C2]",
+	},
+	{
+		label: "Fiverr",
+		href: `https://www.fiverr.com/s/akRXNlW`,
+		icon: FiverrIcon,
+		hoverColor: "hover:text-[#1DBF73]",
 	},
 ];
 

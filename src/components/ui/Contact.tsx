@@ -25,7 +25,7 @@ export default function Contact() {
     e.preventDefault()
     setStatus('sending')
     try {
-      const res = await fetch('https://formspree.io/f/REPLACE_ME', {
+      const res = await fetch(`https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

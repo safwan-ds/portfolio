@@ -16,7 +16,7 @@ export default function ScrollProgress() {
   return (
     <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-slate/20">
       <div
-        className="h-full bg-linear-to-r from-neon-blue to-neon-purple transition-all duration-150 ease-out"
+        className="h-full bg-linear-to-r from-neon-blue to-neon-purple"
         style={{ width: `${progress * 100}%` }}
       />
     </div>
