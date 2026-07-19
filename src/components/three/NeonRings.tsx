@@ -21,7 +21,7 @@ interface RingConfig {
 
 const RINGS: RingConfig[] = [
   {
-    radius: 4,
+    radius: 5,
     tube: 0.015,
     position: [0, 2, 0],
     rotation: [Math.PI / 2.5, 0, 0],
@@ -29,7 +29,7 @@ const RINGS: RingConfig[] = [
     speed: 0.3,
   },
   {
-    radius: 5.5,
+    radius: 4.5,
     tube: 0.01,
     position: [0, 1, -1],
     rotation: [Math.PI / 3, Math.PI / 6, 0],
@@ -37,7 +37,7 @@ const RINGS: RingConfig[] = [
     speed: -0.2,
   },
   {
-    radius: 3.5,
+    radius: 4,
     tube: 0.012,
     position: [0, 3, 1],
     rotation: [-Math.PI / 4, 0, Math.PI / 8],

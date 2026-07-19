@@ -52,5 +52,5 @@ export const CHROMATIC_ABERRATION_OFFSET = [0.0005, 0.0005] as [number, number];
 /** GLTF model asset paths — use import.meta.env.BASE_URL so paths work on both dev (/) and GitHub Pages (/portfolio/). */
 const BASE = import.meta.env.BASE_URL;
 export const MODEL_PATHS = {
-	computer: `${BASE}models/desktop_computer.glb`,
+	computer: `${BASE}models/legend_5.glb`,
 } as const;

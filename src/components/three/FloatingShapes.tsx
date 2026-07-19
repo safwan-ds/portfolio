@@ -18,7 +18,7 @@ interface ShapeConfig {
 
 const SHAPES: ShapeConfig[] = [
   { position: [4, 3, -1], scale: 0.5, color: EMISSIVE_COLORS.blue, wireframe: false, speed: 1.5, rotationIntensity: 0.8 },
-  { position: [-4, 2.5, 0], scale: 0.4, color: EMISSIVE_COLORS.purple, wireframe: true, speed: 2, rotationIntensity: 1.2 },
+  { position: [-5, 2.5, 0], scale: 0.4, color: EMISSIVE_COLORS.purple, wireframe: true, speed: 2, rotationIntensity: 1.2 },
   { position: [3, -0.5, 2], scale: 0.35, color: EMISSIVE_COLORS.cyan, wireframe: false, speed: 1.8, rotationIntensity: 1 },
   { position: [-3, 4, -2], scale: 0.5, color: EMISSIVE_COLORS.purple, wireframe: false, speed: 1.2, rotationIntensity: 0.6 },
   { position: [5, 1, -3], scale: 0.4, color: EMISSIVE_COLORS.blue, wireframe: true, speed: 2.5, rotationIntensity: 1.5 },

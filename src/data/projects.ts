@@ -23,11 +23,6 @@ const projects: readonly Project[] = [
 		github: "https://github.com/safwan-ds/boost_converter_pwm",
 	},
 	{
-		key: "astrododge",
-		tags: ["godot", "gdscript", "game_design"],
-		github: "https://github.com/safwan-ds/AstroDodge",
-	},
-	{
 		key: "astrododge-pygame",
 		tags: ["python", "pygame", "game_design"],
 		github: "https://github.com/safwan-ds/AstroDodgePygame",

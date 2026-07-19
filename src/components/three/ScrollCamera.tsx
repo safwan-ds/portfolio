@@ -17,11 +17,11 @@ gsap.registerPlugin(ScrollTrigger)
 /** CatmullRom spline through the keyframes for smooth camera path. */
 const CAMERA_CURVE = new THREE.CatmullRomCurve3(
   [
-    new THREE.Vector3(0, 2.5, 11),     // 0%   Hero — wide establishing shot
-    new THREE.Vector3(4, 2, 8),        // 25%  About — right angle
-    new THREE.Vector3(0, 5, 7),        // 50%  Skills — top-down tilt
-    new THREE.Vector3(-4, 2.5, 8),     // 75%  Projects — left side
-    new THREE.Vector3(0, 1.5, 6),      // 100% Contact — close on desk
+    new THREE.Vector3(0, 2.5, -14),    // 0%   Hero — front of model
+    new THREE.Vector3(5, 2, -11),      // 25%  About — right-front
+    new THREE.Vector3(0, 5, -10),      // 50%  Skills — top-down front
+    new THREE.Vector3(-5, 2.5, -11),   // 75%  Projects — left-front
+    new THREE.Vector3(0, 1.5, -9),     // 100% Contact — close front
   ],
   false,
   'catmullrom',

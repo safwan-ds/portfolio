@@ -18,6 +18,25 @@ export default function Footer() {
           {t('footer.madewith')} <HiHeart className="w-3 h-3 text-neon-pink" />
         </p>
       </div>
+      <div className="mx-auto max-w-5xl mt-4 pt-3 border-t border-slate-800/50">
+        <h4 className="font-mono text-[10px] text-slate-600 text-center mb-2 tracking-widest uppercase">
+          3D Model Credits
+        </h4>
+        <p className="font-mono text-[10px] text-slate-500 text-center leading-relaxed">
+          This work is based on{' '}
+          <a href="https://skfb.ly/oUoss" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-400 transition-colors">
+            &quot;Legend 5&quot;
+          </a>{' '}
+          by{' '}
+          <a href="https://skfb.ly/oUoss" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-400 transition-colors">
+            churliaevyaroslav
+          </a>
+          , licensed under{' '}
+          <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-400 transition-colors">
+            CC BY 4.0
+          </a>
+        </p>
+      </div>
     </footer>
   )
 }
