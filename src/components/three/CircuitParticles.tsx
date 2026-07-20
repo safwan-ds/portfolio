@@ -6,11 +6,13 @@
  * to simulate data flowing through circuits.
  */
 
-import { useRef, useMemo } from 'react'
-import { useFrame } from '@react-three/fiber'
+import {useMemo, useRef} from 'react'
+import {useFrame} from '@react-three/fiber'
 import * as THREE from 'three'
+import {useDeviceTier} from '../../hooks/useDeviceTier'
 
-const PARTICLE_COUNT = 300
+const DESKTOP_PARTICLE_COUNT = 300
+const REDUCED_PARTICLE_COUNT = 60
 const SPREAD = 8
 const GRID_LINES = 8
 
@@ -41,11 +43,10 @@ function generateCircuitPositions(count: number): Float32Array {
 
 export default function CircuitParticles() {
   const materialRef = useRef<THREE.PointsMaterial>(null)
+    const {isReduced} = useDeviceTier()
+    const particleCount = isReduced ? REDUCED_PARTICLE_COUNT : DESKTOP_PARTICLE_COUNT
 
-  const positions = useMemo(
-    () => generateCircuitPositions(PARTICLE_COUNT),
-    [],
-  )
+    const positions = useMemo(() => generateCircuitPositions(particleCount), [particleCount])
 
   // Pulse the opacity to simulate data flow
   useFrame((state) => {
@@ -60,7 +61,7 @@ export default function CircuitParticles() {
         <bufferAttribute
           attach="attributes-position"
           args={[positions, 3]}
-          count={PARTICLE_COUNT}
+          count={particleCount}
           itemSize={3}
         />
       </bufferGeometry>

@@ -5,10 +5,10 @@
  * Emissive neon materials trigger bloom glow.
  */
 
-import { useRef } from 'react'
-import { useFrame } from '@react-three/fiber'
-import type { Group } from 'three'
-import { EMISSIVE_COLORS } from '../../utils/constants'
+import {useRef} from 'react'
+import {useFrame} from '@react-three/fiber'
+import type {Group} from 'three'
+import {EMISSIVE_COLORS} from '../../utils/constants'
 
 interface RingConfig {
   radius: number
@@ -61,7 +61,9 @@ export default function NeonRings() {
       {RINGS.map((ring, i) => (
         <group
           key={i}
-          ref={(el) => { ringRefs.current[i] = el }}
+          ref={(el) => {
+              ringRefs.current[i] = el
+          }}
           position={ring.position}
           rotation={ring.rotation}
         >

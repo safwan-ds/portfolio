@@ -8,11 +8,11 @@
  * picks it up and it glows like a real monitor.
  */
 
-import { useMemo } from 'react'
-import { useGLTF } from '@react-three/drei'
+import {useMemo} from 'react'
+import {useGLTF} from '@react-three/drei'
+import type {Group, Mesh} from 'three'
 import * as THREE from 'three'
-import type { Mesh, Group } from 'three'
-import { MODEL_PATHS } from '../../utils/constants'
+import {MODEL_PATHS} from '../../utils/constants'
 
 /** Scale + transform for the model — tuned by eye in the scene. */
 interface ModelPlacement {
@@ -26,7 +26,6 @@ const COMPUTER_PLACEMENT: ModelPlacement = {
   rotation: [-Math.PI / 6, 0, 0],
   scale: 0.175,
 }
-
 
 /**
  * Traverses a GLTF scene and overrides screen/monitor meshes with

@@ -4,9 +4,9 @@
  * on the page (over cards, sections, navbar — not just the canvas).
  */
 
-import { useRef } from 'react'
-import { useFrame } from '@react-three/fiber'
-import type { Group } from 'three'
+import {useRef} from 'react'
+import {useFrame} from '@react-three/fiber'
+import type {Group} from 'three'
 import * as THREE from 'three'
 
 const MAX_TILT = 0.12
@@ -17,11 +17,15 @@ const mousePos = { x: 0, y: 0 }
 
 // Single global listener — safe because this module runs once
 if (typeof window !== 'undefined') {
-  window.addEventListener('mousemove', (e: MouseEvent) => {
-    // Normalize to -1..1 relative to viewport center
-    mousePos.x = (e.clientX / window.innerWidth) * 2 - 1
-    mousePos.y = -(e.clientY / window.innerHeight) * 2 + 1
-  }, { passive: true })
+    window.addEventListener(
+        'mousemove',
+        (e: MouseEvent) => {
+            // Normalize to -1..1 relative to viewport center
+            mousePos.x = (e.clientX / window.innerWidth) * 2 - 1
+            mousePos.y = -(e.clientY / window.innerHeight) * 2 + 1
+        },
+        {passive: true},
+    )
 }
 
 export default function SceneParallax({ children }: { children: React.ReactNode }) {

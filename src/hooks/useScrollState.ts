@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import {useEffect, useState} from 'react'
 
 /**
  * Tracks whether the page has been scrolled past a threshold.

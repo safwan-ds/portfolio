@@ -2,8 +2,8 @@
  * Footer with i18n translations.
  */
 
-import { useTranslation } from 'react-i18next'
-import { HiHeart } from 'react-icons/hi'
+import {useTranslation} from 'react-i18next'
+import {HiHeart} from 'react-icons/hi'
 
 export default function Footer() {
   const { t } = useTranslation()
@@ -24,15 +24,30 @@ export default function Footer() {
         </h4>
         <p className="font-mono text-[10px] text-slate-500 text-center leading-relaxed">
           This work is based on{' '}
-          <a href="https://skfb.ly/oUoss" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-400 transition-colors">
+            <a
+                href="https://skfb.ly/oUoss"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-slate-400 transition-colors"
+            >
             &quot;Legend 5&quot;
           </a>{' '}
           by{' '}
-          <a href="https://skfb.ly/oUoss" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-400 transition-colors">
+            <a
+                href="https://skfb.ly/oUoss"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-slate-400 transition-colors"
+            >
             churliaevyaroslav
           </a>
           , licensed under{' '}
-          <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-400 transition-colors">
+            <a
+                href="http://creativecommons.org/licenses/by/4.0/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-slate-400 transition-colors"
+            >
             CC BY 4.0
           </a>
         </p>

@@ -18,6 +18,8 @@ const COUNTRY_CODE: Record<string, string> = {
 
 export default function FlagIcon({ lang, className = 'w-5 h-5' }: FlagIconProps) {
   return (
-    <span className={`fi fi-${COUNTRY_CODE[lang]} inline-flex items-center justify-center rounded-sm ${className}`} />
+      <span
+          className={`fi fi-${COUNTRY_CODE[lang]} inline-flex items-center justify-center rounded-sm ${className}`}
+      />
   )
 }

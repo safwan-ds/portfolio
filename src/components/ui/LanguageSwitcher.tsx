@@ -3,11 +3,11 @@
  * Updates i18n language and applies RTL direction for Arabic.
  */
 
-import { useTranslation } from 'react-i18next'
-import { useState, useRef, useEffect, useMemo } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import type { SupportedLanguage } from '../../i18n/config'
-import { SUPPORTED_LANGUAGES, languageNames, applyLanguageDirection } from '../../i18n/config'
+import {useTranslation} from 'react-i18next'
+import {useEffect, useRef, useState} from 'react'
+import {AnimatePresence, motion} from 'framer-motion'
+import type {SupportedLanguage} from '../../i18n/config'
+import {applyLanguageDirection, languageNames, SUPPORTED_LANGUAGES} from '../../i18n/config'
 import FlagIcon from './FlagIcon'
 
 const FLAG_LANG_MAP: Record<SupportedLanguage, 'arabic' | 'english' | 'turkish'> = {
@@ -22,8 +22,8 @@ export default function LanguageSwitcher() {
   const ref = useRef<HTMLDivElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
-  // Detect RTL so the dropdown opens away from the edge
-  const isRtl = useMemo(() => document.documentElement.dir === 'rtl', [i18n.language])
+    // RTL detection for dropdown positioning (recalculated each render — trivial)
+    const isRtl = document.documentElement.dir === 'rtl'
 
   // Close on outside click
   useEffect(() => {

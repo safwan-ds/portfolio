@@ -6,13 +6,14 @@
  * Purple/magenta emissive color complements the blue circuit particles.
  */
 
-import { useRef, useMemo } from 'react'
-import { useFrame } from '@react-three/fiber'
+import {useEffect, useMemo, useRef} from 'react'
+import {useFrame} from '@react-three/fiber'
 import * as THREE from 'three'
-import { Vector3 } from 'three'
-import { EMISSIVE_COLORS } from '../../utils/constants'
+import {Vector3} from 'three'
+import {useDeviceTier} from '../../hooks/useDeviceTier'
 
-const PARTICLE_COUNT = 500
+const DESKTOP_PARTICLE_COUNT = 500
+const REDUCED_PARTICLE_COUNT = 100
 const BOUNDS = new Vector3(10, 5, 10)
 
 /** Generate randomly distributed point positions within a box volume. */
@@ -32,22 +33,32 @@ function generateWavePositions(count: number): { positions: Float32Array; baseY:
 
 export default function WaveParticles() {
   const geometryRef = useRef<THREE.BufferGeometry>(null)
+    const {isReduced} = useDeviceTier()
+    const particleCount = isReduced ? REDUCED_PARTICLE_COUNT : DESKTOP_PARTICLE_COUNT
 
-  const { positions, baseY } = useMemo(
-    () => generateWavePositions(PARTICLE_COUNT),
-    [],
-  )
+    const {positions, baseY} = useMemo(() => generateWavePositions(particleCount), [particleCount])
+
+    // Keep refs in sync so useFrame always reads the latest arrays
+    const positionsRef = useRef(positions)
+    const baseYRef = useRef(baseY)
+
+    useEffect(() => {
+        positionsRef.current = positions
+        baseYRef.current = baseY
+    }, [positions, baseY])
 
   // Animate Y position with a sine wave based on X and Z coordinates
   useFrame((state) => {
     if (!geometryRef.current) return
     const t = state.clock.elapsedTime
     const posAttr = geometryRef.current.attributes.position as THREE.BufferAttribute
+      const pos = positionsRef.current
+      const base = baseYRef.current
 
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      const x = positions[i * 3]
-      const z = positions[i * 3 + 2]
-      posAttr.array[i * 3 + 1] = baseY[i] + Math.sin(t + x * 0.5 + z * 0.3) * 0.3
+      for (let i = 0; i < pos.length / 3; i++) {
+          const x = pos[i * 3]
+          const z = pos[i * 3 + 2]
+          posAttr.array[i * 3 + 1] = base[i] + Math.sin(t + x * 0.5 + z * 0.3) * 0.3
     }
     posAttr.needsUpdate = true
   })
@@ -58,7 +69,7 @@ export default function WaveParticles() {
         <bufferAttribute
           attach="attributes-position"
           args={[positions, 3]}
-          count={PARTICLE_COUNT}
+          count={particleCount}
           itemSize={3}
         />
       </bufferGeometry>
