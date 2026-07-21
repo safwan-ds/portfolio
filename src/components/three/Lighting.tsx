@@ -8,7 +8,7 @@
  * - Accents: blue and cyan point lights near abstract elements
  */
 
-import {EMISSIVE_COLORS, NEON_COLORS, WARM_LIGHT} from '../../utils/constants'
+import { EMISSIVE_COLORS, NEON_COLORS, WARM_LIGHT } from '../../utils/constants'
 
 export default function Lighting() {
   return (
@@ -26,7 +26,7 @@ export default function Lighting() {
       />
 
       {/* Fill light — cool blue directional from the left */}
-        <directionalLight position={[-5, 4, 2]} intensity={0.6} color={NEON_COLORS.blue}/>
+      <directionalLight position={[-5, 4, 2]} intensity={0.6} color={NEON_COLORS.blue} />
 
       {/* Rim light — purple from behind for edge glow */}
       <pointLight
@@ -37,9 +37,9 @@ export default function Lighting() {
       />
 
       {/* Accent lights — positioned near abstract elements */}
-        <pointLight position={[4, 2, 1]} intensity={2} color={EMISSIVE_COLORS.blue} distance={10}/>
+      <pointLight position={[4, 2, 1]} intensity={2} color={EMISSIVE_COLORS.blue} distance={10} />
 
-        <pointLight position={[-3, 1, 3]} intensity={1.5} color={EMISSIVE_COLORS.cyan} distance={8}/>
+      <pointLight position={[-3, 1, 3]} intensity={1.5} color={EMISSIVE_COLORS.cyan} distance={8} />
 
       {/* Subtle ambient so dark areas aren't fully black */}
       <ambientLight intensity={0.08} color="#1a1a2e" />

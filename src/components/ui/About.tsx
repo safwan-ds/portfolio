@@ -3,11 +3,11 @@
  * Uses i18n for translatable labels.
  */
 
-import {useTranslation} from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
 import GlassCard from './GlassCard'
-import {profile} from '../../data'
+import { profile } from '../../data'
 
 export default function About() {
   const { t } = useTranslation()
@@ -20,11 +20,11 @@ export default function About() {
             <GlassCard>
               <div className="flex items-center gap-4">
                 <div className="shrink-0 w-12 h-12 rounded-full bg-linear-to-br from-neon-blue to-neon-purple flex items-center justify-center font-display text-lg font-bold text-white">
-                    {t('about.name_val')
-                        .split(' ')
-                        .map((n: string) => n[0])
-                        .slice(0, 2)
-                        .join('')}
+                  {t('about.name_val')
+                    .split(' ')
+                    .map((n: string) => n[0])
+                    .slice(0, 2)
+                    .join('')}
                 </div>
                 <div>
                   <p className="font-mono text-[10px] text-neon-blue uppercase tracking-widest mb-0.5">
@@ -65,10 +65,10 @@ export default function About() {
               </p>
               <div className="flex flex-wrap gap-2 mt-2">
                 {profile.interestKeys.map((key) => (
-                    <span
-                        key={key}
-                        className="px-2.5 py-1 rounded-full border border-slate/30 font-mono text-xs text-text-secondary"
-                    >
+                  <span
+                    key={key}
+                    className="px-2.5 py-1 rounded-full border border-slate/30 font-mono text-xs text-text-secondary"
+                  >
                     {t(`about.interests.${key}`)}
                   </span>
                 ))}

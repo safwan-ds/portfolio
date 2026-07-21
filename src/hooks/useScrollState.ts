@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 
 /**
  * Tracks whether the page has been scrolled past a threshold.
@@ -11,6 +11,7 @@ export function useScrollState(threshold = 50) {
     function onScroll() {
       setScrolled(window.scrollY > threshold)
     }
+
     onScroll() // initial check
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)

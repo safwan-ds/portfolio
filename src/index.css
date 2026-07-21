@@ -2,99 +2,103 @@
 
 /* ── Cairo font (locally hosted) ── */
 @font-face {
-    font-family: 'Cairo';
-    font-style: normal;
-    font-weight: 400;
-    src: url('/fonts/Cairo-Regular.ttf') format('truetype');
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Cairo-Regular.ttf') format('truetype');
 }
+
 @font-face {
-    font-family: 'Cairo';
-    font-style: normal;
-    font-weight: 500;
-    src: url('/fonts/Cairo-Medium.ttf') format('truetype');
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/Cairo-Medium.ttf') format('truetype');
 }
+
 @font-face {
-    font-family: 'Cairo';
-    font-style: normal;
-    font-weight: 600;
-    src: url('/fonts/Cairo-SemiBold.ttf') format('truetype');
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/Cairo-SemiBold.ttf') format('truetype');
 }
+
 @font-face {
-    font-family: 'Cairo';
-    font-style: normal;
-    font-weight: 700;
-    src: url('/fonts/Cairo-Bold.ttf') format('truetype');
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/Cairo-Bold.ttf') format('truetype');
 }
 
 @theme {
-    /* Base — dark greys/blacks */
-    --color-void: #0a0a0f;
-    --color-carbon: #12121a;
-    --color-graphite: #1a1a2e;
-    --color-slate: #2a2a3e;
+  /* Base — dark greys/blacks */
+  --color-void: #0a0a0f;
+  --color-carbon: #12121a;
+  --color-graphite: #1a1a2e;
+  --color-slate: #2a2a3e;
 
-    /* Neon accents */
-    --color-neon-blue: #00d4ff;
-    --color-neon-purple: #b026ff;
-    --color-neon-cyan: #00fff5;
-    --color-neon-pink: #ff2e9a;
+  /* Neon accents */
+  --color-neon-blue: #00d4ff;
+  --color-neon-purple: #b026ff;
+  --color-neon-cyan: #00fff5;
+  --color-neon-pink: #ff2e9a;
 
-    /* Text */
-    --color-text-primary: #e8e8f0;
-    --color-text-secondary: #8a8aa0;
+  /* Text */
+  --color-text-primary: #e8e8f0;
+  --color-text-secondary: #8a8aa0;
 
-    /* ── Font stacks (default: English / Turkish) ── */
-    --font-display: 'Segoe UI', 'Avenir Next', Avenir, 'Century Gothic', sans-serif;
-    --font-body: 'Segoe UI', 'Avenir Next', Avenir, 'Century Gothic', sans-serif;
-    --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  /* ── Font stacks (default: English / Turkish) ── */
+  --font-display: 'Segoe UI', 'Avenir Next', Avenir, 'Century Gothic', sans-serif;
+  --font-body: 'Segoe UI', 'Avenir Next', Avenir, 'Century Gothic', sans-serif;
+  --font-mono:
+    ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
 }
 
 @layer base {
-    /* ── Global resets ── */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+  /* ── Global resets ── */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    html {
-        scroll-behavior: smooth;
-    }
+  html {
+    scroll-behavior: smooth;
+  }
 
-    body {
-        font-family: var(--font-body), sans-serif;
-        background-color: var(--color-void);
-        color: var(--color-text-primary);
-        overflow-x: hidden;
-    }
+  body {
+    font-family: var(--font-body), sans-serif;
+    background-color: var(--color-void);
+    color: var(--color-text-primary);
+    overflow-x: hidden;
+  }
 
-    /* ── Script-specific font stacks ──
+  /* ── Script-specific font stacks ──
        Arabic gets a modern Kufic stack for display/body and a rigid boxy
        stack for HUD/mono elements. :lang() selectors hook into the
        `document.documentElement.lang` attribute set by i18n/config.ts.  ── */
-    :lang(ar) {
-        --font-display: Cairo, Tahoma, sans-serif;
-        --font-body: Cairo, Tahoma, sans-serif;
-        --font-mono: Cairo, Tahoma, sans-serif;
-    }
+  :lang(ar) {
+    --font-display: Cairo, Tahoma, sans-serif;
+    --font-body: Cairo, Tahoma, sans-serif;
+    --font-mono: Cairo, Tahoma, sans-serif;
+  }
 
-    /* ── Scrollbar styling ── */
-    ::-webkit-scrollbar {
-        width: 8px;
-    }
+  /* ── Scrollbar styling ── */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 
-    ::-webkit-scrollbar-track {
-        background: var(--color-void);
-    }
+  ::-webkit-scrollbar-track {
+    background: var(--color-void);
+  }
 
-    ::-webkit-scrollbar-thumb {
-        background: var(--color-slate);
-        border-radius: 4px;
-    }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-slate);
+    border-radius: 4px;
+  }
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: var(--color-neon-purple);
-    }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-neon-purple);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -119,13 +123,13 @@
 :lang(ar) h4,
 :lang(ar) h5,
 :lang(ar) h6 {
-    text-transform: none !important;
-    letter-spacing: 0 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
 }
 
 /* ── Latin headings: uppercase + letter-spacing ── */
 :lang(en) .font-display,
 :lang(tr) .font-display {
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }

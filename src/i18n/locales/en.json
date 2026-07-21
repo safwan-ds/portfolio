@@ -1,181 +1,181 @@
 {
-	"hero": {
-		"title": "Safwan",
-		"subtitle": "Electrical & Electronics Engineering Student & AI Developer",
-		"description": "Final-year Electrical & Electronics Engineering student at Erzincan Binali Yıldırım University. Originally from Egypt, I live in Kuwait and currently study in Turkey. I build at the intersection of hardware and AI — spanning embedded systems, signal processing, neural networks, and machine learning.",
-		"cta_explore": "Explore",
-		"cta_contact": "Contact",
-		"scroll": "Scroll"
-	},
-	"nav": {
-		"home": "Home",
-		"about": "About",
-		"skills": "Skills",
-		"languages": "Languages",
-		"projects": "Projects",
-		"contact": "Contact"
-	},
-	"about": {
-		"label": "About Me",
-		"title": "The person behind the screen",
-		"bio_1": "I am a final-year Electrical & Electronics Engineering student at Erzincan Binali Yıldırım University. Originally from Egypt, I live in Kuwait and currently study in Turkey.",
-		"bio_2": "My work spans embedded systems (Arduino, STM32), signal processing (FFT, filter design), and Artificial Intelligence. Whether it's debugging a complex circuit or training a neural network model, I believe the best engineers deeply understand both the hardware and intelligent software layers.",
-		"bio_3": "Outside of coursework, I explore deep learning architectures, develop games using Godot 4.7 (such as my project AstroDodge), and experiment with IoT and gesture-recognition technologies.",
-		"name_label": "Name",
-		"name_val": "Safwan Emad",
-		"location_label": "Location",
-		"location_val": "Turkey / Kuwait",
-		"education_label": "Education",
-		"education_val": "B.Sc. Electrical & Electronics Engineering",
-		"education_school": "Erzincan Binali Yıldırım University",
-		"interests_label": "Interests",
-		"interests": {
-			"ai": "AI & Machine Learning",
-			"nn": "Neural Networks",
-			"ml": "Machine Learning",
-			"llm": "LLMs & Agents",
-			"embedded": "Embedded Systems",
-			"signal": "Signal Processing",
-			"control": "Control Systems",
-			"game": "Game Development",
-			"3d": "3D Graphics"
-		}
-	},
-	"skills": {
-		"label": "Skills",
-		"title": "What I work with",
-		"categories": {
-			"electrical": {
-				"title": "Electrical Engineering",
-				"skills": {
-					"circuit_analysis": "Circuit Analysis",
-					"embedded_systems": "Embedded Systems",
-					"signal_processing": "Signal Processing",
-					"control_systems": "Control Systems",
-					"arduino_stm32": "Arduino / STM32",
-					"matlab_simulink": "MATLAB / Simulink",
-					"verilog_fpga": "Verilog / FPGA",
-					"iot_sensors": "IoT & Sensors"
-				}
-			},
-			"software": {
-				"title": "Software & AI Development",
-				"skills": {
-					"python": "Python",
-					"pytorch": "PyTorch",
-					"neural_networks": "Neural Networks",
-					"machine_learning": "Machine Learning",
-					"c_cpp": "C / C++",
-					"typescript": "TypeScript",
-					"gdscript_godot": "GDScript (Godot)"
-				}
-			},
-			"tools": {
-				"title": "Tools & Workflow",
-				"skills": {
-					"git_github": "Git / GitHub",
-					"vs_code": "VS Code",
-					"opencode": "Opencode",
-					"hermes_agent": "Hermes Agent",
-					"touch_typing": "Touch Typing",
-					"godot_engine": "Godot Engine",
-					"blender": "Blender",
-					"docker": "Docker",
-					"linux_bash": "Linux / Bash",
-					"llm_apis": "LLM APIs & Agents",
-					"obsidian": "Obsidian",
-					"latex": "LaTeX"
-				}
-			}
-		}
-	},
-	"projects": {
-		"label": "Projects",
-		"title": "Things I've built",
-		"github_cta": "View more on GitHub",
-		"tags": {
-			"arduino": "Arduino",
-			"python": "Python",
-			"cpp": "C++",
-			"embedded": "Embedded",
-			"signal_processing": "Signal Processing",
-			"power_electronics": "Power Electronics",
-			"godot": "Godot",
-			"gdscript": "GDScript",
-			"game_design": "Game Design",
-			"pygame": "Pygame",
-			"react": "React",
-			"threejs": "Three.js",
-			"r3f": "R3F",
-			"tailwind_css": "Tailwind CSS",
-			"i18n": "i18n"
-		},
-		"items": {
-			"astrododge": {
-				"title": "AstroDodge",
-				"description": "A 2D space dodging game built with Godot 4.7. Features procedural obstacle generation, particle effects, and a dynamic scoring system. An ongoing game development project of mine."
-			},
-			"sign2speech": {
-				"title": "Sign2Speech",
-				"description": "A gesture-to-speech recognition system that converts hand gestures captured via sensors into spoken output. It seamlessly combines embedded hardware with signal processing for accessible communication."
-			},
-			"portfolio": {
-				"title": "3D Portfolio",
-				"description": "This website — an interactive 3D portfolio built using React Three Fiber. It features cinematic bloom lighting, scroll-driven camera animations, and comprehensive i18n support (EN/AR/TR)."
-			},
-			"dsp-toolkit": {
-				"title": "DSP Toolkit",
-				"description": "A Python toolkit designed for digital signal processing coursework: features FFT analysis, FIR/IIR filter design, spectrogram generation, and real-time audio visualization using Matplotlib."
-			},
-			"boost_converter_pwm": {
-				"title": "Boost Converter PWM",
-				"description": "An Arduino-based PWM control system for a boost converter. It includes closed-loop voltage regulation, duty cycle sweeping, and real-time monitoring via serial communication."
-			},
-			"astrododge-pygame": {
-				"title": "AstroDodge (Pygame)",
-				"description": "A Python/Pygame port of the AstroDodge space game. It features a sprite-based rendering engine, precise collision detection, scoring, and difficulty scaling."
-			}
-		}
-	},
-	"languages": {
-		"label": "Languages",
-		"title": "I speak",
-		"items": {
-			"arabic": "Arabic",
-			"english": "English",
-			"turkish": "Turkish"
-		},
-		"levels": {
-			"native": "Native",
-			"c1": "C1 (Advanced)",
-			"c2": "C2 (Proficient)"
-		}
-	},
-	"contact": {
-		"label": "Contact",
-		"title": "Let's connect",
-		"name": "Name",
-		"name_placeholder": "Your name",
-		"email": "Email",
-		"email_placeholder": "you@example.com",
-		"message": "Message",
-		"message_placeholder": "Your message...",
-		"send": "Send Message",
-		"sending": "Sending...",
-		"sent_title": "Message sent successfully!",
-		"sent_desc": "I will get back to you as soon as possible.",
-		"send_another": "Send another",
-		"error": "Something went wrong. Please try again or email me directly.",
-		"email_direct": "Email me directly",
-		"find_me": "Find me on"
-	},
-	"footer": {
-		"copyright": "Safwan",
-		"madewith": "Made with love"
-	},
-	"language": {
-		"en": "English",
-		"ar": "العربية",
-		"tr": "Türkçe"
-	}
+  "hero": {
+    "title": "Safwan",
+    "subtitle": "Electrical & Electronics Engineering Student & AI Developer",
+    "description": "Final-year Electrical & Electronics Engineering student at Erzincan Binali Yıldırım University. Originally from Egypt, I live in Kuwait and currently study in Turkey. I build at the intersection of hardware and AI — spanning embedded systems, signal processing, neural networks, and machine learning.",
+    "cta_explore": "Explore",
+    "cta_contact": "Contact",
+    "scroll": "Scroll"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "languages": "Languages",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "about": {
+    "label": "About Me",
+    "title": "The person behind the screen",
+    "bio_1": "I am a final-year Electrical & Electronics Engineering student at Erzincan Binali Yıldırım University. Originally from Egypt, I live in Kuwait and currently study in Turkey.",
+    "bio_2": "My work spans embedded systems (Arduino, STM32), signal processing (FFT, filter design), and Artificial Intelligence. Whether it's debugging a complex circuit or training a neural network model, I believe the best engineers deeply understand both the hardware and intelligent software layers.",
+    "bio_3": "Outside of coursework, I explore deep learning architectures, develop games using Godot 4.7 (such as my project AstroDodge), and experiment with IoT and gesture-recognition technologies.",
+    "name_label": "Name",
+    "name_val": "Safwan Emad",
+    "location_label": "Location",
+    "location_val": "Turkey / Kuwait",
+    "education_label": "Education",
+    "education_val": "B.Sc. Electrical & Electronics Engineering",
+    "education_school": "Erzincan Binali Yıldırım University",
+    "interests_label": "Interests",
+    "interests": {
+      "ai": "AI & Machine Learning",
+      "nn": "Neural Networks",
+      "ml": "Machine Learning",
+      "llm": "LLMs & Agents",
+      "embedded": "Embedded Systems",
+      "signal": "Signal Processing",
+      "control": "Control Systems",
+      "game": "Game Development",
+      "3d": "3D Graphics"
+    }
+  },
+  "skills": {
+    "label": "Skills",
+    "title": "What I work with",
+    "categories": {
+      "electrical": {
+        "title": "Electrical Engineering",
+        "skills": {
+          "circuit_analysis": "Circuit Analysis",
+          "embedded_systems": "Embedded Systems",
+          "signal_processing": "Signal Processing",
+          "control_systems": "Control Systems",
+          "arduino_stm32": "Arduino / STM32",
+          "matlab_simulink": "MATLAB / Simulink",
+          "verilog_fpga": "Verilog / FPGA",
+          "iot_sensors": "IoT & Sensors"
+        }
+      },
+      "software": {
+        "title": "Software & AI Development",
+        "skills": {
+          "python": "Python",
+          "pytorch": "PyTorch",
+          "neural_networks": "Neural Networks",
+          "machine_learning": "Machine Learning",
+          "c_cpp": "C / C++",
+          "typescript": "TypeScript",
+          "gdscript_godot": "GDScript (Godot)"
+        }
+      },
+      "tools": {
+        "title": "Tools & Workflow",
+        "skills": {
+          "git_github": "Git / GitHub",
+          "vs_code": "VS Code",
+          "opencode": "Opencode",
+          "hermes_agent": "Hermes Agent",
+          "touch_typing": "Touch Typing",
+          "godot_engine": "Godot Engine",
+          "blender": "Blender",
+          "docker": "Docker",
+          "linux_bash": "Linux / Bash",
+          "llm_apis": "LLM APIs & Agents",
+          "obsidian": "Obsidian",
+          "latex": "LaTeX"
+        }
+      }
+    }
+  },
+  "projects": {
+    "label": "Projects",
+    "title": "Things I've built",
+    "github_cta": "View more on GitHub",
+    "tags": {
+      "arduino": "Arduino",
+      "python": "Python",
+      "cpp": "C++",
+      "embedded": "Embedded",
+      "signal_processing": "Signal Processing",
+      "power_electronics": "Power Electronics",
+      "godot": "Godot",
+      "gdscript": "GDScript",
+      "game_design": "Game Design",
+      "pygame": "Pygame",
+      "react": "React",
+      "threejs": "Three.js",
+      "r3f": "R3F",
+      "tailwind_css": "Tailwind CSS",
+      "i18n": "i18n"
+    },
+    "items": {
+      "astrododge": {
+        "title": "AstroDodge",
+        "description": "A 2D space dodging game built with Godot 4.7. Features procedural obstacle generation, particle effects, and a dynamic scoring system. An ongoing game development project of mine."
+      },
+      "sign2speech": {
+        "title": "Sign2Speech",
+        "description": "A gesture-to-speech recognition system that converts hand gestures captured via sensors into spoken output. It seamlessly combines embedded hardware with signal processing for accessible communication."
+      },
+      "portfolio": {
+        "title": "3D Portfolio",
+        "description": "This website — an interactive 3D portfolio built using React Three Fiber. It features cinematic bloom lighting, scroll-driven camera animations, and comprehensive i18n support (EN/AR/TR)."
+      },
+      "dsp-toolkit": {
+        "title": "DSP Toolkit",
+        "description": "A Python toolkit designed for digital signal processing coursework: features FFT analysis, FIR/IIR filter design, spectrogram generation, and real-time audio visualization using Matplotlib."
+      },
+      "boost_converter_pwm": {
+        "title": "Boost Converter PWM",
+        "description": "An Arduino-based PWM control system for a boost converter. It includes closed-loop voltage regulation, duty cycle sweeping, and real-time monitoring via serial communication."
+      },
+      "astrododge-pygame": {
+        "title": "AstroDodge (Pygame)",
+        "description": "A Python/Pygame port of the AstroDodge space game. It features a sprite-based rendering engine, precise collision detection, scoring, and difficulty scaling."
+      }
+    }
+  },
+  "languages": {
+    "label": "Languages",
+    "title": "I speak",
+    "items": {
+      "arabic": "Arabic",
+      "english": "English",
+      "turkish": "Turkish"
+    },
+    "levels": {
+      "native": "Native",
+      "c1": "C1 (Advanced)",
+      "c2": "C2 (Proficient)"
+    }
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Let's connect",
+    "name": "Name",
+    "name_placeholder": "Your name",
+    "email": "Email",
+    "email_placeholder": "you@example.com",
+    "message": "Message",
+    "message_placeholder": "Your message...",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "sent_title": "Message sent successfully!",
+    "sent_desc": "I will get back to you as soon as possible.",
+    "send_another": "Send another",
+    "error": "Something went wrong. Please try again or email me directly.",
+    "email_direct": "Email me directly",
+    "find_me": "Find me on"
+  },
+  "footer": {
+    "copyright": "Safwan",
+    "madewith": "Made with love"
+  },
+  "language": {
+    "en": "English",
+    "ar": "العربية",
+    "tr": "Türkçe"
+  }
 }

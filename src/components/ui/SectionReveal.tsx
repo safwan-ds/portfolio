@@ -3,8 +3,8 @@
  * Uses Framer Motion's useInView to animate when the section enters viewport.
  */
 
-import {type ReactNode, useRef} from 'react'
-import {motion, useInView} from 'framer-motion'
+import { type ReactNode, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 
 interface SectionRevealProps {
   children: ReactNode
@@ -40,7 +40,7 @@ export default function SectionReveal({
     <motion.div
       ref={ref}
       initial={{ opacity: 0, ...initialOffset }}
-      animate={isInView ? {opacity: 1, x: 0, y: 0} : {opacity: 0, ...initialOffset}}
+      animate={isInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, ...initialOffset }}
       transition={{
         duration: 0.7,
         delay,

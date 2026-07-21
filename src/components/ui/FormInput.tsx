@@ -1,4 +1,4 @@
-import {type InputHTMLAttributes, type TextareaHTMLAttributes} from 'react'
+import { type InputHTMLAttributes, type TextareaHTMLAttributes } from 'react'
 
 type FormInputBase = {
   label: string
@@ -8,7 +8,7 @@ type FormInputBase = {
 
 type AsInput = FormInputBase & InputHTMLAttributes<HTMLInputElement> & { as?: 'input' }
 type AsTextarea = FormInputBase &
-    TextareaHTMLAttributes<HTMLTextAreaElement> & { as: 'textarea'; rows?: number }
+  TextareaHTMLAttributes<HTMLTextAreaElement> & { as: 'textarea'; rows?: number }
 
 type FormInputProps = AsInput | AsTextarea
 

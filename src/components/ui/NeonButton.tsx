@@ -1,4 +1,4 @@
-import {type ReactNode} from 'react'
+import { type ReactNode } from 'react'
 
 interface NeonButtonProps {
   href?: string
@@ -33,14 +33,14 @@ export default function NeonButton({
 
   if (href) {
     return (
-        <a href={href} target={target} rel={rel} className={cls}>
+      <a href={href} target={target} rel={rel} className={cls}>
         {children}
       </a>
     )
   }
 
   return (
-      <button type={type} onClick={onClick} disabled={disabled} className={cls}>
+    <button type={type} onClick={onClick} disabled={disabled} className={cls}>
       {children}
     </button>
   )
