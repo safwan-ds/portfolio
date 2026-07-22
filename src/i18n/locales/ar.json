@@ -177,5 +177,19 @@
     "en": "English",
     "ar": "العربية",
     "tr": "Türkçe"
+  },
+  "settings": {
+    "effects": "المؤثرات",
+    "3d_scene": "المشهد ثلاثي الأبعاد",
+    "effects_levels": {
+      "low": "منخفض",
+      "adaptive": "تلقائي",
+      "high": "عالي"
+    },
+    "3d_scene_levels": {
+      "off": "إيقاف",
+      "adaptive": "تلقائي",
+      "on": "تشغيل"
+    }
   }
 }

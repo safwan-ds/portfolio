@@ -177,5 +177,19 @@
     "en": "English",
     "ar": "العربية",
     "tr": "Türkçe"
+  },
+  "settings": {
+    "effects": "Efektler",
+    "3d_scene": "3D Sahne",
+    "effects_levels": {
+      "low": "Düşük",
+      "adaptive": "Otomatik",
+      "high": "Yüksek"
+    },
+    "3d_scene_levels": {
+      "off": "Kapalı",
+      "adaptive": "Otomatik",
+      "on": "Açık"
+    }
   }
 }

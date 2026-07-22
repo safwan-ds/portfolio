@@ -1,21 +1,10 @@
 import { AnimatePresence, motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { useSettingsCtx } from './SettingsContext'
 import type { EffectsMode, Scene3dMode } from '../../hooks/useSettings'
 
 const EFFECTS_OPTIONS: readonly EffectsMode[] = ['low', 'adaptive', 'high']
 const SCENE3D_OPTIONS: readonly Scene3dMode[] = ['off', 'adaptive', 'on']
-
-const EFFECTS_LABELS: Record<EffectsMode, string> = {
-  low: 'Low',
-  adaptive: 'Auto',
-  high: 'High',
-}
-
-const SCENE3D_LABELS: Record<Scene3dMode, string> = {
-  off: 'Off',
-  adaptive: 'Auto',
-  on: 'On',
-}
 
 function SegmentedControl<T extends string>({
   label,
@@ -70,6 +59,20 @@ interface SettingsPanelProps {
 
 export default function SettingsPanel({ open }: SettingsPanelProps) {
   const { effects, scene3d, setEffects, setScene3d } = useSettingsCtx()
+  const { t, i18n } = useTranslation()
+  const isRtl = i18n.language === 'ar'
+
+  const EFFECTS_LABELS: Record<EffectsMode, string> = {
+    low: t('settings.effects_levels.low'),
+    adaptive: t('settings.effects_levels.adaptive'),
+    high: t('settings.effects_levels.high'),
+  }
+
+  const SCENE3D_LABELS: Record<Scene3dMode, string> = {
+    off: t('settings.3d_scene_levels.off'),
+    adaptive: t('settings.3d_scene_levels.adaptive'),
+    on: t('settings.3d_scene_levels.on'),
+  }
 
   return (
     <AnimatePresence>
@@ -79,12 +82,16 @@ export default function SettingsPanel({ open }: SettingsPanelProps) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -10, scale: 0.95 }}
           transition={{ duration: 0.15 }}
-          className="absolute right-0 mt-1 w-56 rounded-xl bg-carbon/90 backdrop-blur-xl border border-slate/30 shadow-lg overflow-hidden z-50"
-          style={{ maxWidth: 'calc(100vw - 1rem)' }}
+          className="absolute mt-1 w-56 rounded-xl bg-carbon/90 backdrop-blur-xl border border-slate/30 shadow-lg overflow-hidden z-50"
+          style={{
+            left: isRtl ? '0px' : 'auto',
+            right: isRtl ? 'auto' : '0px',
+            maxWidth: 'calc(100vw - 1rem)',
+          }}
         >
           <div className="px-3 py-3 space-y-3">
             <SegmentedControl
-              label="Effects"
+              label={t('settings.effects')}
               value={effects}
               options={EFFECTS_OPTIONS}
               labels={EFFECTS_LABELS}
@@ -92,7 +99,7 @@ export default function SettingsPanel({ open }: SettingsPanelProps) {
               onChange={setEffects}
             />
             <SegmentedControl
-              label="3D Scene"
+              label={t('settings.3d_scene')}
               value={scene3d}
               options={SCENE3D_OPTIONS}
               labels={SCENE3D_LABELS}

@@ -177,5 +177,19 @@
     "en": "English",
     "ar": "العربية",
     "tr": "Türkçe"
+  },
+  "settings": {
+    "effects": "Effects",
+    "3d_scene": "3D Scene",
+    "effects_levels": {
+      "low": "Low",
+      "adaptive": "Auto",
+      "high": "High"
+    },
+    "3d_scene_levels": {
+      "off": "Off",
+      "adaptive": "Auto",
+      "on": "On"
+    }
   }
 }
