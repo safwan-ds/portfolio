@@ -27,6 +27,10 @@ export interface Profile {
   github: string
   /** LinkedIn username (for URLs) */
   linkedin: string
+  /** Upwork freelancer username (for URL) */
+  upwork: string
+  /** Fiverr freelancer id (for URL) */
+  fiverr: string
   /** Interest i18n keys — each maps to about.interests.<key> in translations */
   interestKeys: readonly string[]
 }
@@ -40,6 +44,8 @@ const profile: Profile = {
   email: 'safwanemad2002@gmail.com',
   github: 'safwan-ds',
   linkedin: 'safwan-e-6438a398',
+  upwork: 'safwands',
+  fiverr: 'akRXNlW',
   interestKeys: ['embedded', 'signal', 'control', 'ai', 'nn', 'ml', 'llm', 'game', '3d'],
 }
 

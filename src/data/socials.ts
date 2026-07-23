@@ -4,7 +4,7 @@
  */
 
 import type { IconType } from 'react-icons'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaUpwork } from 'react-icons/fa6'
 import FiverrIcon from './FiverrIcon'
 import profile from './profile'
 
@@ -29,8 +29,14 @@ const socials: readonly SocialLink[] = [
     hoverColor: 'hover:text-[#0A66C2]',
   },
   {
+    label: 'Upwork',
+    href: `https://upwork.com/freelancers/${profile.upwork}`,
+    icon: FaUpwork,
+    hoverColor: 'hover:text-[#108A00]',
+  },
+  {
     label: 'Fiverr',
-    href: `https://www.fiverr.com/s/akRXNlW`,
+    href: `https://www.fiverr.com/s/${profile.fiverr}`,
     icon: FiverrIcon,
     hoverColor: 'hover:text-[#1DBF73]',
   },
