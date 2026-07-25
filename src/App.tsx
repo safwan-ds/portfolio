@@ -10,6 +10,7 @@ import './index.css'
 import Scene from './components/three/Scene'
 import SceneErrorBoundary from './components/ui/SceneErrorBoundary'
 import Navbar from './components/ui/Navbar'
+import AIChat from './components/ai/AIChat'
 import About from './components/ui/About'
 import Skills from './components/ui/Skills'
 import Languages from './components/ui/Languages'
@@ -119,6 +120,7 @@ export default function App() {
           <Footer />
         </div>
 
+        <AIChat />
         <LoadingScreen />
       </div>
     </SettingsCtx.Provider>

@@ -191,5 +191,12 @@
       "adaptive": "Otomatik",
       "on": "Açık"
     }
+  },
+  "ai_chat": {
+    "welcome": "Merhaba! Ben Safwan'ın yapay zeka asistanıyım. Yetenekleri, projeleri, geçmişi veya deneyimleri hakkında bana istediğinizi sorabilirsiniz.",
+    "placeholder": "Safwan hakkında sor...",
+    "title": "Yapay Zeka Asistanı",
+    "system_prompt": "Safwan Emad'ın portföy web sitesinde bir yapay zeka asistanısın. Aşağıdaki bilgileri kullanarak Safwan'ın yetenekleri, projeleri, geçmişi ve deneyimleri hakkındaki soruları yanıtla. Kısa, dostane ve profesyonel ol. Aşağıda yer almayan bir şey sorulursa, tahmin etmek yerine bilmediğini söyle.",
+    "error_generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
   }
 }
