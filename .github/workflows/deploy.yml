@@ -36,6 +36,7 @@ jobs:
       - name: Build
         env:
           VITE_FORMSPREE_ID: ${{ secrets.FORMSPREE_ID }}
+          VITE_AI_CHAT_WORKER_URL: ${{ secrets.VITE_AI_CHAT_WORKER_URL }}
         run: npm run build
 
       - name: Setup Pages
