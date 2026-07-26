@@ -117,7 +117,10 @@ function ProjectCard({ project, onActivate, isExpanded }: ProjectCardProps) {
           >
             <div
               className={`aspect-square overflow-hidden rounded-2xl${isMobile ? '' : ' cursor-pointer'}`}
-              onClick={handleOpen}
+              onClick={(e) => {
+                e.stopPropagation()
+                handleOpen()
+              }}
             >
               <img
                 src={project.image}
@@ -193,6 +196,8 @@ export default function Projects() {
 
   useEffect(() => {
     if (!expandState) return
+    let isActive = true
+
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === 'Escape') closeRef.current()
     }
@@ -201,12 +206,22 @@ export default function Projects() {
         closeRef.current()
       }
     }
-    document.addEventListener('keydown', onKeyDown)
-    document.addEventListener('click', onDocClick)
+
     const onClose = closeRef.current
-    window.addEventListener('wheel', onClose, { passive: true, once: true })
-    window.addEventListener('touchmove', onClose, { passive: true, once: true })
+
+    // Defer listener binding to let the enter animation start first,
+    // preventing residual scroll momentum / event bubbling from aborting it
+    const timer = setTimeout(() => {
+      if (!isActive) return
+      document.addEventListener('keydown', onKeyDown)
+      document.addEventListener('click', onDocClick)
+      window.addEventListener('wheel', onClose, { passive: true, once: true })
+      window.addEventListener('touchmove', onClose, { passive: true, once: true })
+    }, 100)
+
     return () => {
+      isActive = false
+      clearTimeout(timer)
       document.removeEventListener('keydown', onKeyDown)
       document.removeEventListener('click', onDocClick)
       window.removeEventListener('wheel', onClose)

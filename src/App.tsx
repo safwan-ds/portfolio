@@ -21,7 +21,6 @@ import NeonButton from './components/ui/NeonButton'
 import { useScrollState } from './hooks/useScrollState'
 import { useSettings } from './hooks/useSettings'
 import { SettingsCtx } from './components/ui/SettingsContext'
-import projects from './data/projects'
 
 function LoadingScreen() {
   const { t } = useTranslation()
@@ -64,15 +63,6 @@ export default function App() {
   return (
     <SettingsCtx.Provider value={settings}>
       <div className="relative bg-void text-text-primary font-body overflow-x-hidden">
-        {/* Preload project images — hidden <img> elements are in the DOM from the very first render */}
-        <div style={{ display: 'none' }} aria-hidden="true">
-          {projects
-            .filter((p) => p.image)
-            .map((p) => (
-              <img key={p.key} src={p.image!} alt="" />
-            ))}
-        </div>
-
         <div className="fixed inset-0 z-0">
           <div
             className="absolute inset-0 bg-linear-to-b from-carbon via-void to-carbon"

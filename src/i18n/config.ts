@@ -28,8 +28,7 @@ const RTL_LANGUAGES: SupportedLanguage[] = ['ar']
  * Should be called on language change.
  */
 export function applyLanguageDirection(lang: SupportedLanguage): void {
-  const dir = RTL_LANGUAGES.includes(lang) ? 'rtl' : 'ltr'
-  document.documentElement.dir = dir
+  document.documentElement.dir = RTL_LANGUAGES.includes(lang) ? 'rtl' : 'ltr'
   document.documentElement.lang = lang
 }
 
@@ -53,7 +52,12 @@ i18n
     },
   })
 
-// Apply RTL on initial load
+// Sync direction/lang whenever i18next detects or switches language
+i18n.on('languageChanged', (lng) => {
+  applyLanguageDirection(lng as SupportedLanguage)
+})
+
+// Apply RTL on initial load (before async init resolves)
 const savedLang = (localStorage.getItem('i18nextLng') || 'en') as SupportedLanguage
 if (SUPPORTED_LANGUAGES.includes(savedLang)) {
   applyLanguageDirection(savedLang)
