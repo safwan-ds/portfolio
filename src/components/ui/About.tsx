@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
 import GlassCard from './GlassCard'
+import Label from './Label'
 import { profile } from '../../data'
 
 export default function About() {
@@ -27,9 +28,9 @@ export default function About() {
                     .join('')}
                 </div>
                 <div>
-                  <p className="font-mono text-[10px] text-neon-blue uppercase tracking-widest mb-0.5">
+                  <Label color="neon-blue" size="2xs" className="mb-0.5">
                     {t('about.name_label')}
-                  </p>
+                  </Label>
                   <p className="font-display text-xl font-semibold text-text-primary">
                     {t('about.name_val')}
                   </p>
@@ -45,24 +46,24 @@ export default function About() {
 
           <div className="space-y-5">
             <GlassCard>
-              <p className="font-mono text-xs text-neon-blue uppercase tracking-wider mb-1">
+              <Label color="neon-blue" className="mb-1">
                 {t('about.location_label')}
-              </p>
+              </Label>
               <p className="text-text-primary font-medium">{t('about.location_val')}</p>
             </GlassCard>
 
             <GlassCard>
-              <p className="font-mono text-xs text-neon-cyan uppercase tracking-wider mb-1">
+              <Label color="neon-cyan" className="mb-1">
                 {t('about.education_label')}
-              </p>
+              </Label>
               <p className="text-text-primary font-medium">{t('about.education_val')}</p>
               <p className="text-text-secondary text-sm mt-1">{t('about.education_school')}</p>
             </GlassCard>
 
             <GlassCard>
-              <p className="font-mono text-xs text-neon-purple uppercase tracking-wider mb-1">
+              <Label color="neon-purple" className="mb-1">
                 {t('about.interests_label')}
-              </p>
+              </Label>
               <div className="flex flex-wrap gap-2 mt-2">
                 {profile.interestKeys.map((key) => (
                   <span

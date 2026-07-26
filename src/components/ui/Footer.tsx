@@ -4,6 +4,7 @@
 
 import { useTranslation } from 'react-i18next'
 import { HiHeart } from 'react-icons/hi'
+import ExternalLink from './ExternalLink'
 
 export default function Footer() {
   const { t } = useTranslation()
@@ -24,32 +25,26 @@ export default function Footer() {
         </h4>
         <p className="font-mono text-[10px] text-slate-500 text-center leading-relaxed">
           This work is based on{' '}
-          <a
+          <ExternalLink
             href="https://skfb.ly/oUoss"
-            target="_blank"
-            rel="noopener noreferrer"
             className="underline hover:text-slate-400 transition-colors"
           >
             &quot;Legend 5&quot;
-          </a>{' '}
+          </ExternalLink>{' '}
           by{' '}
-          <a
+          <ExternalLink
             href="https://skfb.ly/oUoss"
-            target="_blank"
-            rel="noopener noreferrer"
             className="underline hover:text-slate-400 transition-colors"
           >
             churliaevyaroslav
-          </a>
+          </ExternalLink>
           , licensed under{' '}
-          <a
+          <ExternalLink
             href="http://creativecommons.org/licenses/by/4.0/"
-            target="_blank"
-            rel="noopener noreferrer"
             className="underline hover:text-slate-400 transition-colors"
           >
             CC BY 4.0
-          </a>
+          </ExternalLink>
         </p>
       </div>
     </footer>

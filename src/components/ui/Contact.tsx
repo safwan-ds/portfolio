@@ -12,6 +12,9 @@ import SectionWrapper from './SectionWrapper'
 import GlassCard from './GlassCard'
 import FormInput from './FormInput'
 import NeonButton from './NeonButton'
+import ExternalLink from './ExternalLink'
+import Spinner from './Spinner'
+import Label from './Label'
 import { profile, socials } from '../../data'
 
 type FormStatus = 'idle' | 'sending' | 'sent' | 'error'
@@ -105,7 +108,7 @@ export default function Contact() {
               <NeonButton type="submit" disabled={status === 'sending'} solid>
                 {status === 'sending' ? (
                   <>
-                    <span className="w-4 h-4 border-2 border-neon-blue/30 border-t-neon-blue rounded-full animate-spin" />
+                    <Spinner size="w-4 h-4" />
                     {t('contact.sending')}
                   </>
                 ) : (
@@ -136,23 +139,21 @@ export default function Contact() {
               </a>
             </GlassCard>
             <GlassCard>
-              <p className="font-mono text-xs text-text-secondary uppercase tracking-wider mb-4">
+              <Label color="text-secondary" className="mb-4">
                 {t('contact.find_me')}
-              </p>
+              </Label>
               <div className="flex gap-4">
                 {socials.map((social) => {
                   const Icon = social.icon
                   return (
-                    <a
+                    <ExternalLink
                       key={social.label}
                       href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       aria-label={social.label}
                       className={`p-3 rounded-lg bg-slate/20 text-text-secondary ${social.hoverColor} transition-all hover:bg-slate/30`}
                     >
                       <Icon className="w-5 h-5" />
-                    </a>
+                    </ExternalLink>
                   )
                 })}
               </div>

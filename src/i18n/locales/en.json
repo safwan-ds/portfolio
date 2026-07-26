@@ -111,17 +111,13 @@
       "i18n": "i18n"
     },
     "items": {
-      "astrododge": {
-        "title": "AstroDodge",
-        "description": "A 2D space dodging game built with Godot 4.7. Features procedural obstacle generation, particle effects, and a dynamic scoring system. An ongoing game development project of mine."
-      },
       "sign2speech": {
         "title": "Sign2Speech",
         "description": "A gesture-to-speech recognition system that converts hand gestures captured via sensors into spoken output. It seamlessly combines embedded hardware with signal processing for accessible communication."
       },
       "portfolio": {
         "title": "3D Portfolio",
-        "description": "This website — an interactive 3D portfolio built using React Three Fiber. It features cinematic bloom lighting, scroll-driven camera animations, and comprehensive i18n support (EN/AR/TR)."
+        "description": "This website — an interactive 3D portfolio built using React Three Fiber. It features cinematic bloom lighting, scroll-driven camera animations, an AI chat assistant about my background, and comprehensive i18n support (EN/AR/TR)."
       },
       "dsp-toolkit": {
         "title": "DSP Toolkit",

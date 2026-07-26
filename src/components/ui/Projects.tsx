@@ -11,6 +11,7 @@ import { HiArrowUpRight } from 'react-icons/hi2'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
 import NeonButton from './NeonButton'
+import ExternalLink from './ExternalLink'
 import { profile, type Project, projects } from '../../data'
 
 function ProjectCard({ project }: { project: Project }) {
@@ -42,9 +43,19 @@ function ProjectCard({ project }: { project: Project }) {
         mouseX.set(0)
         mouseY.set(0)
       }}
-      className="group relative rounded-2xl bg-carbon/80 border border-slate/20 p-6 transition-colors duration-300 hover:border-neon-blue/30 cursor-pointer"
+      className="group relative rounded-2xl bg-carbon/80 border border-slate/20 p-6 transition-colors duration-300 hover:border-neon-blue/30 cursor-pointer overflow-hidden"
     >
       <div className="absolute top-0 left-4 right-4 h-px bg-linear-to-r from-transparent via-neon-blue/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      {project.image && (
+        <div className="-mx-6 -mt-6 mb-6 aspect-square overflow-hidden">
+          <img
+            src={project.image}
+            alt={t(titleKey)}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      )}
       <h3 className="font-display text-xl font-semibold text-text-primary group-hover:text-neon-blue transition-colors mb-3">
         {t(titleKey)}
       </h3>
@@ -61,24 +72,20 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
       <div className="flex gap-3">
         {project.github && (
-          <a
+          <ExternalLink
             href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 font-mono text-xs text-neon-blue hover:text-neon-cyan transition-colors"
           >
             GitHub <HiArrowUpRight className="w-3 h-3" />
-          </a>
+          </ExternalLink>
         )}
         {project.link && (
-          <a
+          <ExternalLink
             href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 font-mono text-xs text-neon-purple hover:text-neon-pink transition-colors"
           >
             Live <HiArrowUpRight className="w-3 h-3" />
-          </a>
+          </ExternalLink>
         )}
       </div>
       <div

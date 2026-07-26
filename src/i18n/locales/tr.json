@@ -111,17 +111,13 @@
       "i18n": "Uluslararasılaştırma"
     },
     "items": {
-      "astrododge": {
-        "title": "AstroDodge",
-        "description": "Godot 4.7 ile geliştirdiğim 2D uzay temalı bir kaçış oyunu. Prosedürel engel üretimi, görsel parçacık efektleri ve dinamik bir puanlama sistemi içeriyor. Oyun geliştirme serüvenimdeki aktif projelerimden biri."
-      },
       "sign2speech": {
         "title": "Sign2Speech",
         "description": "El hareketlerini algılayarak sese dönüştüren bir jest tanıma sistemi. Özel sensörler aracılığıyla yakalanan hareketleri işleyerek sesli metne çeviriyor. İşitme veya konuşma engelli bireylerin iletişimini kolaylaştırmak için gömülü donanım ve sinyal işleme tekniklerini bir araya getiriyor."
       },
       "portfolio": {
         "title": "3D Portfolio",
-        "description": "Şu an incelediğiniz bu web sitesi; React Three Fiber, sinematik ışıklandırma efektleri ve kaydırma duyarlı kamera animasyonları kullanılarak geliştirilmiş interaktif bir 3D portfolyodur. Aynı zamanda Türkçe, İngilizce ve Arapça dillerini tam olarak desteklemektedir."
+        "description": "Şu an incelediğiniz bu web sitesi; React Three Fiber, sinematik ışıklandırma efektleri ve kaydırma duyarlı kamera animasyonları kullanılarak geliştirilmiş interaktif bir 3D portfolyodur. Geçmişim hakkında soruları yanıtlayan bir yapay zeka sohbet asistanı içerir ve Türkçe, İngilizce ile Arapça dillerini tam olarak desteklemektedir."
       },
       "dsp-toolkit": {
         "title": "DSP Toolkit",

@@ -9,6 +9,7 @@ export interface Project {
   tags: readonly string[]
   link?: string
   github?: string
+  image?: string
 }
 
 const projects: readonly Project[] = [
@@ -16,21 +17,25 @@ const projects: readonly Project[] = [
     key: 'sign2speech',
     tags: ['arduino', 'python', 'signal_processing', 'embedded'],
     github: 'https://github.com/safwan-ds/sign2speech',
+    image: '/portfolio/images/projects/sign2speech.jpg',
   },
   {
     key: 'boost_converter_pwm',
     tags: ['arduino', 'cpp', 'power_electronics'],
     github: 'https://github.com/safwan-ds/boost_converter_pwm',
+    image: '/portfolio/images/projects/boost_circuit.jpg',
   },
   {
     key: 'astrododge-pygame',
     tags: ['python', 'pygame', 'game_design'],
     github: 'https://github.com/safwan-ds/AstroDodgePygame',
+    image: '/portfolio/images/projects/astrododge-pygame.png',
   },
   {
     key: 'portfolio',
     tags: ['react', 'threejs', 'r3f', 'tailwind_css', 'i18n'],
     github: 'https://github.com/safwan-ds/portfolio',
+    image: '/portfolio/images/projects/portfolio.png',
   },
 ]
 

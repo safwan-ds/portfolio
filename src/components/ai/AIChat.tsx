@@ -7,6 +7,8 @@ import { buildSystemPrompt } from '../../data/knowledge'
 import ReactMarkdown, { type Components } from 'react-markdown'
 import { useTranslation } from 'react-i18next'
 import { useDeviceTier } from '../../hooks/useDeviceTier'
+import { useRtl } from '../../hooks/useRtl'
+import ExternalLink from '../ui/ExternalLink'
 
 const markdownComponents: Components = {
   p: ({ children }) => <span className="block last:mb-0">{children}</span>,
@@ -23,14 +25,9 @@ const markdownComponents: Components = {
     )
   },
   a: ({ href, children }) => (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-neon-blue hover:underline"
-    >
+    <ExternalLink href={href as string} className="text-neon-blue hover:underline">
       {children}
-    </a>
+    </ExternalLink>
   ),
   ul: ({ children }) => <ul className="list-disc pl-4 space-y-1 my-1">{children}</ul>,
   ol: ({ children }) => <ol className="list-decimal pl-4 space-y-1 my-1">{children}</ol>,
@@ -44,8 +41,8 @@ const markdownComponents: Components = {
 }
 
 export default function AIChat() {
-  const { t, i18n } = useTranslation()
-  const isRtl = i18n.language === 'ar'
+  const { t } = useTranslation()
+  const isRtl = useRtl()
   const { isMobile } = useDeviceTier()
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState<ChatMessage[]>([])

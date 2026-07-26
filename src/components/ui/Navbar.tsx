@@ -11,15 +11,19 @@ import LanguageSwitcher from './LanguageSwitcher'
 import ScrollProgress from './ScrollProgress'
 import SettingsPanel from './SettingsPanel'
 import { useScrollState } from '../../hooks/useScrollState'
+import { useClickOutside } from '../../hooks/useClickOutside'
+import { useRtl } from '../../hooks/useRtl'
 import { navigation } from '../../data'
 
 export default function Navbar() {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const scrolled = useScrollState()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [settingsOpen, setSettingsOpen] = useState(false)
   const settingsRef = useRef<HTMLDivElement>(null)
-  const isRtl = i18n.language === 'ar'
+  const isRtl = useRtl()
+
+  useClickOutside(settingsRef, () => setSettingsOpen(false), settingsOpen)
 
   useEffect(() => {
     function onResize() {
@@ -27,17 +31,6 @@ export default function Navbar() {
     }
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
-  }, [])
-
-  useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (settingsRef.current && !settingsRef.current.contains(e.target as Node)) {
-        setSettingsOpen(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClick)
-    return () => document.removeEventListener('mousedown', handleClick)
   }, [])
 
   const handleClick = (id: string) => {
@@ -100,7 +93,7 @@ export default function Navbar() {
               >
                 <HiCog size={16} />
               </button>
-              <SettingsPanel open={settingsOpen} />
+              <SettingsPanel open={settingsOpen} onClose={() => setSettingsOpen(false)} />
             </div>
             <LanguageSwitcher />
           </div>

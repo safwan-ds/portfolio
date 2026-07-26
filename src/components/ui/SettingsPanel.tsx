@@ -1,7 +1,7 @@
-import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useSettingsCtx } from './SettingsContext'
 import type { EffectsMode, Scene3dMode } from '../../hooks/useSettings'
+import Dropdown from './Dropdown'
 
 const EFFECTS_OPTIONS: readonly EffectsMode[] = ['low', 'adaptive', 'high']
 const SCENE3D_OPTIONS: readonly Scene3dMode[] = ['off', 'adaptive', 'on']
@@ -55,12 +55,12 @@ function SegmentedControl<T extends string>({
 
 interface SettingsPanelProps {
   open: boolean
+  onClose: () => void
 }
 
-export default function SettingsPanel({ open }: SettingsPanelProps) {
+export default function SettingsPanel({ open, onClose }: SettingsPanelProps) {
   const { effects, scene3d, setEffects, setScene3d } = useSettingsCtx()
-  const { t, i18n } = useTranslation()
-  const isRtl = i18n.language === 'ar'
+  const { t } = useTranslation()
 
   const EFFECTS_LABELS: Record<EffectsMode, string> = {
     low: t('settings.effects_levels.low'),
@@ -75,39 +75,24 @@ export default function SettingsPanel({ open }: SettingsPanelProps) {
   }
 
   return (
-    <AnimatePresence>
-      {open && (
-        <motion.div
-          initial={{ opacity: 0, y: -10, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -10, scale: 0.95 }}
-          transition={{ duration: 0.15 }}
-          className="absolute mt-1 w-56 rounded-xl bg-carbon/90 backdrop-blur-xl border border-slate/30 shadow-lg overflow-hidden z-50"
-          style={{
-            left: isRtl ? '0px' : 'auto',
-            right: isRtl ? 'auto' : '0px',
-            maxWidth: 'calc(100vw - 1rem)',
-          }}
-        >
-          <div className="px-3 py-3 space-y-3">
-            <SegmentedControl
-              label={t('settings.effects')}
-              value={effects}
-              options={EFFECTS_OPTIONS}
-              labels={EFFECTS_LABELS}
-              disabled={scene3d === 'off'}
-              onChange={setEffects}
-            />
-            <SegmentedControl
-              label={t('settings.3d_scene')}
-              value={scene3d}
-              options={SCENE3D_OPTIONS}
-              labels={SCENE3D_LABELS}
-              onChange={setScene3d}
-            />
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <Dropdown open={open} onClose={onClose}>
+      <div className="px-3 py-3 space-y-3">
+        <SegmentedControl
+          label={t('settings.effects')}
+          value={effects}
+          options={EFFECTS_OPTIONS}
+          labels={EFFECTS_LABELS}
+          disabled={scene3d === 'off'}
+          onChange={setEffects}
+        />
+        <SegmentedControl
+          label={t('settings.3d_scene')}
+          value={scene3d}
+          options={SCENE3D_OPTIONS}
+          labels={SCENE3D_LABELS}
+          onChange={setScene3d}
+        />
+      </div>
+    </Dropdown>
   )
 }

@@ -8,12 +8,13 @@ import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
 import GlassCard from './GlassCard'
 import FlagIcon from './FlagIcon'
+import ProgressBar from './ProgressBar'
 import { languages } from '../../data'
 
-const LEVEL_BAR: Record<string, { width: string; color: string }> = {
-  native: { width: '100%', color: 'bg-linear-to-r from-emerald-500 to-teal-600' },
-  c2: { width: '90%', color: 'bg-linear-to-r from-neon-purple to-pink-500' },
-  c1: { width: '75%', color: 'bg-linear-to-r from-neon-blue to-cyan-500' },
+const LEVEL_BAR: Record<string, { width: number; color: string }> = {
+  native: { width: 100, color: 'bg-linear-to-r from-emerald-500 to-teal-600' },
+  c2: { width: 90, color: 'bg-linear-to-r from-neon-purple to-pink-500' },
+  c1: { width: 75, color: 'bg-linear-to-r from-neon-blue to-cyan-500' },
 }
 
 export default function Languages() {
@@ -39,13 +40,12 @@ export default function Languages() {
                   </p>
                   {/* Bar + level — full width on mobile */}
                   <div className="flex items-center gap-2 sm:gap-4 flex-1">
-                    {/* Bar track */}
-                    <div className="flex-1 h-2.5 sm:h-3 rounded-full bg-slate/30 overflow-hidden min-w-0">
-                      <div
-                        className={`h-full rounded-full transition-all duration-700 ${bar.color}`}
-                        style={{ width: bar.width }}
-                      />
-                    </div>
+                    <ProgressBar
+                      percent={bar.width}
+                      height="h-2.5 sm:h-3"
+                      color={bar.color}
+                      className="flex-1 min-w-0"
+                    />
                     {/* Level label */}
                     <p
                       className="font-mono text-[10px] sm:text-xs text-text-secondary w-28 text-right shrink-0 truncate"

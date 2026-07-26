@@ -4,6 +4,7 @@
  */
 
 import { Component, type ReactNode } from 'react'
+import Label from './Label'
 
 interface Props {
   children: ReactNode
@@ -33,9 +34,9 @@ export default class SceneErrorBoundary extends Component<Props, State> {
       return (
         <div className="flex h-full items-center justify-center bg-void/80">
           <div className="text-center px-4">
-            <p className="font-mono text-xs text-text-secondary/60 uppercase tracking-wider">
+            <Label color="text-secondary" className="!text-text-secondary/60">
               Scene unavailable
-            </p>
+            </Label>
             <p className="mt-2 font-mono text-[11px] text-text-secondary/40">
               {this.state.error?.message}
             </p>

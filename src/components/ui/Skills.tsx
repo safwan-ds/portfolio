@@ -6,6 +6,7 @@
 import { useTranslation } from 'react-i18next'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
+import GlassCard from './GlassCard'
 import { HiOutlineChip, HiOutlineCog, HiOutlineTerminal } from 'react-icons/hi'
 import { type SkillCategory, skills } from '../../data'
 
@@ -51,7 +52,7 @@ function SkillCard({ category }: { category: SkillCategory }) {
   const ac = ACCENT_CLASSES[category.accent]
 
   return (
-    <div className="group relative rounded-2xl bg-carbon/80 border border-slate/20 p-6 transition-colors duration-300 hover:border-slate/40 hover:bg-carbon/90">
+    <GlassCard className="group relative">
       <div
         className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 ${ac.glowGradient}`}
       />
@@ -76,7 +77,7 @@ function SkillCard({ category }: { category: SkillCategory }) {
           )
         })}
       </div>
-    </div>
+    </GlassCard>
   )
 }
 
