@@ -16,22 +16,32 @@ const FLAG_LANG_MAP: Record<SupportedLanguage, 'arabic' | 'english' | 'turkish'>
   tr: 'turkish',
 }
 
-export default function LanguageSwitcher() {
+export default function LanguageSwitcher({
+  open,
+  onToggle,
+}: {
+  open: boolean
+  onToggle: () => void
+}) {
   const { i18n } = useTranslation()
-  const [open, setOpen] = useState(false)
+  const [internalOpen, setInternalOpen] = useState(false)
+
+  const isOpen = open ?? internalOpen
+  const toggle = onToggle ?? (() => setInternalOpen(!internalOpen))
 
   const currentLang = (i18n.language || 'en') as SupportedLanguage
 
   function changeLanguage(lang: SupportedLanguage) {
     i18n.changeLanguage(lang)
     applyLanguageDirection(lang)
-    setOpen(false)
+    if (!onToggle) setInternalOpen(false)
   }
 
   return (
     <div className="relative">
       <button
-        onClick={() => setOpen(!open)}
+        onClick={toggle}
+        onMouseDown={(e) => e.stopPropagation()}
         className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate/20 border border-slate/30 font-mono text-xs text-text-secondary hover:text-text-primary hover:border-slate/40 transition-all"
         aria-label="Switch language"
       >
@@ -39,7 +49,7 @@ export default function LanguageSwitcher() {
         <span className="hidden sm:inline">{languageNames[currentLang]}</span>
       </button>
 
-      <Dropdown open={open} onClose={() => setOpen(false)} width="w-40">
+      <Dropdown open={isOpen} onClose={onToggle ?? (() => setInternalOpen(false))} width="w-40">
         {SUPPORTED_LANGUAGES.map((lang) => (
           <button
             key={lang}

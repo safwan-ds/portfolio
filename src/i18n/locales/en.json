@@ -194,5 +194,9 @@
     "title": "AI Assistant",
     "system_prompt": "You are an AI assistant on Safwan Emad's portfolio website. Answer questions about Safwan's skills, projects, background, and experience using the information below. Be concise, friendly, and professional. If asked something not covered below, say you don't know rather than guessing.",
     "error_generic": "Something went wrong. Please try again."
+  },
+  "loading": {
+    "loading": "Loading",
+    "initializing": "Initializing"
   }
 }

@@ -20,10 +20,21 @@ export default function Navbar() {
   const scrolled = useScrollState()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [settingsOpen, setSettingsOpen] = useState(false)
+  const [langOpen, setLangOpen] = useState(false)
   const settingsRef = useRef<HTMLDivElement>(null)
   const isRtl = useRtl()
 
   useClickOutside(settingsRef, () => setSettingsOpen(false), settingsOpen)
+
+  function toggleSettings() {
+    setLangOpen(false)
+    setSettingsOpen(!settingsOpen)
+  }
+
+  function toggleLang() {
+    setSettingsOpen(false)
+    setLangOpen(!langOpen)
+  }
 
   useEffect(() => {
     function onResize() {
@@ -87,7 +98,8 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             <div ref={settingsRef} className="relative">
               <button
-                onClick={() => setSettingsOpen(!settingsOpen)}
+                onClick={toggleSettings}
+                onMouseDown={(e) => e.stopPropagation()}
                 className="p-2 rounded-lg bg-slate/20 border border-slate/30 text-slate-300 hover:text-neon-blue hover:border-slate/40 transition-all"
                 aria-label="Settings"
               >
@@ -95,7 +107,7 @@ export default function Navbar() {
               </button>
               <SettingsPanel open={settingsOpen} onClose={() => setSettingsOpen(false)} />
             </div>
-            <LanguageSwitcher />
+            <LanguageSwitcher open={langOpen} onToggle={toggleLang} />
           </div>
         </div>
       </div>

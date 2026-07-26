@@ -21,17 +21,21 @@ import NeonButton from './components/ui/NeonButton'
 import { useScrollState } from './hooks/useScrollState'
 import { useSettings } from './hooks/useSettings'
 import { SettingsCtx } from './components/ui/SettingsContext'
+import projects from './data/projects'
 
 function LoadingScreen() {
-  const { progress } = useProgress()
+  const { t } = useTranslation()
+  const { progress: modelProgress } = useProgress()
   const [show, setShow] = useState(true)
 
   useEffect(() => {
-    if (progress === 100) {
+    if (modelProgress >= 100) {
       const timer = setTimeout(() => setShow(false), 800)
       return () => clearTimeout(timer)
     }
-  }, [progress])
+  }, [modelProgress])
+
+  const progress = Math.round(Math.min(100, modelProgress))
 
   return (
     <div
@@ -44,7 +48,9 @@ function LoadingScreen() {
         />
       </div>
       <p className="mt-4 font-mono text-sm text-neon-blue uppercase tracking-widest">
-        {progress < 100 ? `Loading... ${Math.round(progress)}%` : 'Initializing...'}
+        {progress < 100
+          ? `${t('loading.loading')}... ${progress}%`
+          : `${t('loading.initializing')}...`}
       </p>
     </div>
   )
@@ -58,6 +64,15 @@ export default function App() {
   return (
     <SettingsCtx.Provider value={settings}>
       <div className="relative bg-void text-text-primary font-body overflow-x-hidden">
+        {/* Preload project images — hidden <img> elements are in the DOM from the very first render */}
+        <div style={{ display: 'none' }} aria-hidden="true">
+          {projects
+            .filter((p) => p.image)
+            .map((p) => (
+              <img key={p.key} src={p.image!} alt="" />
+            ))}
+        </div>
+
         <div className="fixed inset-0 z-0">
           <div
             className="absolute inset-0 bg-linear-to-b from-carbon via-void to-carbon"
