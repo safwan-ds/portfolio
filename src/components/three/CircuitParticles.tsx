@@ -10,6 +10,7 @@ import { useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useDeviceTier } from '../../hooks/useDeviceTier'
+import { EMISSIVE_COLORS } from '../../utils/constants'
 
 const DESKTOP_PARTICLE_COUNT = 300
 const REDUCED_PARTICLE_COUNT = 60
@@ -68,7 +69,7 @@ export default function CircuitParticles() {
       <pointsMaterial
         ref={materialRef}
         size={0.08}
-        color={new THREE.Color(0, 1.7, 3.0)}
+        color={new THREE.Color(...EMISSIVE_COLORS.blue)}
         transparent
         opacity={0.5}
         sizeAttenuation

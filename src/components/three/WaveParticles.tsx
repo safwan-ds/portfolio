@@ -11,6 +11,7 @@ import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { Vector3 } from 'three'
 import { useDeviceTier } from '../../hooks/useDeviceTier'
+import { EMISSIVE_COLORS } from '../../utils/constants'
 
 const DESKTOP_PARTICLE_COUNT = 500
 const REDUCED_PARTICLE_COUNT = 100
@@ -75,7 +76,7 @@ export default function WaveParticles() {
       </bufferGeometry>
       <pointsMaterial
         size={0.05}
-        color={new THREE.Color(1.4, 0.3, 2.0)}
+        color={new THREE.Color(...EMISSIVE_COLORS.purple)}
         transparent
         opacity={0.4}
         sizeAttenuation

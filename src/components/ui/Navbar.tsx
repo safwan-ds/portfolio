@@ -10,10 +10,12 @@ import { HiCog, HiMenuAlt3, HiX } from 'react-icons/hi'
 import LanguageSwitcher from './LanguageSwitcher'
 import ScrollProgress from './ScrollProgress'
 import SettingsPanel from './SettingsPanel'
+import Logo from './Logo'
 import { useScrollState } from '../../hooks/useScrollState'
 import { useClickOutside } from '../../hooks/useClickOutside'
 import { useRtl } from '../../hooks/useRtl'
 import { navigation } from '../../data'
+import { PALETTE } from '../../utils/constants.ts'
 
 export default function Navbar() {
   const { t } = useTranslation()
@@ -60,8 +62,24 @@ export default function Navbar() {
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between">
-          {/* Left side: mobile hamburger */}
+          {/* Left side: logo + mobile hamburger */}
           <div className="flex items-center gap-2">
+            {/* Logo */}
+            <a
+              href="#home"
+              onClick={(e) => {
+                e.preventDefault()
+                document.querySelector('#home')?.scrollIntoView({ behavior: 'smooth' })
+              }}
+              className="shrink-0"
+              aria-label="Home"
+            >
+              <Logo
+                className="h-9 w-auto hover:opacity-80 transition-opacity"
+                color={PALETTE.neonPink}
+              />
+            </a>
+            {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="md:hidden p-2 text-slate-300 hover:text-neon-blue transition-colors"

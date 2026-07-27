@@ -12,7 +12,7 @@ import { useMemo } from 'react'
 import { useGLTF } from '@react-three/drei'
 import type { Group, Mesh } from 'three'
 import * as THREE from 'three'
-import { MODEL_PATHS } from '../../utils/constants'
+import { EMISSIVE_COLORS, MODEL_PATHS } from '../../utils/constants'
 
 /** Scale + transform for the model — tuned by eye in the scene. */
 interface ModelPlacement {
@@ -42,7 +42,7 @@ function applyEmissiveScreen(scene: Group): void {
     if (isScreen && !Array.isArray(mesh.material)) {
       mesh.material = (mesh.material as THREE.MeshStandardMaterial).clone()
       const mat = mesh.material as THREE.MeshStandardMaterial
-      mat.emissive = new THREE.Color(0, 1.7, 3.0)
+      mat.emissive = new THREE.Color(...EMISSIVE_COLORS.blue)
       mat.emissiveIntensity = 1.0
       mat.toneMapped = false
     }

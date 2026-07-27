@@ -8,6 +8,8 @@ import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
 import GlassCard from './GlassCard'
 import Label from './Label'
+import Logo from './Logo'
+import { PALETTE } from '../../utils/constants'
 import { profile } from '../../data'
 
 export default function About() {
@@ -20,12 +22,8 @@ export default function About() {
           <div className="space-y-5">
             <GlassCard>
               <div className="flex items-center gap-4">
-                <div className="shrink-0 w-12 h-12 rounded-full bg-linear-to-br from-neon-blue to-neon-purple flex items-center justify-center font-display text-lg font-bold text-white">
-                  {t('about.name_val')
-                    .split(' ')
-                    .map((n: string) => n[0])
-                    .slice(0, 2)
-                    .join('')}
+                <div className="shrink-0 w-12 h-12 flex items-center justify-center">
+                  <Logo className="w-8 h-auto" color={PALETTE.neonPink} />
                 </div>
                 <div>
                   <Label color="neon-blue" size="2xs" className="mb-0.5">

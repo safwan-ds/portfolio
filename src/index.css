@@ -30,21 +30,21 @@
 }
 
 @theme {
-  /* Base — dark greys/blacks */
-  --color-void: #0a0a0f;
-  --color-carbon: #12121a;
-  --color-graphite: #1a1a2e;
-  --color-slate: #2a2a3e;
+  /* Base — deep purple tones */
+  --color-void: #1a1a1a;
+  --color-carbon: #222222;
+  --color-graphite: #1e1e1e;
+  --color-slate: #333333;
 
-  /* Neon accents */
-  --color-neon-blue: #00d4ff;
-  --color-neon-purple: #b026ff;
-  --color-neon-cyan: #00fff5;
-  --color-neon-pink: #ff2e9a;
+  /* Accents: teal → primary, red → secondary, cream → warm */
+  --color-neon-blue: #1e93ab;
+  --color-neon-purple: #e62727;
+  --color-neon-cyan: #1e93ab;
+  --color-neon-pink: #f3f2ec;
 
   /* Text */
-  --color-text-primary: #e8e8f0;
-  --color-text-secondary: #8a8aa0;
+  --color-text-primary: #f3f2ec;
+  --color-text-secondary: #dcdcdc;
 
   /* ── Font stacks (default: English / Turkish) ── */
   --font-display: 'Segoe UI', 'Avenir Next', Avenir, 'Century Gothic', sans-serif;

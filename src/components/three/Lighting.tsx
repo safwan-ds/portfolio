@@ -8,7 +8,12 @@
  * - Accents: blue and cyan point lights near abstract elements
  */
 
-import { EMISSIVE_COLORS, NEON_COLORS, WARM_LIGHT } from '../../utils/constants'
+import {
+  AMBIENT_LIGHT_COLOR,
+  EMISSIVE_COLORS,
+  NEON_COLORS,
+  WARM_LIGHT,
+} from '../../utils/constants'
 
 export default function Lighting() {
   return (
@@ -42,7 +47,7 @@ export default function Lighting() {
       <pointLight position={[-3, 1, 3]} intensity={1.5} color={EMISSIVE_COLORS.cyan} distance={8} />
 
       {/* Subtle ambient so dark areas aren't fully black */}
-      <ambientLight intensity={0.08} color="#1a1a2e" />
+      <ambientLight intensity={0.08} color={AMBIENT_LIGHT_COLOR} />
     </>
   )
 }

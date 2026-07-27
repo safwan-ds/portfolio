@@ -12,9 +12,9 @@ import ProgressBar from './ProgressBar'
 import { languages } from '../../data'
 
 const LEVEL_BAR: Record<string, { width: number; color: string }> = {
-  native: { width: 100, color: 'bg-linear-to-r from-emerald-500 to-teal-600' },
-  c2: { width: 90, color: 'bg-linear-to-r from-neon-purple to-pink-500' },
-  c1: { width: 75, color: 'bg-linear-to-r from-neon-blue to-cyan-500' },
+  native: { width: 100, color: 'bg-neon-pink' },
+  c2: { width: 90, color: 'bg-neon-pink' },
+  c1: { width: 75, color: 'bg-neon-pink' },
 }
 
 export default function Languages() {
@@ -23,7 +23,7 @@ export default function Languages() {
   return (
     <SectionWrapper id="languages" label={t('languages.label')} title={t('languages.title')}>
       <SectionReveal delay={0.15}>
-        <div className="mx-auto max-w-xl space-y-5">
+        <div className="space-y-5">
           {languages.map((lang) => {
             const bar = LEVEL_BAR[lang.levelKey]
             return (
@@ -48,7 +48,7 @@ export default function Languages() {
                     />
                     {/* Level label */}
                     <p
-                      className="font-mono text-[10px] sm:text-xs text-text-secondary w-28 text-right shrink-0 truncate"
+                      className="font-mono text-[10px] sm:text-xs text-text-secondary w-36 text-right shrink-0"
                       title={t(`languages.levels.${lang.levelKey}`)}
                     >
                       {t(`languages.levels.${lang.levelKey}`)}

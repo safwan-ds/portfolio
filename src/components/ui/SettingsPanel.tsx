@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { useSettingsCtx } from './SettingsContext'
 import type { EffectsMode, Scene3dMode } from '../../hooks/useSettings'
 import Dropdown from './Dropdown'
+import { PALETTE } from '../../utils/constants'
 
 const EFFECTS_OPTIONS: readonly EffectsMode[] = ['low', 'adaptive', 'high']
 const SCENE3D_OPTIONS: readonly Scene3dMode[] = ['off', 'adaptive', 'on']
@@ -41,9 +42,10 @@ function SegmentedControl<T extends string>({
             onClick={() => onChange(opt)}
             className={`flex-1 px-2 py-1 rounded-md font-mono text-[11px] tracking-wider uppercase transition-all ${
               value === opt
-                ? 'bg-neon-blue/20 text-neon-blue shadow-[0_0_8px_rgba(0,212,255,0.2)]'
+                ? 'bg-neon-blue/20 text-neon-blue'
                 : 'text-slate-500 hover:text-slate-300'
             }`}
+            style={value === opt ? { boxShadow: `0 0 8px ${PALETTE.neonBlue}40` } : undefined}
           >
             {labels[opt]}
           </button>

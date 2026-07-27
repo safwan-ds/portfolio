@@ -4,7 +4,6 @@
  */
 
 import type { IconType } from 'react-icons'
-import { HiHome } from 'react-icons/hi'
 
 export interface NavItem {
   /** Section id (matches the id attribute on <section>) */
@@ -16,7 +15,6 @@ export interface NavItem {
 }
 
 const navigation: readonly NavItem[] = [
-  { id: 'home', labelKey: 'nav.home', icon: HiHome },
   { id: 'about', labelKey: 'nav.about' },
   { id: 'skills', labelKey: 'nav.skills' },
   { id: 'languages', labelKey: 'nav.languages' },

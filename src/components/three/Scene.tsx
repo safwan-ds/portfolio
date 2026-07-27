@@ -31,10 +31,12 @@ import WaveParticles from './WaveParticles'
 import ScrollCamera from './ScrollCamera'
 import SceneParallax from './SceneParallax'
 import {
+  BG_COLOR_REDUCED,
   BLOOM_CONFIG,
   CAMERA_CONFIG,
   CHROMATIC_ABERRATION_OFFSET,
   FOG_COLOR,
+  FOG_COLOR_REDUCED,
   VIGNETTE_CONFIG,
 } from '../../utils/constants'
 
@@ -76,10 +78,10 @@ export default function Scene({ effects }: SceneProps) {
       {/* Fog + background: transparent canvas when reduced, opaque void when effects are high */}
       {effectiveReduced ? (
         <>
-          <fog attach="fog" args={['#1a1028', 5, 20]} />
+          <fog attach="fog" args={[FOG_COLOR_REDUCED, 5, 20]} />
           <mesh position={[0, 0, -12]}>
             <planeGeometry args={[80, 60]} />
-            <meshBasicMaterial color="#14101e" transparent opacity={0.8} />
+            <meshBasicMaterial color={BG_COLOR_REDUCED} transparent opacity={0.8} />
           </mesh>
         </>
       ) : (
