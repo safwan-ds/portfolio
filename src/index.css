@@ -99,6 +99,23 @@
   ::-webkit-scrollbar-thumb:hover {
     background: var(--color-neon-purple);
   }
+
+  /* ── Images: prevent drag / select ── */
+  img {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  /* ── Text selection ── */
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-neon-blue) 40%, transparent);
+    color: var(--color-text-primary);
+  }
+
+  ::-moz-selection {
+    background-color: color-mix(in srgb, var(--color-neon-blue) 40%, transparent);
+    color: var(--color-text-primary);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════

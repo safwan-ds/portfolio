@@ -15,7 +15,6 @@ import { useScrollState } from '../../hooks/useScrollState'
 import { useClickOutside } from '../../hooks/useClickOutside'
 import { useRtl } from '../../hooks/useRtl'
 import { navigation } from '../../data'
-import { PALETTE } from '../../utils/constants.ts'
 
 export default function Navbar() {
   const { t } = useTranslation()
@@ -61,7 +60,7 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex h-16 items-center justify-between">
+        <div className="relative flex h-16 items-center justify-between">
           {/* Left side: logo + mobile hamburger */}
           <div className="flex items-center gap-2">
             {/* Logo */}
@@ -71,13 +70,10 @@ export default function Navbar() {
                 e.preventDefault()
                 document.querySelector('#home')?.scrollIntoView({ behavior: 'smooth' })
               }}
-              className="shrink-0"
+              className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 shrink-0 text-slate-300 hover:text-neon-blue transition-colors"
               aria-label="Home"
             >
-              <Logo
-                className="h-9 w-auto hover:opacity-80 transition-opacity"
-                color={PALETTE.neonPink}
-              />
+              <Logo className="h-9 w-auto" color="currentColor" />
             </a>
             {/* Mobile hamburger */}
             <button

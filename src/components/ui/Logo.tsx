@@ -1,5 +1,5 @@
 import { PALETTE } from '../../utils/constants'
-import LogoSvg from '/public/images/logo.svg?react'
+import LogoSvg from '/src/images/logo.svg?react'
 
 interface LogoProps {
   className?: string

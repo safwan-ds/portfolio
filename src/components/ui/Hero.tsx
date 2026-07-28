@@ -22,7 +22,7 @@ export default function Hero() {
       <div className="flex-1" />
 
       <div className="text-center pointer-events-auto bg-void/40 backdrop-blur-md p-10 rounded-3xl border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.5)]">
-        <div className="flex items-center justify-center gap-4 mb-4">
+        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row mb-4">
           <Logo className="h-40 w-auto" color={PALETTE.neonPink} />
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight drop-shadow-lg">
             <span className="text-white">{t('hero.title')}</span>

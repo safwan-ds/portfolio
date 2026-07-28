@@ -19,6 +19,7 @@ import Contact from './components/ui/Contact'
 import Footer from './components/ui/Footer'
 import Hero from './components/ui/Hero'
 import { useSettings } from './hooks/useSettings'
+import { useDeviceTier } from './hooks/useDeviceTier'
 import { SettingsCtx } from './components/ui/SettingsContext'
 
 function LoadingScreen() {
@@ -56,6 +57,7 @@ function LoadingScreen() {
 
 export default function App() {
   const settings = useSettings()
+  const { isMobile } = useDeviceTier()
 
   return (
     <SettingsCtx.Provider value={settings}>
@@ -90,7 +92,7 @@ export default function App() {
           <Footer />
         </div>
 
-        <AIChat />
+        {!isMobile && <AIChat />}
         <LoadingScreen />
       </div>
     </SettingsCtx.Provider>
