@@ -11,7 +11,6 @@ import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
 import GlassCard from './GlassCard'
 import FormInput from './FormInput'
-import NeonButton from './NeonButton'
 import ExternalLink from './ExternalLink'
 import Spinner from './Spinner'
 import Label from './Label'
@@ -105,7 +104,11 @@ export default function Contact() {
               {status === 'error' && (
                 <p className="font-mono text-xs text-neon-pink">{t('contact.error')}</p>
               )}
-              <NeonButton type="submit" disabled={status === 'sending'} solid>
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-carbon font-mono text-sm text-neon-blue transition-all hover:bg-slate/30 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
                 {status === 'sending' ? (
                   <>
                     <Spinner size="w-4 h-4" />
@@ -117,7 +120,7 @@ export default function Contact() {
                     {t('contact.send')}
                   </>
                 )}
-              </NeonButton>
+              </button>
             </form>
           )}
         </SectionReveal>

@@ -45,46 +45,53 @@
     "label": "Yetenekler",
     "title": "Kullandığım Teknolojiler",
     "categories": {
-      "electrical": {
-        "title": "Elektrik Mühendisliği",
+      "hardware": {
+        "title": "Donanım ve Gömülü Sistemler",
         "skills": {
           "circuit_analysis": "Devre Analizi",
           "embedded_systems": "Gömülü Sistemler",
           "signal_processing": "Sinyal İşleme",
           "control_systems": "Kontrol Sistemleri",
-          "arduino_stm32": "Arduino / STM32",
+          "arduino": "Arduino",
           "matlab_simulink": "MATLAB / Simulink",
-          "verilog_fpga": "Verilog / FPGA",
-          "iot_sensors": "IoT ve Sensörler"
+          "iot_sensors": "IoT ve Sensörler",
+          "latex": "LaTeX"
         }
       },
-      "software": {
-        "title": "Yazılım ve Yapay Zeka",
+      "ai": {
+        "title": "Yapay Zeka",
         "skills": {
           "python": "Python",
           "pytorch": "PyTorch",
-          "neural_networks": "Sinir Ağları",
           "machine_learning": "Makine Öğrenmesi",
-          "c_cpp": "C / C++",
-          "typescript": "TypeScript",
-          "gdscript_godot": "GDScript (Godot)"
+          "llm_apis": "LLM API'leri ve Ajanlar",
+          "hermes_agent": "Hermes Agent"
         }
       },
-      "tools": {
-        "title": "Araçlar ve İş Akışı",
+      "software": {
+        "title": "Yazılım Geliştirme",
         "skills": {
+          "c_cpp": "C / C++",
+          "typescript": "TypeScript",
+          "html_css": "HTML / CSS",
+          "react": "React",
+          "tailwind_css": "Tailwind CSS",
+          "vite": "Vite",
           "git_github": "Git / GitHub",
-          "vs_code": "VS Code",
-          "opencode": "Opencode",
-          "hermes_agent": "Hermes Agent",
-          "touch_typing": "On Parmak Klavye",
-          "godot_engine": "Godot Engine",
-          "blender": "Blender",
           "docker": "Docker",
           "linux_bash": "Linux / Bash",
-          "llm_apis": "LLM API'leri ve Ajanlar",
-          "obsidian": "Obsidian",
-          "latex": "LaTeX"
+          "vs_code": "VS Code"
+        }
+      },
+      "creative": {
+        "title": "Yaratıcı ve Medya",
+        "skills": {
+          "blender": "Blender",
+          "after_effects": "After Effects",
+          "premiere_pro": "Premiere Pro",
+          "illustrator": "Illustrator",
+          "godot_engine": "Godot Engine",
+          "game_design": "Oyun Tasarımı"
         }
       }
     }
@@ -108,7 +115,8 @@
       "threejs": "Three.js",
       "r3f": "R3F",
       "tailwind_css": "Tailwind CSS",
-      "i18n": "Uluslararasılaştırma"
+      "i18n": "Uluslararasılaştırma",
+      "paper_shaders": "Paper Shaders"
     },
     "items": {
       "sign2speech": {
@@ -116,12 +124,8 @@
         "description": "El hareketlerini algılayarak sese dönüştüren bir jest tanıma sistemi. Özel sensörler aracılığıyla yakalanan hareketleri işleyerek sesli metne çeviriyor. İşitme veya konuşma engelli bireylerin iletişimini kolaylaştırmak için gömülü donanım ve sinyal işleme tekniklerini bir araya getiriyor."
       },
       "portfolio": {
-        "title": "3D Portfolio",
-        "description": "Şu an incelediğiniz bu web sitesi; React Three Fiber, sinematik ışıklandırma efektleri ve kaydırma duyarlı kamera animasyonları kullanılarak geliştirilmiş interaktif bir 3D portfolyodur. Geçmişim hakkında soruları yanıtlayan bir yapay zeka sohbet asistanı içerir ve Türkçe, İngilizce ile Arapça dillerini tam olarak desteklemektedir."
-      },
-      "dsp-toolkit": {
-        "title": "DSP Toolkit",
-        "description": "Sayısal Sinyal İşleme (DSP) dersleri için geliştirdiğim kapsamlı bir Python araç seti. Hızlı Fourier Dönüşümü (FFT) analizi, FIR/IIR filtre tasarımı, spektrogram oluşturma ve Matplotlib kullanılarak gerçek zamanlı ses görselleştirme özelliklerini barındırıyor."
+        "title": "Portfolio Website",
+        "description": "Bu portfolyo web sitesi — React, TypeScript ve Tailwind CSS ile geliştirilmiş, düz (flat) tasarımlı retro temalı bir kişisel site. Paper shader görsel efektleri, yapay zeka sohbet asistanı ve tam i18n desteği (EN/AR/TR) içerir."
       },
       "boost_converter_pwm": {
         "title": "Boost Converter PWM",
@@ -167,7 +171,8 @@
   },
   "footer": {
     "copyright": "Safwan",
-    "madewith": "Sevgiyle Geliştirildi"
+    "madewith": "Sevgiyle Geliştirildi",
+    "source": "Kaynak"
   },
   "language": {
     "en": "English",

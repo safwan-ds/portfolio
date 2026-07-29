@@ -14,6 +14,8 @@ interface SectionWrapperProps {
   headerDelay?: number
   /** Additional classes on the outer <section> */
   className?: string
+  /** Background element rendered inside <section> behind the content div */
+  background?: ReactNode
 }
 
 export default function SectionWrapper({
@@ -24,23 +26,37 @@ export default function SectionWrapper({
   maxWidth = '5xl',
   headerDelay = 0,
   className = '',
+  background,
 }: SectionWrapperProps) {
   return (
-    <section id={id} className={`relative py-24 md:py-32 px-4 sm:px-6 ${className}`}>
+    <section
+      id={id}
+      className={`relative overflow-hidden py-20 md:py-28 px-4 sm:px-6 ${className}`}
+    >
       <div
-        className={`mx-auto max-w-${maxWidth} rounded-3xl bg-void/70 backdrop-blur-md border border-slate/10 p-8 md:p-12 pointer-events-auto`}
+        className={`mx-auto max-w-${maxWidth} relative rounded-lg bg-graphite p-8 md:p-12 pointer-events-auto`}
       >
-        {label && title && (
-          <SectionReveal delay={headerDelay}>
-            <p className="font-mono text-xs tracking-[0.2em] text-neon-blue uppercase mb-3">
-              {label}
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-text-primary mb-8">
-              {title}
-            </h2>
-          </SectionReveal>
+        {background && (
+          <div
+            className="absolute inset-0 z-0 rounded-lg pointer-events-none overflow-hidden"
+            aria-hidden="true"
+          >
+            {background}
+          </div>
         )}
-        {children}
+        <div className="relative z-10">
+          {label && title && (
+            <SectionReveal delay={headerDelay}>
+              <p className="font-mono text-xs tracking-[0.2em] text-neon-blue uppercase mb-3 select-none">
+                {label}
+              </p>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-text-primary mb-8 select-none">
+                {title}
+              </h2>
+            </SectionReveal>
+          )}
+          {children}
+        </div>
       </div>
     </section>
   )

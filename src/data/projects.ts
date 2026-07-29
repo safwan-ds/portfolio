@@ -14,6 +14,12 @@ export interface Project {
 
 const projects: readonly Project[] = [
   {
+    key: 'portfolio',
+    tags: ['react', 'tailwind_css', 'i18n', 'paper_shaders'],
+    github: 'https://github.com/safwan-ds/portfolio',
+    image: '/portfolio/images/projects/portfolio.png',
+  },
+  {
     key: 'sign2speech',
     tags: ['arduino', 'python', 'signal_processing', 'embedded'],
     github: 'https://github.com/safwan-ds/sign2speech',
@@ -30,12 +36,6 @@ const projects: readonly Project[] = [
     tags: ['python', 'pygame', 'game_design'],
     github: 'https://github.com/safwan-ds/AstroDodgePygame',
     image: '/portfolio/images/projects/astrododge-pygame.png',
-  },
-  {
-    key: 'portfolio',
-    tags: ['react', 'threejs', 'r3f', 'tailwind_css', 'i18n'],
-    github: 'https://github.com/safwan-ds/portfolio',
-    image: '/portfolio/images/projects/portfolio.png',
   },
 ]
 

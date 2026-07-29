@@ -1,56 +1,49 @@
 @import 'tailwindcss';
 
-/* ── Cairo font (locally hosted) ── */
-@font-face {
-  font-family: 'Cairo';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/Cairo-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Cairo';
-  font-style: normal;
-  font-weight: 500;
-  src: url('/fonts/Cairo-Medium.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Cairo';
-  font-style: normal;
-  font-weight: 600;
-  src: url('/fonts/Cairo-SemiBold.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Cairo';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/Cairo-Bold.ttf') format('truetype');
-}
-
 @theme {
-  /* Base — deep purple tones */
-  --color-void: #1a1a1a;
-  --color-carbon: #222222;
-  --color-graphite: #1e1e1e;
-  --color-slate: #333333;
+  /* Base — deep navy */
+  --color-void: #141e3a;
+  --color-carbon: #31466e;
+  --color-graphite: #253556;
+  --color-slate: #4a5e8a;
 
-  /* Accents: teal → primary, red → secondary, cream → warm */
-  --color-neon-blue: #1e93ab;
-  --color-neon-purple: #e62727;
-  --color-neon-cyan: #1e93ab;
-  --color-neon-pink: #f3f2ec;
+  /* Accents */
+  --color-neon-blue: #c084ff;
+  --color-neon-purple: #d4acff;
+  --color-neon-cyan: #ffcf95;
+  --color-neon-pink: #ffcf95;
+  --color-neon-green: #34d399;
 
   /* Text */
-  --color-text-primary: #f3f2ec;
-  --color-text-secondary: #dcdcdc;
+  --color-text-primary: #fff0d9;
+  --color-text-secondary: #e8d5b8;
 
-  /* ── Font stacks (default: English / Turkish) ── */
-  --font-display: 'Segoe UI', 'Avenir Next', Avenir, 'Century Gothic', sans-serif;
-  --font-body: 'Segoe UI', 'Avenir Next', Avenir, 'Century Gothic', sans-serif;
-  --font-mono:
-    ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  /* ── Font stacks ── */
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-vt323: 'VT323', monospace;
+}
+
+@keyframes glitch {
+  0%,
+  90%,
+  100% {
+    transform: translate(0);
+  }
+  92% {
+    transform: translate(-1px, 0);
+  }
+  94% {
+    transform: translate(1px, 0);
+  }
+  96% {
+    transform: translate(-1px, 0);
+  }
+}
+
+.animate-glitch {
+  animation: glitch 4s infinite;
 }
 
 @layer base {
@@ -77,9 +70,14 @@
        stack for HUD/mono elements. :lang() selectors hook into the
        `document.documentElement.lang` attribute set by i18n/config.ts.  ── */
   :lang(ar) {
-    --font-display: Cairo, Tahoma, sans-serif;
-    --font-body: Cairo, Tahoma, sans-serif;
-    --font-mono: Cairo, Tahoma, sans-serif;
+    --font-display: 'Changa', sans-serif;
+    --font-body: 'Changa', sans-serif;
+    --font-mono: 'Changa', sans-serif;
+  }
+
+  /* ── Turkish: Orbitron lacks Ğ/Ş — use Rajdhani (supports Turkish, same techy feel) ── */
+  :lang(tr) {
+    --font-display: 'Rajdhani', sans-serif;
   }
 
   /* ── Scrollbar styling ── */

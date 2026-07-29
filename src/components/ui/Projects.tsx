@@ -4,7 +4,7 @@
  * Edit projects.ts to add/remove entries, edit locale files for translations.
  */
 
-import { type MouseEvent, useEffect, useRef, useState } from 'react'
+import { type MouseEvent, type ReactNode, useEffect, useRef, useState } from 'react'
 import { createPortal, flushSync } from 'react-dom'
 import { useTranslation } from 'react-i18next'
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
@@ -37,9 +37,10 @@ interface ProjectCardProps {
     data?: { origin: Origin; size: { w: number; h: number }; project: Project },
   ) => void
   isExpanded: boolean
+  background?: ReactNode
 }
 
-function ProjectCard({ project, onActivate, isExpanded }: ProjectCardProps) {
+function ProjectCard({ project, onActivate, isExpanded, background }: ProjectCardProps) {
   const { t } = useTranslation()
   const cardRef = useRef<HTMLDivElement>(null)
   const thumbRef = useRef<HTMLDivElement>(null)
@@ -106,76 +107,87 @@ function ProjectCard({ project, onActivate, isExpanded }: ProjectCardProps) {
           mouseX.set(0)
           mouseY.set(0)
         }}
-        className="group relative rounded-2xl bg-carbon/80 border border-slate/20 p-6 transition-colors duration-300 hover:border-neon-blue/30 cursor-pointer overflow-hidden"
+        className="group relative rounded-2xl bg-carbon/80 border border-neon-blue/10 p-6 transition-colors duration-300 hover:border-neon-blue/30 cursor-pointer overflow-hidden"
       >
-        <div className="absolute top-0 left-4 right-4 h-px bg-linear-to-r from-transparent via-neon-blue/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        {project.image && (
+        {background && (
           <div
-            ref={thumbRef}
-            data-project-key={project.key}
-            className="relative -mx-6 -mt-6 mb-6 overflow-hidden group/img"
+            className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-2xl"
+            aria-hidden="true"
           >
-            <div
-              className={`aspect-square overflow-hidden rounded-2xl${isMobile ? '' : ' cursor-pointer'}`}
-              onClick={(e) => {
-                e.stopPropagation()
-                handleOpen()
-              }}
-            >
-              <img
-                src={project.image}
-                alt={t(titleKey)}
-                className="w-full h-full object-cover"
-                onLoad={handleImgLoad}
-              />
-              <div className="absolute inset-0 rounded-2xl bg-black/0 group-hover/img:bg-black/50 transition-colors duration-300" />
-              {!isMobile && (
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    handleOpen()
-                  }}
-                  className="absolute inset-0 rounded-2xl flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 cursor-pointer"
-                  aria-label="Expand image"
-                >
-                  <HiEye className="w-10 h-10 text-white drop-shadow-lg" />
-                </button>
-              )}
-            </div>
+            {background}
           </div>
         )}
-        <h3 className="font-display text-xl font-semibold text-text-primary group-hover:text-neon-blue transition-colors mb-3">
-          {t(titleKey)}
-        </h3>
-        <p className="text-text-secondary text-sm leading-relaxed mb-4">{t(descKey)}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-2 py-0.5 rounded-md bg-slate/30 font-mono text-[11px] text-text-secondary"
+        <div className="relative z-10">
+          <div className="absolute top-0 left-4 right-4 h-px bg-linear-to-r from-transparent via-neon-blue/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {project.image && (
+            <div
+              ref={thumbRef}
+              data-project-key={project.key}
+              className="relative -mx-6 -mt-6 mb-6 overflow-hidden group/img"
             >
-              {t(`projects.tags.${tag}`)}
-            </span>
-          ))}
-        </div>
-        <div className="flex gap-3">
-          {project.github && (
-            <ExternalLink
-              href={project.github}
-              className="inline-flex items-center gap-1.5 font-mono text-xs text-neon-blue hover:text-neon-cyan transition-colors"
-            >
-              GitHub <HiArrowUpRight className="w-3 h-3" />
-            </ExternalLink>
+              <div
+                className={`aspect-square overflow-hidden rounded-2xl${isMobile ? '' : ' cursor-pointer'}`}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleOpen()
+                }}
+              >
+                <img
+                  src={project.image}
+                  alt={t(titleKey)}
+                  className="w-full h-full object-cover"
+                  onLoad={handleImgLoad}
+                />
+                <div className="absolute inset-0 rounded-2xl bg-black/0 group-hover/img:bg-black/50 transition-colors duration-300" />
+                {!isMobile && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      handleOpen()
+                    }}
+                    className="absolute inset-0 rounded-2xl flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 cursor-pointer"
+                    aria-label="Expand image"
+                  >
+                    <HiEye className="w-10 h-10 text-white drop-shadow-lg" />
+                  </button>
+                )}
+              </div>
+            </div>
           )}
-          {project.link && (
-            <ExternalLink
-              href={project.link}
-              className="inline-flex items-center gap-1.5 font-mono text-xs text-neon-purple hover:text-neon-pink transition-colors"
-            >
-              Live <HiArrowUpRight className="w-3 h-3" />
-            </ExternalLink>
-          )}
+          <h3 className="font-display text-xl font-semibold text-text-primary group-hover:text-neon-blue transition-colors mb-3">
+            {t(titleKey)}
+          </h3>
+          <p className="text-text-secondary text-sm leading-relaxed mb-4">{t(descKey)}</p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-2 py-0.5 rounded-sm bg-neon-blue/10 text-neon-blue/80 font-mono text-[11px]"
+              >
+                {t(`projects.tags.${tag}`)}
+              </span>
+            ))}
+          </div>
+          <div className="flex gap-3">
+            {project.github && (
+              <ExternalLink
+                href={project.github}
+                className="inline-flex items-center gap-1.5 font-mono text-xs text-neon-blue hover:text-neon-cyan transition-colors"
+              >
+                GitHub <HiArrowUpRight className="w-3 h-3" />
+              </ExternalLink>
+            )}
+            {project.link && (
+              <ExternalLink
+                href={project.link}
+                className="inline-flex items-center gap-1.5 font-mono text-xs text-neon-purple hover:text-neon-pink transition-colors"
+              >
+                Live <HiArrowUpRight className="w-3 h-3" />
+              </ExternalLink>
+            )}
+          </div>
         </div>
+        {/* end content z-10 */}
         <div
           className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-20 blur-xl"
           style={{
@@ -188,46 +200,137 @@ function ProjectCard({ project, onActivate, isExpanded }: ProjectCardProps) {
   )
 }
 
-export default function Projects() {
+/**
+ * Expanded image overlay — rendered in a portal.
+ * Captures origin/size in local state at mount time so the exit animation
+ * isn't corrupted when the parent's expandState changes (e.g. switching
+ * images while one is still closing).
+ */
+function ExpandedImage({ data, onClose }: { data: ExpandState; onClose: () => void }) {
   const { t } = useTranslation()
-  const [expandState, setExpandState] = useState<ExpandState | null>(null)
-  const imgRef = useRef<HTMLDivElement>(null)
-  const closeRef = useRef<() => void>(() => {})
+  const ref = useRef<HTMLDivElement>(null)
 
+  // Freeze at mount — this instance keeps its own values for its whole lifecycle,
+  // including during exit, so switching images won't corrupt the closing animation.
+  const [origin, setOrigin] = useState(data.origin)
+  const [size] = useState(data.size)
+
+  // Close handler: re-read card position from DOM for scroll-accurate exit,
+  // then trigger the parent's state cleanup.
+  function handleClose() {
+    const el = document.querySelector(`[data-project-key="${data.key}"]`)
+    if (el) {
+      const r = el.getBoundingClientRect()
+      flushSync(() => {
+        setOrigin({
+          left: r.left + window.scrollX,
+          top: r.top + window.scrollY,
+          width: r.width,
+          height: r.height,
+        })
+      })
+    }
+    onClose()
+  }
+
+  function handleClick(e: React.MouseEvent) {
+    e.stopPropagation()
+    handleClose()
+  }
+
+  // Imperative listeners (keyboard, outside-click, scroll/touch close)
   useEffect(() => {
-    if (!expandState) return
+    if (!ref.current) return
     let isActive = true
 
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') closeRef.current()
+      if (e.key === 'Escape') handleClose()
     }
+
     function onDocClick(e: globalThis.MouseEvent) {
-      if (imgRef.current && !imgRef.current.contains(e.target as Node)) {
-        closeRef.current()
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        handleClose()
       }
     }
 
-    const onClose = closeRef.current
-
-    // Defer listener binding to let the enter animation start first,
-    // preventing residual scroll momentum / event bubbling from aborting it
-    const timer = setTimeout(() => {
+    const defer = setTimeout(() => {
       if (!isActive) return
       document.addEventListener('keydown', onKeyDown)
       document.addEventListener('click', onDocClick)
-      window.addEventListener('wheel', onClose, { passive: true, once: true })
-      window.addEventListener('touchmove', onClose, { passive: true, once: true })
+      window.addEventListener('wheel', handleClose, { passive: true, once: true })
+      window.addEventListener('touchmove', handleClose, { passive: true, once: true })
     }, 100)
 
     return () => {
       isActive = false
-      clearTimeout(timer)
+      clearTimeout(defer)
       document.removeEventListener('keydown', onKeyDown)
       document.removeEventListener('click', onDocClick)
-      window.removeEventListener('wheel', onClose)
-      window.removeEventListener('touchmove', onClose)
+      window.removeEventListener('wheel', handleClose)
+      window.removeEventListener('touchmove', handleClose)
     }
-  }, [expandState])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data.key])
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={{
+        initial: {
+          opacity: 0,
+          left: origin.left,
+          top: origin.top,
+          width: origin.width,
+          height: origin.height,
+        },
+        enter: {
+          opacity: 1,
+          left: origin.left + (origin.width - size.w) / 2,
+          top: origin.top + (origin.height - size.h) / 2,
+          width: size.w,
+          height: size.h,
+          transition: {
+            opacity: { duration: 0.15 },
+            left: { type: 'spring', damping: 40, stiffness: 300 },
+            top: { type: 'spring', damping: 40, stiffness: 300 },
+            width: { type: 'spring', damping: 40, stiffness: 300 },
+            height: { type: 'spring', damping: 40, stiffness: 300 },
+          },
+        },
+        exit: {
+          opacity: 0,
+          left: origin.left,
+          top: origin.top,
+          width: origin.width,
+          height: origin.height,
+          transition: {
+            opacity: { duration: 0.15, delay: 0.35 },
+            left: { duration: 0.35, ease: 'easeInOut' },
+            top: { duration: 0.35, ease: 'easeInOut' },
+            width: { duration: 0.35, ease: 'easeInOut' },
+            height: { duration: 0.35, ease: 'easeInOut' },
+          },
+        },
+      }}
+      initial="initial"
+      animate="enter"
+      exit="exit"
+      className="absolute z-40 overflow-hidden cursor-pointer rounded-2xl shadow-2xl shadow-black"
+      onClick={handleClick}
+    >
+      <img
+        src={data.project.image}
+        alt={t(`projects.items.${data.project.key}.title`)}
+        className="w-full h-full object-cover pointer-events-none"
+        draggable={false}
+      />
+    </motion.div>
+  )
+}
+
+export default function Projects() {
+  const { t } = useTranslation()
+  const [expandState, setExpandState] = useState<ExpandState | null>(null)
 
   function handleActivate(
     key: string | null,
@@ -241,26 +344,8 @@ export default function Projects() {
   }
 
   function handleClose() {
-    if (expandState) {
-      const el = document.querySelector(`[data-project-key="${expandState.key}"]`)
-      if (el) {
-        const r = el.getBoundingClientRect()
-        const newOrigin: Origin = {
-          left: r.left + window.scrollX,
-          top: r.top + window.scrollY,
-          width: r.width,
-          height: r.height,
-        }
-        // Force-flush the origin update so the exit animation uses the current position
-        flushSync(() => {
-          setExpandState((prev) => (prev ? { ...prev, origin: newOrigin } : prev))
-        })
-      }
-      setExpandState(null)
-    }
+    setExpandState(null)
   }
-
-  closeRef.current = handleClose
 
   const es = expandState
 
@@ -292,61 +377,7 @@ export default function Projects() {
 
       {createPortal(
         <AnimatePresence>
-          {es && (
-            <motion.div
-              ref={imgRef}
-              key={`img-${es.key}`}
-              variants={{
-                initial: {
-                  opacity: 0,
-                  left: es.origin.left,
-                  top: es.origin.top,
-                  width: es.origin.width,
-                  height: es.origin.height,
-                },
-                enter: {
-                  opacity: 1,
-                  left: es.origin.left + (es.origin.width - es.size.w) / 2,
-                  top: es.origin.top + (es.origin.height - es.size.h) / 2,
-                  width: es.size.w,
-                  height: es.size.h,
-                  transition: {
-                    opacity: { duration: 0.15 },
-                    left: { type: 'spring', damping: 40, stiffness: 300 },
-                    top: { type: 'spring', damping: 40, stiffness: 300 },
-                    width: { type: 'spring', damping: 40, stiffness: 300 },
-                    height: { type: 'spring', damping: 40, stiffness: 300 },
-                  },
-                },
-                exit: {
-                  opacity: 0,
-                  left: es.origin.left,
-                  top: es.origin.top,
-                  width: es.origin.width,
-                  height: es.origin.height,
-                  transition: {
-                    opacity: { duration: 0.15, delay: 0.35 },
-                    left: { duration: 0.35, ease: 'easeInOut' },
-                    top: { duration: 0.35, ease: 'easeInOut' },
-                    width: { duration: 0.35, ease: 'easeInOut' },
-                    height: { duration: 0.35, ease: 'easeInOut' },
-                  },
-                },
-              }}
-              initial="initial"
-              animate="enter"
-              exit="exit"
-              className="absolute z-40 overflow-hidden cursor-pointer rounded-2xl shadow-2xl shadow-black"
-              onClick={handleClose}
-            >
-              <img
-                src={es.project.image}
-                alt={t(`projects.items.${es.project.key}.title`)}
-                className="w-full h-full object-cover pointer-events-none"
-                draggable={false}
-              />
-            </motion.div>
-          )}
+          {es && <ExpandedImage key={`exp-${es.key}`} data={es} onClose={handleClose} />}
         </AnimatePresence>,
         document.body,
       )}

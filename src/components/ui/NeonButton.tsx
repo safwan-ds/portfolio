@@ -14,7 +14,7 @@ interface NeonButtonProps {
 }
 
 const BASE =
-  'inline-flex items-center gap-2 px-6 py-3 rounded-full font-mono text-sm text-neon-blue transition-all'
+  'inline-flex items-center gap-2 px-6 py-3 rounded-sm font-mono text-sm text-neon-blue transition-all select-none'
 const OUTLINE = 'border border-neon-blue/40 hover:bg-neon-blue/10 hover:border-neon-blue/60'
 const SOLID = 'bg-neon-blue/10 border border-neon-blue/40 hover:bg-neon-blue/20'
 

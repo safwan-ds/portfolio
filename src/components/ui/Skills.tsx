@@ -7,7 +7,12 @@ import { useTranslation } from 'react-i18next'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
 import GlassCard from './GlassCard'
-import { HiOutlineChip, HiOutlineCog, HiOutlineTerminal } from 'react-icons/hi'
+import {
+  HiOutlineCodeBracket,
+  HiOutlineCommandLine,
+  HiOutlineCpuChip,
+  HiOutlinePaintBrush,
+} from 'react-icons/hi2'
 import { type SkillCategory, skills } from '../../data'
 
 /** Maps accent name to pre-computed Tailwind classes (no dynamic JIT). */
@@ -42,9 +47,21 @@ const ACCENT_CLASSES: Record<
     tagBorder: 'border-neon-purple/10',
     glowGradient: 'bg-linear-to-br from-neon-purple/5 to-transparent',
   },
+  'neon-green': {
+    iconBg: 'bg-neon-green/10',
+    iconColor: 'text-neon-green',
+    tagBg: 'bg-neon-green/5',
+    tagBorder: 'border-neon-green/10',
+    glowGradient: 'bg-linear-to-br from-neon-green/5 to-transparent',
+  },
 }
 
-const ICON_MAP = { chip: HiOutlineChip, terminal: HiOutlineTerminal, cog: HiOutlineCog }
+const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
+  cpu: HiOutlineCpuChip,
+  code: HiOutlineCodeBracket,
+  command: HiOutlineCommandLine,
+  brush: HiOutlinePaintBrush,
+}
 
 function SkillCard({ category }: { category: SkillCategory }) {
   const { t } = useTranslation()

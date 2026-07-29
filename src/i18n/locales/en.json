@@ -45,46 +45,53 @@
     "label": "Skills",
     "title": "What I work with",
     "categories": {
-      "electrical": {
-        "title": "Electrical Engineering",
+      "hardware": {
+        "title": "Hardware & Embedded",
         "skills": {
           "circuit_analysis": "Circuit Analysis",
           "embedded_systems": "Embedded Systems",
           "signal_processing": "Signal Processing",
           "control_systems": "Control Systems",
-          "arduino_stm32": "Arduino / STM32",
+          "arduino": "Arduino",
           "matlab_simulink": "MATLAB / Simulink",
-          "verilog_fpga": "Verilog / FPGA",
-          "iot_sensors": "IoT & Sensors"
+          "iot_sensors": "IoT & Sensors",
+          "latex": "LaTeX"
         }
       },
-      "software": {
-        "title": "Software & AI Development",
+      "ai": {
+        "title": "AI & Machine Learning",
         "skills": {
           "python": "Python",
           "pytorch": "PyTorch",
-          "neural_networks": "Neural Networks",
           "machine_learning": "Machine Learning",
-          "c_cpp": "C / C++",
-          "typescript": "TypeScript",
-          "gdscript_godot": "GDScript (Godot)"
+          "llm_apis": "LLM APIs & Agents",
+          "hermes_agent": "Hermes Agent"
         }
       },
-      "tools": {
-        "title": "Tools & Workflow",
+      "software": {
+        "title": "Software Development",
         "skills": {
+          "c_cpp": "C / C++",
+          "typescript": "TypeScript",
+          "html_css": "HTML / CSS",
+          "react": "React",
+          "tailwind_css": "Tailwind CSS",
+          "vite": "Vite",
           "git_github": "Git / GitHub",
-          "vs_code": "VS Code",
-          "opencode": "Opencode",
-          "hermes_agent": "Hermes Agent",
-          "touch_typing": "Touch Typing",
-          "godot_engine": "Godot Engine",
-          "blender": "Blender",
           "docker": "Docker",
           "linux_bash": "Linux / Bash",
-          "llm_apis": "LLM APIs & Agents",
-          "obsidian": "Obsidian",
-          "latex": "LaTeX"
+          "vs_code": "VS Code"
+        }
+      },
+      "creative": {
+        "title": "Creative & Media",
+        "skills": {
+          "blender": "Blender",
+          "after_effects": "After Effects",
+          "premiere_pro": "Premiere Pro",
+          "illustrator": "Illustrator",
+          "godot_engine": "Godot Engine",
+          "game_design": "Game Design"
         }
       }
     }
@@ -108,7 +115,8 @@
       "threejs": "Three.js",
       "r3f": "R3F",
       "tailwind_css": "Tailwind CSS",
-      "i18n": "i18n"
+      "i18n": "i18n",
+      "paper_shaders": "Paper Shaders"
     },
     "items": {
       "sign2speech": {
@@ -116,12 +124,8 @@
         "description": "A gesture-to-speech recognition system that converts hand gestures captured via sensors into spoken output. It seamlessly combines embedded hardware with signal processing for accessible communication."
       },
       "portfolio": {
-        "title": "3D Portfolio",
-        "description": "This website — an interactive 3D portfolio built using React Three Fiber. It features cinematic bloom lighting, scroll-driven camera animations, an AI chat assistant about my background, and comprehensive i18n support (EN/AR/TR)."
-      },
-      "dsp-toolkit": {
-        "title": "DSP Toolkit",
-        "description": "A Python toolkit designed for digital signal processing coursework: features FFT analysis, FIR/IIR filter design, spectrogram generation, and real-time audio visualization using Matplotlib."
+        "title": "Portfolio Website",
+        "description": "This portfolio website — a flat-design retro-themed personal site built with React, TypeScript, and Tailwind CSS. Features paper shader visual effects, an AI chat assistant, and full i18n support (EN/AR/TR)."
       },
       "boost_converter_pwm": {
         "title": "Boost Converter PWM",
@@ -167,7 +171,8 @@
   },
   "footer": {
     "copyright": "Safwan",
-    "madewith": "Made with love"
+    "madewith": "Made with love",
+    "source": "Source"
   },
   "language": {
     "en": "English",

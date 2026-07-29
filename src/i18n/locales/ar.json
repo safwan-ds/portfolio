@@ -45,46 +45,53 @@
     "label": "المهارات",
     "title": "الأدوات والتقنيات التي أستخدمها",
     "categories": {
-      "electrical": {
-        "title": "الهندسة الكهربائية",
+      "hardware": {
+        "title": "الهندسة والأنظمة المدمجة",
         "skills": {
           "circuit_analysis": "تحليل الدوائر",
           "embedded_systems": "الأنظمة المدمجة",
           "signal_processing": "معالجة الإشارات",
           "control_systems": "أنظمة التحكم",
-          "arduino_stm32": "Arduino / STM32",
+          "arduino": "Arduino",
           "matlab_simulink": "MATLAB / Simulink",
-          "verilog_fpga": "Verilog / FPGA",
-          "iot_sensors": "إنترنت الأشياء والحساسات"
+          "iot_sensors": "إنترنت الأشياء والحساسات",
+          "latex": "LaTeX"
         }
       },
-      "software": {
-        "title": "البرمجيات والذكاء الاصطناعي",
+      "ai": {
+        "title": "الذكاء الاصطناعي",
         "skills": {
           "python": "Python",
           "pytorch": "PyTorch",
-          "neural_networks": "الشبكات العصبية",
           "machine_learning": "تعلم الآلة",
-          "c_cpp": "C / C++",
-          "typescript": "TypeScript",
-          "gdscript_godot": "GDScript (Godot)"
+          "llm_apis": "واجهات النماذج اللغوية",
+          "hermes_agent": "Hermes Agent"
         }
       },
-      "tools": {
-        "title": "الأدوات وبيئة العمل",
+      "software": {
+        "title": "تطوير البرمجيات",
         "skills": {
+          "c_cpp": "C / C++",
+          "typescript": "TypeScript",
+          "html_css": "HTML / CSS",
+          "react": "React",
+          "tailwind_css": "Tailwind CSS",
+          "vite": "Vite",
           "git_github": "Git / GitHub",
-          "vs_code": "VS Code",
-          "opencode": "Opencode",
-          "hermes_agent": "Hermes Agent",
-          "touch_typing": "الطباعة باللمس",
-          "godot_engine": "Godot Engine",
-          "blender": "Blender",
           "docker": "Docker",
           "linux_bash": "Linux / Bash",
-          "llm_apis": "واجهات النماذج اللغوية الكبيرة",
-          "obsidian": "Obsidian",
-          "latex": "LaTeX"
+          "vs_code": "VS Code"
+        }
+      },
+      "creative": {
+        "title": "إبداع ووسائط",
+        "skills": {
+          "blender": "Blender",
+          "after_effects": "After Effects",
+          "premiere_pro": "Premiere Pro",
+          "illustrator": "Illustrator",
+          "godot_engine": "Godot Engine",
+          "game_design": "تصميم الألعاب"
         }
       }
     }
@@ -108,7 +115,8 @@
       "threejs": "Three.js",
       "r3f": "R3F",
       "tailwind_css": "Tailwind CSS",
-      "i18n": "تدويل"
+      "i18n": "تدويل",
+      "paper_shaders": "Paper Shaders"
     },
     "items": {
       "sign2speech": {
@@ -116,12 +124,8 @@
         "description": "نظام للتعرف على الإيماءات وتحويلها إلى كلام منطوق. يعمل على التقاط إيماءات اليد عبر حساسات مخصصة وتحويلها إلى مخرجات صوتية، دامجاً بين الأنظمة المدمجة ومعالجة الإشارات لتسهيل التواصل."
       },
       "portfolio": {
-        "title": "3D Portfolio",
-        "description": "هذا الموقع عبارة عن محفظة شخصية تفاعلية ثلاثية الأبعاد، مبنية باستخدام React Three Fiber. يتميز بإضاءة سينمائية، وحركة كاميرا تفاعلية تعتمد على التمرير، ومساعد ذكي للدردشة عن المعلومات الخاصة بي، مع دعم كامل لتعدد اللغات."
-      },
-      "dsp-toolkit": {
-        "title": "DSP Toolkit",
-        "description": "مجموعة أدوات برمجية بلغة Python مصممة لمقررات معالجة الإشارات الرقمية. تشمل تحليل فورييه السريع (FFT)، وتصميم مرشحات FIR و IIR، وتوليد المخططات الطيفية، بالإضافة إلى التصوير المباشر للصوت."
+        "title": "Portfolio Website",
+        "description": "موقع المحفظة الشخصية هذا — بتصميم مسطح (Flat Design) وطابع رجعي، مبني باستخدام React و TypeScript و Tailwind CSS. يتميز بتأثيرات بصرية (Paper Shaders)، ومساعد ذكي للدردشة، ودعم كامل لتعدد اللغات (EN/AR/TR)."
       },
       "boost_converter_pwm": {
         "title": "Boost Converter PWM",
@@ -167,7 +171,8 @@
   },
   "footer": {
     "copyright": "صفوان",
-    "madewith": "صُنع بحب"
+    "madewith": "صُنع بحب",
+    "source": "المصدر"
   },
   "language": {
     "en": "English",

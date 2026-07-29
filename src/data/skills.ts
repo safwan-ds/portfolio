@@ -13,58 +13,67 @@ export interface SkillItem {
 export interface SkillCategory {
   /** i18n key for category title: skills.categories.<key>.title */
   key: string
-  icon: 'chip' | 'terminal' | 'cog'
-  accent: 'neon-cyan' | 'neon-blue' | 'neon-purple'
+  icon: 'cpu' | 'code' | 'command' | 'brush'
+  accent: 'neon-cyan' | 'neon-blue' | 'neon-purple' | 'neon-green'
   skills: readonly SkillItem[]
 }
 
 const skills: readonly SkillCategory[] = [
   {
-    key: 'electrical',
-    icon: 'chip',
+    key: 'hardware',
+    icon: 'cpu',
     accent: 'neon-cyan',
     skills: [
       { key: 'circuit_analysis' },
       { key: 'embedded_systems' },
       { key: 'signal_processing' },
       { key: 'control_systems' },
-      { key: 'arduino_stm32' },
+      { key: 'arduino' },
       { key: 'matlab_simulink' },
-      { key: 'verilog_fpga' },
       { key: 'iot_sensors' },
+      { key: 'latex' },
     ],
   },
   {
-    key: 'software',
-    icon: 'terminal',
+    key: 'ai',
+    icon: 'code',
     accent: 'neon-blue',
     skills: [
       { key: 'python' },
       { key: 'pytorch' },
-      { key: 'neural_networks' },
       { key: 'machine_learning' },
-      { key: 'c_cpp' },
-      { key: 'typescript' },
-      { key: 'gdscript_godot' },
+      { key: 'llm_apis' },
+      { key: 'hermes_agent' },
     ],
   },
   {
-    key: 'tools',
-    icon: 'cog',
+    key: 'software',
+    icon: 'command',
     accent: 'neon-purple',
     skills: [
+      { key: 'c_cpp' },
+      { key: 'typescript' },
+      { key: 'html_css' },
+      { key: 'react' },
+      { key: 'tailwind_css' },
+      { key: 'vite' },
       { key: 'git_github' },
-      { key: 'vs_code' },
-      { key: 'opencode' },
-      { key: 'hermes_agent' },
-      { key: 'touch_typing' },
-      { key: 'godot_engine' },
-      { key: 'blender' },
       { key: 'docker' },
       { key: 'linux_bash' },
-      { key: 'llm_apis' },
-      { key: 'obsidian' },
-      { key: 'latex' },
+      { key: 'vs_code' },
+    ],
+  },
+  {
+    key: 'creative',
+    icon: 'brush',
+    accent: 'neon-green',
+    skills: [
+      { key: 'blender' },
+      { key: 'after_effects' },
+      { key: 'premiere_pro' },
+      { key: 'illustrator' },
+      { key: 'godot_engine' },
+      { key: 'game_design' },
     ],
   },
 ]

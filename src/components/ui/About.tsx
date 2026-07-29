@@ -4,6 +4,7 @@
  */
 
 import { useTranslation } from 'react-i18next'
+import { Dithering } from '@paper-design/shaders-react'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
 import GlassCard from './GlassCard'
@@ -16,7 +17,23 @@ export default function About() {
   const { t } = useTranslation()
 
   return (
-    <SectionWrapper id="about" label={t('about.label')} title={t('about.title')}>
+    <SectionWrapper
+      id="about"
+      label={t('about.label')}
+      title={t('about.title')}
+      background={
+        <Dithering
+          colorBack="#00000000"
+          colorFront={PALETTE.carbon}
+          shape="swirl"
+          type="8x8"
+          size={4.2}
+          speed={0.98}
+          scale={0.56}
+          className="w-full h-full"
+        />
+      }
+    >
       <SectionReveal delay={0.15}>
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           <div className="space-y-5">
