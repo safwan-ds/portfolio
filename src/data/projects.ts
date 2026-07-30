@@ -27,7 +27,7 @@ const projects: readonly Project[] = [
   },
   {
     key: 'boost_converter_pwm',
-    tags: ['arduino', 'cpp', 'power_electronics'],
+    tags: ['arduino', 'power_electronics'],
     github: 'https://github.com/safwan-ds/boost_converter_pwm',
     image: '/portfolio/images/projects/boost_circuit.jpg',
   },

@@ -6,7 +6,7 @@
 import { useTranslation } from 'react-i18next'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
-import GlassCard from './GlassCard'
+import FlatCard from './FlatCard.tsx'
 import FlagIcon from './FlagIcon'
 import ProgressBar from './ProgressBar'
 import { languages } from '../../data'
@@ -27,7 +27,7 @@ export default function Languages() {
           {languages.map((lang) => {
             const bar = LEVEL_BAR[lang.levelKey]
             return (
-              <GlassCard key={lang.key}>
+              <FlatCard key={lang.key}>
                 {/* Mobile: stacked; sm+: horizontal row */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4">
                   {/* Language name + flag */}
@@ -55,7 +55,7 @@ export default function Languages() {
                     </p>
                   </div>
                 </div>
-              </GlassCard>
+              </FlatCard>
             )
           })}
         </div>

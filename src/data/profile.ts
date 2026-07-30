@@ -29,8 +29,10 @@ export interface Profile {
   linkedin: string
   /** Upwork freelancer username (for URL) */
   upwork: string
-  /** Fiverr freelancer id (for URL) */
-  fiverr: string
+  /** YouTube channel handle (for URL) */
+  youtube: string
+  /** Instagram username (for URL) */
+  instagram: string
   /** Interest i18n keys — each maps to about.interests.<key> in translations */
   interestKeys: readonly string[]
 }
@@ -41,12 +43,13 @@ const profile: Profile = {
   location: 'Turkey / Kuwait',
   education: 'B.Sc. Electrical & Electronics Engineering',
   school: 'Erzincan Binali Yıldırım University',
-  email: 'safwanemad2002@gmail.com',
+  email: '',
   github: 'safwan-ds',
   linkedin: 'safwan-e-6438a398',
   upwork: 'safwands',
-  fiverr: 'akRXNlW',
-  interestKeys: ['embedded', 'signal', 'control', 'ai', 'nn', 'ml', 'llm', 'game', '3d'],
+  youtube: '@safwan-ds',
+  instagram: 'saf.wan_ds',
+  interestKeys: ['web', 'software', 'ai', 'ml', 'embedded', '3d', 'game', 'ui_ux'],
 }
 
 export default profile

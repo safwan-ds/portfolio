@@ -1,100 +1,162 @@
 /**
- * Skills section — reads skill categories from src/data/skills.ts.
- * Purely presentational — edit skills.ts to change content.
+ * Skills section — flip cards for each category.
+ * Front shows the category, back lists the skills.
+ * Flips on hover with staggered skill reveal.
+ * Adapted from KokonutUI CardFlip concept, styled to the flat retro palette.
  */
 
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useDeviceTier } from '../../hooks/useDeviceTier'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
-import GlassCard from './GlassCard'
 import {
-  HiOutlineCodeBracket,
   HiOutlineCommandLine,
   HiOutlineCpuChip,
-  HiOutlinePaintBrush,
+  HiOutlineFilm,
+  HiOutlineGlobeAlt,
+  HiOutlinePuzzlePiece,
+  HiOutlineSignal,
+  HiOutlineSparkles,
+  HiOutlineWrenchScrewdriver,
 } from 'react-icons/hi2'
 import { type SkillCategory, skills } from '../../data'
+import RippleGrid from './RippleGrid'
 
-/** Maps accent name to pre-computed Tailwind classes (no dynamic JIT). */
 const ACCENT_CLASSES: Record<
   string,
-  {
-    iconBg: string
-    iconColor: string
-    tagBg: string
-    tagBorder: string
-    glowGradient: string
-  }
+  { iconBg: string; iconColor: string; tagBg: string; tagBorder: string }
 > = {
   'neon-cyan': {
     iconBg: 'bg-neon-cyan/10',
     iconColor: 'text-neon-cyan',
     tagBg: 'bg-neon-cyan/5',
     tagBorder: 'border-neon-cyan/10',
-    glowGradient: 'bg-linear-to-br from-neon-cyan/5 to-transparent',
   },
   'neon-blue': {
     iconBg: 'bg-neon-blue/10',
     iconColor: 'text-neon-blue',
     tagBg: 'bg-neon-blue/5',
     tagBorder: 'border-neon-blue/10',
-    glowGradient: 'bg-linear-to-br from-neon-blue/5 to-transparent',
   },
   'neon-purple': {
     iconBg: 'bg-neon-purple/10',
     iconColor: 'text-neon-purple',
     tagBg: 'bg-neon-purple/5',
     tagBorder: 'border-neon-purple/10',
-    glowGradient: 'bg-linear-to-br from-neon-purple/5 to-transparent',
   },
   'neon-green': {
     iconBg: 'bg-neon-green/10',
     iconColor: 'text-neon-green',
     tagBg: 'bg-neon-green/5',
     tagBorder: 'border-neon-green/10',
-    glowGradient: 'bg-linear-to-br from-neon-green/5 to-transparent',
   },
 }
 
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   cpu: HiOutlineCpuChip,
-  code: HiOutlineCodeBracket,
+  wrench: HiOutlineWrenchScrewdriver,
+  signal: HiOutlineSignal,
+  sparkles: HiOutlineSparkles,
+  globe: HiOutlineGlobeAlt,
   command: HiOutlineCommandLine,
-  brush: HiOutlinePaintBrush,
+  puzzle: HiOutlinePuzzlePiece,
+  film: HiOutlineFilm,
 }
 
-function SkillCard({ category }: { category: SkillCategory }) {
+function SkillFlipCard({ category }: { category: SkillCategory }) {
   const { t } = useTranslation()
+  const { isMobile } = useDeviceTier()
+  const [flipped, setFlipped] = useState(false)
   const Icon = ICON_MAP[category.icon]
   const ac = ACCENT_CLASSES[category.accent]
 
+  /* Desktop → hover flips. Mobile → click toggles. */
+
+  const hoverProps = isMobile
+    ? {}
+    : {
+        onMouseEnter: () => setFlipped(true) as void,
+        onMouseLeave: () => setFlipped(false) as void,
+      }
+
   return (
-    <GlassCard className="group relative">
+    <div
+      className="group relative h-[300px] w-full [perspective:2000px] transition-transform duration-300 hover:scale-[1.02] active:scale-[1.01]"
+      {...hoverProps}
+      onClick={isMobile ? () => setFlipped((p) => !p) : undefined}
+    >
       <div
-        className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 ${ac.glowGradient}`}
-      />
-      <div className="flex items-center gap-3 mb-5">
-        <div className={`p-2 rounded-lg ${ac.iconBg}`}>
-          <Icon className={`w-5 h-5 ${ac.iconColor}`} />
+        className={`relative h-full w-full [transform-style:preserve-3d] transition-transform duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] motion-reduce:transition-none ${
+          flipped ? '[transform:rotateY(180deg)]' : '[transform:rotateY(0deg)]'
+        }`}
+      >
+        {/* RippleGrid background — flips with the card */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-lg"
+          aria-hidden="true"
+        >
+          <RippleGrid
+            enableRainbow={false}
+            gridColor="#ffffff"
+            rippleIntensity={0.03}
+            gridSize={10}
+            gridThickness={20}
+            fadeDistance={3.5}
+            vignetteStrength={4.0}
+            glowIntensity={0.8}
+            opacity={1.0}
+            mouseInteraction={false}
+          />
         </div>
-        <h3 className="font-display text-lg font-semibold text-text-primary">
-          {t(`skills.categories.${category.key}.title`)}
-        </h3>
-      </div>
-      <div className="grid grid-cols-2 gap-2">
-        {category.skills.map((skill) => {
-          const skillKey = `skills.categories.${category.key}.skills.${skill.key}`
-          return (
+        {/* ── Front face ── */}
+        <div className="absolute inset-0 h-full w-full [backface-visibility:hidden] [transform:rotateY(0deg)] overflow-hidden rounded-lg bg-carbon/85 border border-slate/20 group-hover:border-text-primary/20 transition-all duration-300 p-6 flex flex-col">
+          <div className="flex-1 flex flex-col items-center justify-center gap-4">
             <div
-              key={skill.key}
-              className={`px-3 py-1.5 rounded-md font-mono text-xs text-text-secondary ${ac.tagBg} ${ac.tagBorder} border group-hover:border-slate/40 transition-colors`}
+              className={`p-3 rounded-xl ${ac.iconBg} transition-transform duration-300 group-hover:scale-110`}
             >
-              {t(skillKey)}
+              <Icon className={`w-8 h-8 ${ac.iconColor}`} />
             </div>
-          )
-        })}
+            <h3 className="font-display text-xl font-bold text-text-primary text-center leading-snug">
+              {t(`skills.categories.${category.key}.title`)}
+            </h3>
+          </div>
+        </div>
+
+        {/* ── Back face ── */}
+        <div className="absolute inset-0 h-full w-full [backface-visibility:hidden] [transform:rotateY(180deg)] overflow-hidden rounded-lg bg-carbon/95 border border-slate/20 p-6 flex flex-col">
+          {/* Header */}
+          <div className="flex items-center gap-2 mb-4">
+            <div className={`p-1.5 rounded-lg ${ac.iconBg}`}>
+              <Icon className={`w-4 h-4 ${ac.iconColor}`} />
+            </div>
+            <h3 className="font-display text-sm font-semibold text-text-primary leading-tight">
+              {t(`skills.categories.${category.key}.title`)}
+            </h3>
+          </div>
+
+          {/* Skills list — staggered reveal */}
+          <div className="flex-1 flex flex-wrap content-start gap-2">
+            {category.skills.map((skill, i) => {
+              const skillKey = `skills.categories.${category.key}.skills.${skill.key}`
+              return (
+                <div
+                  key={skill.key}
+                  className={`px-2.5 py-1 rounded-md font-mono text-xs text-text-secondary ${ac.tagBg} ${ac.tagBorder} border transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]`}
+                  style={{
+                    transform: flipped ? 'translateX(0)' : 'translateX(-8px)',
+                    opacity: flipped ? 1 : 0,
+                    transitionDelay: `${i * 40}ms`,
+                  }}
+                >
+                  {t(skillKey)}
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </div>
-    </GlassCard>
+    </div>
   )
 }
 
@@ -104,9 +166,9 @@ export default function Skills() {
   return (
     <SectionWrapper id="skills" label={t('skills.label')} title={t('skills.title')}>
       <SectionReveal delay={0.15}>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 select-none">
           {skills.map((cat) => (
-            <SkillCard key={cat.key} category={cat} />
+            <SkillFlipCard key={cat.key} category={cat} />
           ))}
         </div>
       </SectionReveal>

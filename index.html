@@ -27,12 +27,100 @@
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
   <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=VT323&family=Changa:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=VT323&family=Changa:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
 </head>
 <body>
+  <!-- ═══ Preloader — shown until fonts, images & React are ready ═══ -->
+  <div id="preloader">
+    <div id="preloader-spinner"></div>
+    <div id="preloader-text">Loading</div>
+  </div>
+
   <div id="root"></div>
   <script src="/src/main.tsx" type="module"></script>
+
+  <script>
+    (function () {
+      /* ── Preloader lifecycle ──
+         Waits for 3 signals before fading out:
+           1. fonts loaded   (document.fonts.ready)
+           2. window.load    (all classic resources)
+           3. React + hero   (Hero.tsx calls window._preloaderReady after
+                              the logo image loads AND the shader inits)
+         A 10 s fallback prevents getting stuck.                        */
+      var signals = { fonts: false, load: false, react: false }
+
+      function check() {
+        if (signals.fonts && signals.load && signals.react) {
+          var el = document.getElementById('preloader')
+          if (el) el.classList.add('hidden')
+        }
+      }
+
+      /* 1 — Fonts */
+      if (document.fonts) {
+        document.fonts.ready.then(function () {
+          signals.fonts = true; check()
+        })
+      } else {
+        signals.fonts = true
+      }
+
+      /* 2 — Window load */
+      window.addEventListener('load', function () {
+        signals.load = true; check()
+      })
+
+      /* 3 — Called by Hero.tsx after Suspense resolves (processed image blob ready) */
+      window._preloaderReady = function () {
+        signals.react = true; check()
+      }
+
+      /* Safety net: never stuck longer than 10 s */
+      setTimeout(function () {
+        signals.fonts = signals.load = signals.react = true; check()
+      }, 10000)
+    })()
+  </script>
+
+  <style>
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #141E3A;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    #preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    #preloader-spinner {
+      width: 34px;
+      height: 34px;
+      border: 2px solid rgba(192, 132, 255, 0.15);
+      border-top-color: #C084FF;
+      border-radius: 50%;
+      animation: preloader-spin 0.8s linear infinite;
+    }
+    @keyframes preloader-spin {
+      to { transform: rotate(360deg); }
+    }
+    #preloader-text {
+      margin-top: 16px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(232, 213, 184, 0.6);
+    }
+  </style>
 </body>
 </html>

@@ -13,68 +13,66 @@ export interface SkillItem {
 export interface SkillCategory {
   /** i18n key for category title: skills.categories.<key>.title */
   key: string
-  icon: 'cpu' | 'code' | 'command' | 'brush'
+  icon: 'cpu' | 'wrench' | 'signal' | 'sparkles' | 'globe' | 'command' | 'puzzle' | 'film'
   accent: 'neon-cyan' | 'neon-blue' | 'neon-purple' | 'neon-green'
   skills: readonly SkillItem[]
 }
 
 const skills: readonly SkillCategory[] = [
   {
-    key: 'hardware',
+    key: 'circuit_analysis',
     icon: 'cpu',
     accent: 'neon-cyan',
-    skills: [
-      { key: 'circuit_analysis' },
-      { key: 'embedded_systems' },
-      { key: 'signal_processing' },
-      { key: 'control_systems' },
-      { key: 'arduino' },
-      { key: 'matlab_simulink' },
-      { key: 'iot_sensors' },
-      { key: 'latex' },
-    ],
+    skills: [{ key: 'proteus' }, { key: 'cst_studio' }, { key: 'psim' }],
   },
   {
-    key: 'ai',
-    icon: 'code',
+    key: 'embedded_systems',
+    icon: 'wrench',
+    accent: 'neon-cyan',
+    skills: [{ key: 'arduino' }, { key: 'iot_sensors' }],
+  },
+  {
+    key: 'signal_processing',
+    icon: 'signal',
+    accent: 'neon-cyan',
+    skills: [{ key: 'matlab_simulink' }],
+  },
+  {
+    key: 'machine_learning',
+    icon: 'sparkles',
     accent: 'neon-blue',
-    skills: [
-      { key: 'python' },
-      { key: 'pytorch' },
-      { key: 'machine_learning' },
-      { key: 'llm_apis' },
-      { key: 'hermes_agent' },
-    ],
+    skills: [{ key: 'python' }, { key: 'pytorch' }, { key: 'llm_apis' }, { key: 'ai_agents' }],
   },
   {
-    key: 'software',
-    icon: 'command',
+    key: 'web_development',
+    icon: 'globe',
     accent: 'neon-purple',
     skills: [
-      { key: 'c_cpp' },
       { key: 'typescript' },
       { key: 'html_css' },
       { key: 'react' },
       { key: 'tailwind_css' },
       { key: 'vite' },
-      { key: 'git_github' },
-      { key: 'docker' },
-      { key: 'linux_bash' },
-      { key: 'vs_code' },
+      { key: 'threejs_r3f' },
     ],
   },
   {
-    key: 'creative',
-    icon: 'brush',
+    key: 'devops',
+    icon: 'command',
+    accent: 'neon-purple',
+    skills: [{ key: 'git_github' }, { key: 'docker' }, { key: 'linux_bash' }],
+  },
+  {
+    key: 'game_design',
+    icon: 'puzzle',
     accent: 'neon-green',
-    skills: [
-      { key: 'blender' },
-      { key: 'after_effects' },
-      { key: 'premiere_pro' },
-      { key: 'illustrator' },
-      { key: 'godot_engine' },
-      { key: 'game_design' },
-    ],
+    skills: [{ key: 'godot_engine' }, { key: 'blender' }],
+  },
+  {
+    key: 'multimedia',
+    icon: 'film',
+    accent: 'neon-green',
+    skills: [{ key: 'after_effects' }, { key: 'premiere_pro' }, { key: 'illustrator' }],
   },
 ]
 

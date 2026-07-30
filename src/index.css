@@ -1,25 +1,44 @@
 @import 'tailwindcss';
 
 @theme {
-  /* Base — deep navy */
-  --color-void: #141e3a;
-  --color-carbon: #31466e;
-  --color-graphite: #253556;
-  --color-slate: #4a5e8a;
+  /* ═══════════════════════════════════════════════════════════════
+     COLOR PALETTE
+     Old names (void, neon-blue, etc.) are preserved for Tailwind
+     utility-class compatibility across all components.
+     Accurate/fixed names are aliased alongside them.
 
-  /* Accents */
+     Hex values are the single source of truth — edit ONLY here.
+     ═══════════════════════════════════════════════════════════════ */
+
+  /* ── Base ── */
+  --color-void: #141e3a;
+  --color-midnight: #141e3a; /* accurate name */
+  --color-carbon: #31466e;
+  --color-navy: #31466e; /* accurate name */
+  --color-graphite: #253556;
+  --color-dark-navy: #253556; /* accurate name */
+  --color-slate: #4a5e8a;
+  --color-steel-blue: #4a5e8a; /* accurate name */
+
+  /* ── Accents ── */
   --color-neon-blue: #c084ff;
+  --color-lavender: #c084ff; /* accurate name */
   --color-neon-purple: #d4acff;
+  --color-light-purple: #d4acff; /* accurate name */
   --color-neon-cyan: #ffcf95;
   --color-neon-pink: #ffcf95;
+  --color-peach: #ffcf95; /* accurate name */
   --color-neon-green: #34d399;
+  --color-emerald: #34d399; /* accurate name */
 
-  /* Text */
+  /* ── Text ── */
   --color-text-primary: #fff0d9;
+  --color-cream: #fff0d9; /* accurate name */
   --color-text-secondary: #e8d5b8;
+  --color-warm-beige: #e8d5b8; /* accurate name */
 
   /* ── Font stacks ── */
-  --font-display: 'Orbitron', sans-serif;
+  --font-display: 'Rajdhani', sans-serif;
   --font-body: 'Rajdhani', sans-serif;
   --font-mono: 'Share Tech Mono', monospace;
   --font-vt323: 'VT323', monospace;
@@ -60,24 +79,20 @@
 
   body {
     font-family: var(--font-body), sans-serif;
-    background-color: var(--color-void);
-    color: var(--color-text-primary);
+    background-color: var(--color-midnight);
+    color: var(--color-cream);
     overflow-x: hidden;
   }
 
   /* ── Script-specific font stacks ──
-       Arabic gets a modern Kufic stack for display/body and a rigid boxy
-       stack for HUD/mono elements. :lang() selectors hook into the
-       `document.documentElement.lang` attribute set by i18n/config.ts.  ── */
+       Arabic gets Changa for display/body/mono. Latin/TR use Rajdhani
+       (set via @theme above, same as body). :lang() selectors hook
+       into the `document.documentElement.lang` attribute set by
+       i18n/config.ts.                                                   */
   :lang(ar) {
     --font-display: 'Changa', sans-serif;
     --font-body: 'Changa', sans-serif;
     --font-mono: 'Changa', sans-serif;
-  }
-
-  /* ── Turkish: Orbitron lacks Ğ/Ş — use Rajdhani (supports Turkish, same techy feel) ── */
-  :lang(tr) {
-    --font-display: 'Rajdhani', sans-serif;
   }
 
   /* ── Scrollbar styling ── */
@@ -86,16 +101,16 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--color-void);
+    background: var(--color-midnight);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--color-slate);
+    background: var(--color-steel-blue);
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-neon-purple);
+    background: var(--color-light-purple);
   }
 
   /* ── Images: prevent drag / select ── */
@@ -106,13 +121,13 @@
 
   /* ── Text selection ── */
   ::selection {
-    background-color: color-mix(in srgb, var(--color-neon-blue) 40%, transparent);
-    color: var(--color-text-primary);
+    background-color: color-mix(in srgb, var(--color-lavender) 40%, transparent);
+    color: var(--color-cream);
   }
 
   ::-moz-selection {
-    background-color: color-mix(in srgb, var(--color-neon-blue) 40%, transparent);
-    color: var(--color-text-primary);
+    background-color: color-mix(in srgb, var(--color-lavender) 40%, transparent);
+    color: var(--color-cream);
   }
 }
 

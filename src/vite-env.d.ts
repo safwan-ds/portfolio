@@ -1,4 +1,9 @@
 /// <reference types="vite/client" />
+
+/* Preloader ready signal — set by App.tsx, called from index.html inline script */
+interface Window {
+  _preloaderReady?: () => void
+}
 /// <reference types="vite-plugin-svgr/client" />
 
 interface ImportMetaEnv {

@@ -1,10 +1,8 @@
 {
   "hero": {
     "title": "Safwan",
-    "subtitle": "Electrical & Electronics Engineering Student & AI Developer",
-    "description": "Final-year Electrical & Electronics Engineering student at Erzincan Binali Yıldırım University. Originally from Egypt, I live in Kuwait and currently study in Turkey. I build at the intersection of hardware and AI — spanning embedded systems, signal processing, neural networks, and machine learning.",
-    "cta_explore": "Explore",
-    "cta_contact": "Contact",
+    "subtitle": "Software Engineer & Interactive Media Developer",
+    "description": "Final-year Electrical & Electronics Engineering student and Software Developer. I develop integrated solutions combining physical hardware (Arduino, IoT) and AI (PyTorch, LLMs) with modern web development (React, TypeScript, Tailwind) and creative multimedia design.",
     "scroll": "Scroll"
   },
   "nav": {
@@ -17,94 +15,107 @@
   },
   "about": {
     "label": "About Me",
-    "title": "The person behind the screen",
-    "bio_1": "I am a final-year Electrical & Electronics Engineering student at Erzincan Binali Yıldırım University. Originally from Egypt, I live in Kuwait and currently study in Turkey.",
-    "bio_2": "My work spans embedded systems (Arduino, STM32), signal processing (FFT, filter design), and Artificial Intelligence. Whether it's debugging a complex circuit or training a neural network model, I believe the best engineers deeply understand both the hardware and intelligent software layers.",
-    "bio_3": "Outside of coursework, I explore deep learning architectures, develop games using Godot 4.7 (such as my project AstroDodge), and experiment with IoT and gesture-recognition technologies.",
+    "title": "Professional Profile",
+    "bio_1": "I am a final-year Electrical and Electronics Engineering student based in Turkey. I specialize in designing highly efficient, integrated systems by leveraging a broad skill set across hardware engineering, artificial intelligence, software development, and multimedia design.",
+    "bio_2": "In the engineering domain, I leverage advanced analytical skills to diagnose complex circuits and design control systems, utilizing tools like Arduino, MATLAB/Simulink, and IoT sensors. Driven by the belief that the best solutions seamlessly blend physical hardware with intelligent software, I bridge engineering with Artificial Intelligence, using Python and PyTorch for machine learning, alongside LLM APIs and AI Agents to build smart, data-driven applications.",
+    "bio_3": "On the software front, I build robust applications with TypeScript, HTML/CSS, React, Tailwind CSS, and Vite, incorporating tools like Three.js and React Three Fiber for immersive graphics. I manage workflows using Git/GitHub, Docker, Linux/Bash, and LaTeX for documentation. Additionally, I am passionate about multimedia and game design, bringing interactive 3D and video experiences to life using Blender, After Effects, Premiere Pro, Illustrator, and the Godot Engine.",
     "name_label": "Name",
     "name_val": "Safwan Emad",
     "location_label": "Location",
     "location_val": "Turkey / Kuwait",
     "education_label": "Education",
-    "education_val": "B.Sc. Electrical & Electronics Engineering",
+    "education_val": "B.Sc. in Electrical and Electronics Engineering",
     "education_school": "Erzincan Binali Yıldırım University",
     "interests_label": "Interests",
     "interests": {
-      "ai": "AI & Machine Learning",
-      "nn": "Neural Networks",
+      "web": "Web Development",
+      "software": "Software Engineering",
+      "ai": "Artificial Intelligence",
       "ml": "Machine Learning",
-      "llm": "LLMs & Agents",
       "embedded": "Embedded Systems",
-      "signal": "Signal Processing",
-      "control": "Control Systems",
+      "3d": "3D Graphics",
       "game": "Game Development",
-      "3d": "3D Graphics"
+      "ui_ux": "UI/UX Design"
     }
   },
   "skills": {
     "label": "Skills",
-    "title": "What I work with",
+    "title": "Tools & Technologies",
     "categories": {
-      "hardware": {
-        "title": "Hardware & Embedded",
+      "circuit_analysis": {
+        "title": "Circuit Analysis",
         "skills": {
-          "circuit_analysis": "Circuit Analysis",
-          "embedded_systems": "Embedded Systems",
-          "signal_processing": "Signal Processing",
-          "control_systems": "Control Systems",
-          "arduino": "Arduino",
-          "matlab_simulink": "MATLAB / Simulink",
-          "iot_sensors": "IoT & Sensors",
-          "latex": "LaTeX"
+          "proteus": "Proteus",
+          "cst_studio": "CST Studio",
+          "psim": "PSIM"
         }
       },
-      "ai": {
-        "title": "AI & Machine Learning",
+      "embedded_systems": {
+        "title": "Embedded Systems",
+        "skills": {
+          "arduino": "Arduino",
+          "iot_sensors": "IoT & Sensors"
+        }
+      },
+      "signal_processing": {
+        "title": "Signal Processing & Control Systems",
+        "skills": {
+          "matlab_simulink": "MATLAB / Simulink"
+        }
+      },
+      "machine_learning": {
+        "title": "Machine Learning",
         "skills": {
           "python": "Python",
           "pytorch": "PyTorch",
-          "machine_learning": "Machine Learning",
-          "llm_apis": "LLM APIs & Agents",
-          "hermes_agent": "Hermes Agent"
+          "llm_apis": "LLM APIs",
+          "ai_agents": "AI Agents"
         }
       },
-      "software": {
-        "title": "Software Development",
+      "web_development": {
+        "title": "Web Development",
         "skills": {
-          "c_cpp": "C / C++",
           "typescript": "TypeScript",
           "html_css": "HTML / CSS",
           "react": "React",
           "tailwind_css": "Tailwind CSS",
           "vite": "Vite",
-          "git_github": "Git / GitHub",
-          "docker": "Docker",
-          "linux_bash": "Linux / Bash",
-          "vs_code": "VS Code"
+          "threejs_r3f": "Three.js / React Three Fiber"
         }
       },
-      "creative": {
-        "title": "Creative & Media",
+      "devops": {
+        "title": "DevOps & Version Control",
         "skills": {
-          "blender": "Blender",
+          "git_github": "Git / GitHub",
+          "docker": "Docker",
+          "linux_bash": "Linux / Bash"
+        }
+      },
+      "game_design": {
+        "title": "Game Design",
+        "skills": {
+          "godot_engine": "Godot Engine",
+          "blender": "Blender"
+        }
+      },
+      "multimedia": {
+        "title": "Design & Multimedia",
+        "skills": {
           "after_effects": "After Effects",
           "premiere_pro": "Premiere Pro",
-          "illustrator": "Illustrator",
-          "godot_engine": "Godot Engine",
-          "game_design": "Game Design"
+          "illustrator": "Illustrator"
         }
       }
     }
   },
   "projects": {
     "label": "Projects",
-    "title": "Things I've built",
-    "github_cta": "View more on GitHub",
+    "title": "Featured Work",
+    "github_cta": "Explore more projects on GitHub",
     "tags": {
       "arduino": "Arduino",
       "python": "Python",
-      "cpp": "C++",
-      "embedded": "Embedded",
+      "embedded": "Embedded Systems",
       "signal_processing": "Signal Processing",
       "power_electronics": "Power Electronics",
       "godot": "Godot",
@@ -121,25 +132,25 @@
     "items": {
       "sign2speech": {
         "title": "Sign2Speech",
-        "description": "A gesture-to-speech recognition system that converts hand gestures captured via sensors into spoken output. It seamlessly combines embedded hardware with signal processing for accessible communication."
+        "description": "A wearable embedded system that translates hand gestures into real-time audio. Powered by Arduino and Python, it utilizes custom signal processing algorithms to facilitate seamless, non-verbal communication."
       },
       "portfolio": {
         "title": "Portfolio Website",
-        "description": "This portfolio website — a flat-design retro-themed personal site built with React, TypeScript, and Tailwind CSS. Features paper shader visual effects, an AI chat assistant, and full i18n support (EN/AR/TR)."
+        "description": "An interactive, multilingual (EN/AR/TR) portfolio built with React, Tailwind, and Three.js. It features a retro aesthetic, custom paper shaders, and a fully localized edge-AI assistant for an immersive web experience."
       },
       "boost_converter_pwm": {
         "title": "Boost Converter PWM",
-        "description": "An Arduino-based PWM control system for a boost converter. It includes closed-loop voltage regulation, duty cycle sweeping, and real-time monitoring via serial communication."
+        "description": "A closed-loop control system built on Arduino to regulate voltage via dynamic PWM adjustments. Includes a real-time serial interface for monitoring and diagnostics."
       },
       "astrododge-pygame": {
         "title": "AstroDodge (Pygame)",
-        "description": "A Python/Pygame port of the AstroDodge space game. It features a sprite-based rendering engine, precise collision detection, scoring, and difficulty scaling."
+        "description": "A fast-paced 2D space survival game built in Python. Engineered with a custom Pygame rendering system, pixel-perfect collision detection, and dynamic difficulty scaling."
       }
     }
   },
   "languages": {
     "label": "Languages",
-    "title": "I speak",
+    "title": "Language Proficiency",
     "items": {
       "arabic": "Arabic",
       "english": "English",
@@ -147,26 +158,26 @@
     },
     "levels": {
       "native": "Native",
-      "c1": "C1 (Advanced)",
-      "c2": "C2 (Proficient)"
+      "c1": "Advanced (C1)",
+      "c2": "Proficient (C2)"
     }
   },
   "contact": {
-    "label": "Contact",
-    "title": "Let's connect",
+    "label": "Contact Me",
+    "title": "Let's Connect",
     "name": "Name",
-    "name_placeholder": "Your name",
+    "name_placeholder": "Full Name",
     "email": "Email",
-    "email_placeholder": "you@example.com",
+    "email_placeholder": "example@domain.com",
     "message": "Message",
-    "message_placeholder": "Your message...",
-    "send": "Send Message",
+    "message_placeholder": "Write your message here...",
+    "send": "Send",
     "sending": "Sending...",
-    "sent_title": "Message sent successfully!",
-    "sent_desc": "I will get back to you as soon as possible.",
-    "send_another": "Send another",
-    "error": "Something went wrong. Please try again or email me directly.",
-    "email_direct": "Email me directly",
+    "sent_title": "Sent Successfully",
+    "sent_desc": "Your message has been successfully received and will be answered as soon as possible.",
+    "send_another": "Send Another Message",
+    "error": "An unexpected error occurred while sending the message. Please try again later or contact me directly via email.",
+    "email_direct": "Email Me Directly",
     "find_me": "Find me on"
   },
   "footer": {
@@ -180,25 +191,25 @@
     "tr": "Türkçe"
   },
   "settings": {
-    "effects": "Effects",
+    "effects": "Visual Effects",
     "3d_scene": "3D Scene",
     "effects_levels": {
       "low": "Low",
-      "adaptive": "Auto",
+      "adaptive": "Adaptive",
       "high": "High"
     },
     "3d_scene_levels": {
       "off": "Off",
-      "adaptive": "Auto",
+      "adaptive": "Adaptive",
       "on": "On"
     }
   },
   "ai_chat": {
-    "welcome": "Hi! I'm Safwan's AI assistant. Ask me anything about his skills, projects, background, or experience.",
-    "placeholder": "Ask about Safwan...",
-    "title": "AI Assistant",
-    "system_prompt": "You are an AI assistant on Safwan Emad's portfolio website. Answer questions about Safwan's skills, projects, background, and experience using the information below. Be concise, friendly, and professional. If asked something not covered below, say you don't know rather than guessing.",
-    "error_generic": "Something went wrong. Please try again."
+    "welcome": "Hello, I am Safwan's smart assistant. How can I help you learn more about his experience and projects?",
+    "placeholder": "Type your question here...",
+    "title": "Smart Assistant",
+    "system_prompt": "You are a smart assistant integrated into Safwan Emad's personal website. Your task is to answer questions regarding his skills, projects, and experiences professionally and concisely based on the available data. If asked a question outside this scope, you must politely state that the information is unavailable and avoid guessing.",
+    "error_generic": "An unexpected error occurred. Please try again later."
   },
   "loading": {
     "loading": "Loading",

@@ -1,5 +1,5 @@
-import { PALETTE } from '../../utils/constants'
-import LogoSvg from '/src/images/logo.svg?react'
+import { cssColor } from '../../utils/constants'
+import LogoSvg from '../../images/logo.svg?react'
 
 interface LogoProps {
   className?: string
@@ -7,6 +7,6 @@ interface LogoProps {
   style?: React.CSSProperties
 }
 
-export default function Logo({ className, color = PALETTE.neonBlue, style }: LogoProps) {
-  return <LogoSvg className={className} fill={color} style={style} />
+export default function Logo({ className, color, style }: LogoProps) {
+  return <LogoSvg className={className} fill={color ?? cssColor('neonBlue')} style={style} />
 }

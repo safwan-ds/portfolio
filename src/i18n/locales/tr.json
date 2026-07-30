@@ -1,10 +1,8 @@
 {
   "hero": {
     "title": "Safwan",
-    "subtitle": "Elektrik-Elektronik Mühendisliği Öğrencisi & AI Geliştirici",
-    "description": "Erzincan Binali Yıldırım Üniversitesi Elektrik-Elektronik Mühendisliği son sınıf öğrencisiyim. Aslen Mısırlıyım, Kuveyt'te yaşıyorum ve eğitimime Türkiye'de devam ediyorum. Donanım ve yapay zekanın kesişim noktasında projeler üretiyorum — gömülü sistemler, sinyal işleme, sinir ağları ve makine öğrenmesi.",
-    "cta_explore": "Keşfet",
-    "cta_contact": "İletişim",
+    "subtitle": "Yazılım Mühendisi ve Etkileşimli Medya Geliştiricisi",
+    "description": "Elektrik Elektronik Mühendisliği son sınıf öğrencisi ve Yazılım Geliştirici. Fiziksel donanım (Arduino, IoT) ve Yapay Zekayı (PyTorch, LLM) modern web geliştirme (React, TypeScript, Tailwind) ve yaratıcı multimedya tasarımıyla birleştiren entegre çözümler geliştirmeye odaklanıyorum.",
     "scroll": "Kaydır"
   },
   "nav": {
@@ -17,94 +15,107 @@
   },
   "about": {
     "label": "Hakkımda",
-    "title": "Benimle Tanışın",
-    "bio_1": "Erzincan Binali Yıldırım Üniversitesi'nde Elektrik-Elektronik Mühendisliği son sınıf öğrencisiyim. Aslen Mısırlıyım, Kuveyt'te yaşıyorum ve eğitimime Türkiye'de devam ediyorum.",
-    "bio_2": "İlgi alanlarım ve çalışmalarım gömülü sistemler (Arduino, STM32), sinyal işleme (FFT, filtre tasarımı) ve Yapay Zeka alanlarını kapsıyor. Karmaşık bir devrede hata ayıklamak ne kadar ilgimi çekiyorsa, bir sinir ağı (neural network) modelini eğitmek de o kadar heyecan verici. En başarılı mühendislerin hem donanım hem de akıllı yazılım katmanlarına hakim olması gerektiğine inanıyorum.",
-    "bio_3": "Akademik çalışmalarımın yanı sıra derin öğrenme mimarilerini araştırıyor, Godot 4.7 oyun motoruyla oyunlar geliştiriyor (AstroDodge projem) ve Nesnelerin İnterneti (IoT) ile el hareketleri tanıma gibi yenilikçi projeler üzerinde çalışıyorum.",
+    "title": "Profesyonel Profil",
+    "bio_1": "Türkiye'de Elektrik ve Elektronik Mühendisliği son sınıf öğrencisiyim. Donanım mühendisliği, yapay zeka, yazılım geliştirme ve multimedya tasarımı alanlarındaki geniş beceri setimi kullanarak yüksek verimli, entegre sistemler tasarlama konusunda uzmanlaşıyorum.",
+    "bio_2": "Mühendislik alanında, karmaşık devreleri teşhis etmek ve kontrol sistemleri tasarlamak için Arduino, MATLAB/Simulink ve IoT sensörleri gibi araçları kullanarak gelişmiş analitik becerilerimi kullanıyorum. En iyi çözümlerin fiziksel donanım ile akıllı yazılımların kusursuz birleşiminden doğduğuna inanarak; makine öğreniminde Python ve PyTorch'un yanı sıra LLM API'leri ve Yapay Zeka Ajanları (AI Agents) kullanarak mühendisliği Yapay Zeka ile köprüleyen akıllı, veri odaklı uygulamalar geliştiriyorum.",
+    "bio_3": "Yazılım cephesinde, sürükleyici grafikler için Three.js ve React Three Fiber gibi araçları entegre ederek TypeScript, HTML/CSS, React, Tailwind CSS ve Vite ile sağlam uygulamalar geliştiriyorum. İş akışlarımı Git/GitHub, Docker, Linux/Bash ve dokümantasyon için LaTeX kullanarak yönetiyorum. Ayrıca multimedya ve oyun tasarımına tutkuyla bağlıyım; Blender, After Effects, Premiere Pro, Illustrator ve Godot Engine kullanarak etkileşimli 3D ve video deneyimlerine hayat veriyorum.",
     "name_label": "İsim",
     "name_val": "Safwan Emad",
     "location_label": "Konum",
     "location_val": "Türkiye / Kuveyt",
     "education_label": "Eğitim",
-    "education_val": "Lisans, Elektrik-Elektronik Mühendisliği",
+    "education_val": "Elektrik ve Elektronik Mühendisliği Lisans",
     "education_school": "Erzincan Binali Yıldırım Üniversitesi",
     "interests_label": "İlgi Alanları",
     "interests": {
-      "ai": "Yapay Zeka ve Makine Öğrenmesi",
-      "nn": "Sinir Ağları",
-      "ml": "Makine Öğrenmesi",
-      "llm": "Büyük Dil Modelleri (LLM)",
+      "web": "Web Geliştirme",
+      "software": "Yazılım Mühendisliği",
+      "ai": "Yapay Zeka",
+      "ml": "Makine Öğrenimi",
       "embedded": "Gömülü Sistemler",
-      "signal": "Sinyal İşleme",
-      "control": "Kontrol Sistemleri",
+      "3d": "3D Grafikler",
       "game": "Oyun Geliştirme",
-      "3d": "3D Grafikler"
+      "ui_ux": "UI/UX Tasarımı"
     }
   },
   "skills": {
     "label": "Yetenekler",
-    "title": "Kullandığım Teknolojiler",
+    "title": "Araçlar ve Teknolojiler",
     "categories": {
-      "hardware": {
-        "title": "Donanım ve Gömülü Sistemler",
+      "circuit_analysis": {
+        "title": "Devre Analizi",
         "skills": {
-          "circuit_analysis": "Devre Analizi",
-          "embedded_systems": "Gömülü Sistemler",
-          "signal_processing": "Sinyal İşleme",
-          "control_systems": "Kontrol Sistemleri",
-          "arduino": "Arduino",
-          "matlab_simulink": "MATLAB / Simulink",
-          "iot_sensors": "IoT ve Sensörler",
-          "latex": "LaTeX"
+          "proteus": "Proteus",
+          "cst_studio": "CST Studio",
+          "psim": "PSIM"
         }
       },
-      "ai": {
-        "title": "Yapay Zeka",
+      "embedded_systems": {
+        "title": "Gömülü Sistemler",
+        "skills": {
+          "arduino": "Arduino",
+          "iot_sensors": "IoT ve Sensörler"
+        }
+      },
+      "signal_processing": {
+        "title": "Sinyal İşleme ve Kontrol Sistemleri",
+        "skills": {
+          "matlab_simulink": "MATLAB / Simulink"
+        }
+      },
+      "machine_learning": {
+        "title": "Makine Öğrenimi",
         "skills": {
           "python": "Python",
           "pytorch": "PyTorch",
-          "machine_learning": "Makine Öğrenmesi",
-          "llm_apis": "LLM API'leri ve Ajanlar",
-          "hermes_agent": "Hermes Agent"
+          "llm_apis": "LLM API'leri",
+          "ai_agents": "Yapay Zeka Ajanları (AI Agents)"
         }
       },
-      "software": {
-        "title": "Yazılım Geliştirme",
+      "web_development": {
+        "title": "Web Geliştirme",
         "skills": {
-          "c_cpp": "C / C++",
           "typescript": "TypeScript",
           "html_css": "HTML / CSS",
           "react": "React",
           "tailwind_css": "Tailwind CSS",
           "vite": "Vite",
-          "git_github": "Git / GitHub",
-          "docker": "Docker",
-          "linux_bash": "Linux / Bash",
-          "vs_code": "VS Code"
+          "threejs_r3f": "Three.js / React Three Fiber"
         }
       },
-      "creative": {
-        "title": "Yaratıcı ve Medya",
+      "devops": {
+        "title": "DevOps ve Sürüm Kontrolü",
         "skills": {
-          "blender": "Blender",
+          "git_github": "Git / GitHub",
+          "docker": "Docker",
+          "linux_bash": "Linux / Bash"
+        }
+      },
+      "game_design": {
+        "title": "Oyun Tasarımı",
+        "skills": {
+          "godot_engine": "Godot Engine",
+          "blender": "Blender"
+        }
+      },
+      "multimedia": {
+        "title": "Tasarım ve Multimedya",
+        "skills": {
           "after_effects": "After Effects",
           "premiere_pro": "Premiere Pro",
-          "illustrator": "Illustrator",
-          "godot_engine": "Godot Engine",
-          "game_design": "Oyun Tasarımı"
+          "illustrator": "Illustrator"
         }
       }
     }
   },
   "projects": {
     "label": "Projeler",
-    "title": "Öne Çıkan Projelerim",
-    "github_cta": "Daha fazlası için GitHub profilimi ziyaret edin",
+    "title": "Öne Çıkan Çalışmalar",
+    "github_cta": "GitHub'da daha fazla proje keşfedin",
     "tags": {
       "arduino": "Arduino",
       "python": "Python",
-      "cpp": "C++",
-      "embedded": "Gömülü",
+      "embedded": "Gömülü Sistemler",
       "signal_processing": "Sinyal İşleme",
       "power_electronics": "Güç Elektroniği",
       "godot": "Godot",
@@ -115,31 +126,31 @@
       "threejs": "Three.js",
       "r3f": "R3F",
       "tailwind_css": "Tailwind CSS",
-      "i18n": "Uluslararasılaştırma",
+      "i18n": "Çoklu Dil Desteği",
       "paper_shaders": "Paper Shaders"
     },
     "items": {
       "sign2speech": {
         "title": "Sign2Speech",
-        "description": "El hareketlerini algılayarak sese dönüştüren bir jest tanıma sistemi. Özel sensörler aracılığıyla yakalanan hareketleri işleyerek sesli metne çeviriyor. İşitme veya konuşma engelli bireylerin iletişimini kolaylaştırmak için gömülü donanım ve sinyal işleme tekniklerini bir araya getiriyor."
+        "description": "El hareketlerini gerçek zamanlı sese dönüştüren giyilebilir gömülü sistem. Arduino ve Python ile güçlendirilmiş olup, kesintisiz sözlü olmayan iletişimi kolaylaştırmak için özel sinyal işleme algoritmaları kullanır."
       },
       "portfolio": {
         "title": "Portfolio Website",
-        "description": "Bu portfolyo web sitesi — React, TypeScript ve Tailwind CSS ile geliştirilmiş, düz (flat) tasarımlı retro temalı bir kişisel site. Paper shader görsel efektleri, yapay zeka sohbet asistanı ve tam i18n desteği (EN/AR/TR) içerir."
+        "description": "React, Tailwind ve Three.js ile oluşturulmuş etkileşimli, çok dilli (EN/AR/TR) portfolyo. Sürükleyici bir web deneyimi için retro estetiğe, özel kağıt gölgelendiricilere (paper shaders) ve tamamen yerelleştirilmiş uç yapay zeka asistanına sahiptir."
       },
       "boost_converter_pwm": {
         "title": "Boost Converter PWM",
-        "description": "Arduino tabanlı, PWM (Darbe Genişlik Modülasyonu) kontrollü bir gerilim yükseltici (Boost Converter). Kapalı döngü voltaj regülasyonu, duty cycle analizi ve seri port üzerinden anlık veri takibi gibi özellikleri içeriyor."
+        "description": "Dinamik PWM ayarlamaları yoluyla voltajı düzenlemek için Arduino üzerine inşa edilmiş kapalı çevrim kontrol sistemi. İzleme ve teşhis için gerçek zamanlı seri arabirim içerir."
       },
       "astrododge-pygame": {
         "title": "AstroDodge (Pygame)",
-        "description": "AstroDodge oyununun Python ve Pygame kullanılarak geliştirilmiş özel bir sürümü. Sprite tabanlı 2D render motoru, hassas çarpışma algılama, puanlama sistemi ve giderek artan zorluk seviyeleri ile klasik arcade deneyimi sunuyor."
+        "description": "Python'da oluşturulmuş hızlı tempolu 2D uzay hayatta kalma oyunu. Özel bir Pygame işleme sistemi, piksel hassasiyetinde çarpışma algılama ve dinamik zorluk ölçeklendirme ile tasarlandı."
       }
     }
   },
   "languages": {
     "label": "Diller",
-    "title": "Konuştuğum Diller",
+    "title": "Dil Yeterliliği",
     "items": {
       "arabic": "Arapça",
       "english": "İngilizce",
@@ -147,31 +158,31 @@
     },
     "levels": {
       "native": "Ana Dil",
-      "c1": "İleri Seviye (C1)",
-      "c2": "Yetkin Seviye (C2)"
+      "c1": "İleri Düzey (C1)",
+      "c2": "Yetkin (C2)"
     }
   },
   "contact": {
     "label": "İletişim",
-    "title": "İletişime Geçin",
+    "title": "İletişime Geçelim",
     "name": "İsim",
-    "name_placeholder": "Adınız",
+    "name_placeholder": "Ad Soyad",
     "email": "E-posta",
-    "email_placeholder": "ornek@domain.com",
+    "email_placeholder": "ornek@alanadi.com",
     "message": "Mesaj",
-    "message_placeholder": "Mesajınız...",
-    "send": "Mesajı Gönder",
+    "message_placeholder": "Mesajınızı buraya yazın...",
+    "send": "Gönder",
     "sending": "Gönderiliyor...",
-    "sent_title": "Mesajınız Başarıyla Gönderildi!",
-    "sent_desc": "En kısa sürede size dönüş yapacağım.",
-    "send_another": "Başka bir mesaj gönder",
-    "error": "Bir hata oluştu. Lütfen tekrar deneyin veya doğrudan bana e-posta gönderin.",
-    "email_direct": "Doğrudan E-posta Gönder",
-    "find_me": "Beni Buralarda Bulabilirsiniz"
+    "sent_title": "Başarıyla Gönderildi",
+    "sent_desc": "Mesajınız başarıyla alındı ve en kısa sürede yanıtlanacaktır.",
+    "send_another": "Başka Bir Mesaj Gönder",
+    "error": "Mesaj gönderilirken beklenmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin veya doğrudan e-posta yoluyla benimle iletişime geçin.",
+    "email_direct": "Bana Doğrudan E-posta Gönder",
+    "find_me": "Beni şurada bulun:"
   },
   "footer": {
     "copyright": "Safwan",
-    "madewith": "Sevgiyle Geliştirildi",
+    "madewith": "Sevgiyle yapıldı",
     "source": "Kaynak"
   },
   "language": {
@@ -180,25 +191,25 @@
     "tr": "Türkçe"
   },
   "settings": {
-    "effects": "Efektler",
+    "effects": "Görsel Efektler",
     "3d_scene": "3D Sahne",
     "effects_levels": {
       "low": "Düşük",
-      "adaptive": "Otomatik",
+      "adaptive": "Uyarlanabilir",
       "high": "Yüksek"
     },
     "3d_scene_levels": {
       "off": "Kapalı",
-      "adaptive": "Otomatik",
+      "adaptive": "Uyarlanabilir",
       "on": "Açık"
     }
   },
   "ai_chat": {
-    "welcome": "Merhaba! Ben Safwan'ın yapay zeka asistanıyım. Yetenekleri, projeleri, geçmişi veya deneyimleri hakkında bana istediğinizi sorabilirsiniz.",
-    "placeholder": "Safwan hakkında sor...",
-    "title": "Yapay Zeka Asistanı",
-    "system_prompt": "Safwan Emad'ın portföy web sitesinde bir yapay zeka asistanısın. Aşağıdaki bilgileri kullanarak Safwan'ın yetenekleri, projeleri, geçmişi ve deneyimleri hakkındaki soruları yanıtla. Kısa, dostane ve profesyonel ol. Aşağıda yer almayan bir şey sorulursa, tahmin etmek yerine bilmediğini söyle.",
-    "error_generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
+    "welcome": "Merhaba, ben Safwan'ın akıllı asistanıyım. Onun deneyimleri ve projeleri hakkında daha fazla bilgi edinmenize nasıl yardımcı olabilirim?",
+    "placeholder": "Sorunuzu buraya yazın...",
+    "title": "Akıllı Asistan",
+    "system_prompt": "Sen, Safwan Emad'ın kişisel web sitesine entegre edilmiş akıllı bir asistansın. Görevin, onun yetenekleri, projeleri ve deneyimleriyle ilgili soruları mevcut verilere dayanarak profesyonel ve öz bir şekilde yanıtlamaktır. Bu kapsamın dışında bir soru sorulursa, bilgilerin mevcut olmadığını kibarca belirtmeli ve tahminde bulunmaktan kaçınmalısın.",
+    "error_generic": "Beklenmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin."
   },
   "loading": {
     "loading": "Yükleniyor",

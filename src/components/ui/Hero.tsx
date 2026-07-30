@@ -2,10 +2,54 @@
  * Hero — the landing section with title, subtitle, CTA buttons, and scroll indicator.
  */
 
+import { Suspense, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Dithering, LiquidMetal } from '@paper-design/shaders-react'
-import { PALETTE } from '../../utils/constants'
+import { cssColor } from '../../utils/constants'
 import { useScrollState } from '../../hooks/useScrollState'
+
+const LOGO_URL = `${import.meta.env.BASE_URL}images/logo.svg`
+
+/**
+ * Wrapper that signals the preloader AFTER Suspense resolves.
+ * LiquidMetal with suspendWhenProcessingImage suspends until the
+ * processed image blob is ready — this component only mounts (and
+ * its useEffect only fires) after that happens.
+ */
+function LiquidMetalReady() {
+  /* Double-RAF: let the WebGL shader render its first frame with the
+     processed image before signalling the preloader. The useEffect
+     fires during React's commit phase — before the browser paints —
+     so without this delay the preloader hides before the shader frame. */
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        window._preloaderReady?.()
+      })
+    })
+  }, [])
+
+  return (
+    <LiquidMetal
+      width={150}
+      height={200}
+      image={LOGO_URL}
+      suspendWhenProcessingImage
+      colorBack="#FFFFFF00"
+      colorTint={cssColor('neonPink')}
+      repetition={1.5}
+      softness={1}
+      shiftRed={0}
+      shiftBlue={0}
+      distortion={0}
+      contour={0.8}
+      angle={70}
+      speed={1}
+      scale={1}
+      fit="contain"
+    />
+  )
+}
 
 export default function Hero() {
   const { t } = useTranslation()
@@ -29,7 +73,7 @@ export default function Hero() {
         >
           <Dithering
             colorBack="#00000000"
-            colorFront={PALETTE.slate}
+            colorFront={cssColor('slate')}
             shape="warp"
             type="8x8"
             size={3}
@@ -40,25 +84,14 @@ export default function Hero() {
         </div>
         <div className="relative z-10">
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row mb-4">
-            <div className="relative shrink-0">
-              <LiquidMetal
-                width={150}
-                height={200}
-                image={`${import.meta.env.BASE_URL}images/logo.svg`}
-                colorBack="#FFFFFF00"
-                colorTint={PALETTE.neonPink}
-                repetition={1.5}
-                softness={1}
-                shiftRed={0}
-                shiftBlue={0}
-                distortion={0}
-                contour={0.8}
-                angle={70}
-                speed={1}
-                scale={1}
-                fit="contain"
-              />
-            </div>
+            {/* Suspense fallback: empty 150×200 box. Only visible while
+                toProcessedLiquidMetal processes the SVG. Once done, the
+                real LiquidMetal renders immediately — no transparentPixel
+                intermediate state. */}
+            <Suspense fallback={<div style={{ width: 150, height: 200 }} />}>
+              <LiquidMetalReady />
+            </Suspense>
+
             <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-widest uppercase select-none animate-glitch">
               <span className="text-white">{t('hero.title')}</span>
             </h1>
