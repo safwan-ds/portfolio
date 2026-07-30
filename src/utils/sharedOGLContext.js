@@ -45,14 +45,15 @@ export function getSharedRenderer() {
  */
 export function createDisplayCanvas() {
   const canvas = document.createElement('canvas')
+  canvas.style.display = 'block'
   canvas.style.width = '100%'
   canvas.style.height = '100%'
-  canvas.style.display = 'block'
   return canvas
 }
 
 /**
- * Size a display canvas to match its container's CSS dimensions at device-pixel ratio.
+ * Size a display canvas buffer to match its container at device-pixel ratio.
+ * Does NOT touch CSS width/height — those stay at 100% to fill the container.
  * Returns { width, height } in CSS pixels.
  */
 export function sizeDisplayCanvas(canvas, container) {
@@ -60,8 +61,6 @@ export function sizeDisplayCanvas(canvas, container) {
   const dpr = Math.min(window.devicePixelRatio, 2)
   canvas.width = Math.round(w * dpr)
   canvas.height = Math.round(h * dpr)
-  canvas.style.width = `${w}px`
-  canvas.style.height = `${h}px`
   return { width: w, height: h }
 }
 
@@ -70,23 +69,17 @@ export function sizeDisplayCanvas(canvas, container) {
  * the given display canvas via drawImage().
  */
 export function renderToDisplay(renderer, mesh, displayCanvas, cssWidth, cssHeight) {
-  const dpr = Math.min(window.devicePixelRatio, 2)
   const gl = renderer.gl
 
-  // Resize shared canvas to match the card's dimensions at device-pixel resolution
-  const pixelW = Math.round(cssWidth * dpr)
-  const pixelH = Math.round(cssHeight * dpr)
-  if (gl.canvas.width !== pixelW || gl.canvas.height !== pixelH) {
-    renderer.setSize(pixelW, pixelH)
-  } else {
-    gl.viewport(0, 0, pixelW, pixelH)
-  }
+  // OGL's setSize expects CSS dimensions and handles DPR scaling internally.
+  // After setSize(), gl.canvas buffer = cssWidth * dpr × cssHeight * dpr.
+  renderer.setSize(cssWidth, cssHeight)
 
   // Render the grid shader
   renderer.render({ scene: mesh })
 
-  // Copy to the 2D display canvas
+  // Copy to the 2D display canvas.
+  // Both canvases now have identical buffer dimensions — 1:1 blit is correct.
   const ctx = displayCanvas.getContext('2d')
-  ctx.clearRect(0, 0, cssWidth, cssHeight)
-  ctx.drawImage(gl.canvas, 0, 0, cssWidth, cssHeight)
+  ctx.drawImage(gl.canvas, 0, 0)
 }
