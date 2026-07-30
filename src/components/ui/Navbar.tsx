@@ -119,7 +119,7 @@ export default function Navbar() {
                       className="group px-3 py-2 font-mono text-sm tracking-wider text-slate-300 uppercase hover:text-neon-blue transition-colors rounded-md hover:bg-slate/20 inline-flex items-center gap-1.5 relative select-none"
                     >
                       {Icon ? <Icon className="w-4 h-4" /> : t(item.labelKey)}
-                      <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-neon-blue transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]" />
+                      <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-neon-blue transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]" />
                     </a>
                   )
                 })}

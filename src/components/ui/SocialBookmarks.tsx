@@ -27,7 +27,7 @@ export default function SocialBookmarks() {
 
   return (
     <nav
-      className={`fixed ${isRtl ? 'right-0' : 'left-0'} top-1/2 -translate-y-1/2 z-40 flex flex-col gap-[2px]`}
+      className={`fixed ${isRtl ? 'right-0' : 'left-0'} top-1/2 -translate-y-1/2 z-40 flex flex-col gap-0.5`}
       aria-label="Social links"
     >
       {socials.map((social) => {

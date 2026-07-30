@@ -32,7 +32,7 @@ export default function LanguageSwitcher({
   const currentLang = (i18n.language || 'en') as SupportedLanguage
 
   function changeLanguage(lang: SupportedLanguage) {
-    i18n.changeLanguage(lang)
+    i18n.changeLanguage(lang).catch(() => {})
     applyLanguageDirection(lang)
     if (!onToggle) setInternalOpen(false)
   }

@@ -102,7 +102,7 @@ export default function App() {
 
       {/* ── Font-loading overlay ── */}
       <div
-        className={`fixed inset-0 z-[9998] flex flex-col items-center justify-center bg-void/85 backdrop-blur-sm transition-opacity duration-300 ${
+        className={`fixed inset-0 z-9998 flex flex-col items-center justify-center bg-void/85 backdrop-blur-sm transition-opacity duration-300 ${
           fontLoading ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         aria-hidden={!fontLoading}

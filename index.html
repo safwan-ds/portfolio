@@ -50,11 +50,11 @@
            3. React + hero   (Hero.tsx calls window._preloaderReady after
                               the logo image loads AND the shader inits)
          A 10 s fallback prevents getting stuck.                        */
-      var signals = { fonts: false, load: false, react: false }
+      const signals = { fonts: false, load: false, react: false }
 
       function check() {
         if (signals.fonts && signals.load && signals.react) {
-          var el = document.getElementById('preloader')
+          const el = document.getElementById('preloader')
           if (el) el.classList.add('hidden')
         }
       }

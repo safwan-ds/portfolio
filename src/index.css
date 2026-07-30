@@ -138,12 +138,6 @@
 
 /* ── Arabic script safety ── */
 :lang(ar) .uppercase,
-:lang(ar) .lowercase,
-:lang(ar) .capitalize,
-:lang(ar) .tracking-tighter,
-:lang(ar) .tracking-tight,
-:lang(ar) .tracking-normal,
-:lang(ar) .tracking-wide,
 :lang(ar) .tracking-wider,
 :lang(ar) .tracking-widest,
 :lang(ar) .font-display,

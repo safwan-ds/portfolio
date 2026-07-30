@@ -51,6 +51,7 @@ i18n
       caches: ['localStorage'],
     },
   })
+  .catch(() => {})
 
 // Sync direction/lang whenever i18next detects or switches language
 i18n.on('languageChanged', (lng) => {

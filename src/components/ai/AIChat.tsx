@@ -166,7 +166,7 @@ export default function AIChat() {
   function onKeyDown(e: React.KeyboardEvent) {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
-      handleSend()
+      handleSend().catch(() => {})
     }
   }
 

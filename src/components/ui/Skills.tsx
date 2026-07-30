@@ -76,19 +76,23 @@ function SkillFlipCard({ category }: { category: SkillCategory }) {
   const hoverProps = isMobile
     ? {}
     : {
-        onMouseEnter: () => setFlipped(true) as void,
-        onMouseLeave: () => setFlipped(false) as void,
+        onMouseEnter: () => {
+          setFlipped(true)
+        },
+        onMouseLeave: () => {
+          setFlipped(false)
+        },
       }
 
   return (
     <div
-      className="group relative h-[300px] w-full [perspective:2000px] transition-transform duration-300 hover:scale-[1.02] active:scale-[1.01]"
+      className="group relative h-75 w-full perspective-[2000px] transition-transform duration-300 hover:scale-[1.02] active:scale-[1.01]"
       {...hoverProps}
       onClick={isMobile ? () => setFlipped((p) => !p) : undefined}
     >
       <div
-        className={`relative h-full w-full [transform-style:preserve-3d] transition-transform duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] motion-reduce:transition-none ${
-          flipped ? '[transform:rotateY(180deg)]' : '[transform:rotateY(0deg)]'
+        className={`relative h-full w-full transform-3d transition-transform duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] motion-reduce:transition-none ${
+          flipped ? 'transform-[rotateY(180deg)]' : 'transform-[rotateY(0deg)]'
         }`}
       >
         {/* RippleGrid background — flips with the card */}
@@ -110,7 +114,7 @@ function SkillFlipCard({ category }: { category: SkillCategory }) {
           />
         </div>
         {/* ── Front face ── */}
-        <div className="absolute inset-0 h-full w-full [backface-visibility:hidden] [transform:rotateY(0deg)] overflow-hidden rounded-lg bg-carbon/85 border border-slate/20 group-hover:border-text-primary/20 transition-all duration-300 p-6 flex flex-col">
+        <div className="absolute inset-0 h-full w-full backface-hidden transform-[rotateY(0deg)] overflow-hidden rounded-lg bg-carbon/85 border border-slate/20 group-hover:border-text-primary/20 transition-all duration-300 p-6 flex flex-col">
           <div className="flex-1 flex flex-col items-center justify-center gap-4">
             <div
               className={`p-3 rounded-xl ${ac.iconBg} transition-transform duration-300 group-hover:scale-110`}
@@ -124,7 +128,7 @@ function SkillFlipCard({ category }: { category: SkillCategory }) {
         </div>
 
         {/* ── Back face ── */}
-        <div className="absolute inset-0 h-full w-full [backface-visibility:hidden] [transform:rotateY(180deg)] overflow-hidden rounded-lg bg-carbon/95 border border-slate/20 p-6 flex flex-col">
+        <div className="absolute inset-0 h-full w-full backface-hidden transform-[rotateY(180deg)] overflow-hidden rounded-lg bg-carbon/95 border border-slate/20 p-6 flex flex-col">
           {/* Header */}
           <div className="flex items-center gap-2 mb-4">
             <div className={`p-1.5 rounded-lg ${ac.iconBg}`}>
