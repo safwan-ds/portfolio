@@ -12,9 +12,9 @@ import ProgressBar from './ProgressBar'
 import { languages } from '../../data'
 
 const LEVEL_BAR: Record<string, { width: number; color: string }> = {
-  native: { width: 100, color: 'bg-neon-pink' },
-  c2: { width: 90, color: 'bg-neon-pink' },
-  c1: { width: 75, color: 'bg-neon-pink' },
+  native: { width: 100, color: 'bg-peach' },
+  c2: { width: 90, color: 'bg-peach' },
+  c1: { width: 75, color: 'bg-peach' },
 }
 
 export default function Languages() {

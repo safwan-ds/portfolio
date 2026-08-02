@@ -2,46 +2,49 @@
 
 @theme {
   /* ═══════════════════════════════════════════════════════════════
-     COLOR PALETTE
-     Old names (void, neon-blue, etc.) are preserved for Tailwind
-     utility-class compatibility across all components.
-     Accurate/fixed names are aliased alongside them.
+     LIQUID GLASS PALETTE
+     Deep void background, neutral glass surfaces, near-white text,
+     single accent (#C084FF) for interactive elements.
 
-     Hex values are the single source of truth — edit ONLY here.
+     Hex/rgba values are the single source of truth — edit ONLY here.
      ═══════════════════════════════════════════════════════════════ */
 
   /* ── Base ── */
   --color-void: #141e3a;
-  --color-midnight: #141e3a; /* accurate name */
-  --color-carbon: #31466e;
-  --color-navy: #31466e; /* accurate name */
-  --color-graphite: #253556;
-  --color-dark-navy: #253556; /* accurate name */
-  --color-slate: #4a5e8a;
-  --color-steel-blue: #4a5e8a; /* accurate name */
+
+  /* ── Glass surfaces ── */
+  --color-glass-bg: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  --color-glass-surface: rgba(255, 255, 255, 0.05);
+  --color-glass-hover: rgba(255, 255, 255, 0.12);
+
+  /* Old names → glass equivalents */
+  --color-carbon: rgba(255, 255, 255, 0.03);
+  --color-navy: rgba(255, 255, 255, 0.03);
+  --color-graphite: rgba(255, 255, 255, 0.08);
+  --color-dark-navy: rgba(255, 255, 255, 0.08);
+  --color-slate: rgba(255, 255, 255, 0.12);
+  --color-steel-blue: rgba(255, 255, 255, 0.12);
 
   /* ── Accents ── */
-  --color-neon-blue: #c084ff;
-  --color-lavender: #c084ff; /* accurate name */
+  --color-accent: #c084ff;
+  --color-warning: #ffcf95;
+  --color-accent-hover: #a855f7;
   --color-neon-purple: #d4acff;
-  --color-light-purple: #d4acff; /* accurate name */
-  --color-neon-cyan: #ffcf95;
-  --color-neon-pink: #ffcf95;
-  --color-peach: #ffcf95; /* accurate name */
+  --color-neon-cyan: #00e5ff;
+  --color-peach: #ffcf95;
   --color-neon-green: #34d399;
-  --color-emerald: #34d399; /* accurate name */
 
   /* ── Text ── */
-  --color-text-primary: #fff0d9;
-  --color-cream: #fff0d9; /* accurate name */
-  --color-text-secondary: #e8d5b8;
-  --color-warm-beige: #e8d5b8; /* accurate name */
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
 
   /* ── Font stacks ── */
   --font-display: 'Rajdhani', sans-serif;
   --font-body: 'Rajdhani', sans-serif;
   --font-mono: 'Share Tech Mono', monospace;
-  --font-vt323: 'VT323', monospace;
+  --font-hero-display: 'Satisfy', cursive;
 }
 
 @keyframes glitch {
@@ -58,6 +61,17 @@
   }
   96% {
     transform: translate(-1px, 0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
   }
 }
 
@@ -79,8 +93,14 @@
 
   body {
     font-family: var(--font-body), sans-serif;
-    background-color: var(--color-midnight);
-    color: var(--color-cream);
+    background: linear-gradient(
+        180deg,
+        var(--color-void) 0%,
+        var(--color-void) 50%,
+        var(--color-void) 100%
+      )
+      fixed;
+    color: var(--color-text-primary);
     overflow-x: hidden;
   }
 
@@ -93,6 +113,7 @@
     --font-display: 'Changa', sans-serif;
     --font-body: 'Changa', sans-serif;
     --font-mono: 'Changa', sans-serif;
+    --font-hero-display: 'Aref Ruqaa', serif;
   }
 
   /* ── Scrollbar styling ── */
@@ -101,7 +122,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--color-midnight);
+    background: var(--color-void);
   }
 
   ::-webkit-scrollbar-thumb {
@@ -110,7 +131,7 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-light-purple);
+    background: var(--color-neon-purple);
   }
 
   /* ── Images: prevent drag / select ── */
@@ -121,14 +142,23 @@
 
   /* ── Text selection ── */
   ::selection {
-    background-color: color-mix(in srgb, var(--color-lavender) 40%, transparent);
-    color: var(--color-cream);
+    background-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+    color: var(--color-text-primary);
   }
 
   ::-moz-selection {
-    background-color: color-mix(in srgb, var(--color-lavender) 40%, transparent);
-    color: var(--color-cream);
+    background-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+    color: var(--color-text-primary);
   }
+}
+
+/* ── Scrollbar-hide utility ── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 /* ═══════════════════════════════════════════════════════════════

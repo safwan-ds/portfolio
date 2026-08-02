@@ -10,6 +10,7 @@ import { HiPaperAirplane } from 'react-icons/hi2'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
 import FormInput from './FormInput'
+import SpecularButton from './SpecularButton'
 import ExternalLink from './ExternalLink'
 import Spinner from './Spinner'
 import { socials } from '../../data'
@@ -48,14 +49,14 @@ export default function Contact() {
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="rounded-2xl bg-carbon/50 backdrop-blur-sm border border-neon-cyan/30 p-8 text-center"
+            className="rounded-2xl bg-white/[0.04] backdrop-blur-sm border border-white/[0.1] p-8 text-center"
           >
-            <HiPaperAirplane className="w-10 h-10 text-neon-cyan mx-auto mb-4" />
+            <HiPaperAirplane className="w-10 h-10 text-success mx-auto mb-4" />
             <p className="font-display text-lg text-text-primary mb-2">{t('contact.sent_title')}</p>
             <p className="text-text-secondary text-sm mb-4">{t('contact.sent_desc')}</p>
             <button
               onClick={() => setStatus('idle')}
-              className="font-mono text-xs text-neon-cyan hover:underline"
+              className="font-mono text-xs text-success hover:underline"
             >
               {t('contact.send_another')}
             </button>
@@ -97,30 +98,46 @@ export default function Contact() {
               placeholder={t('contact.message_placeholder')}
             />
             {status === 'error' && (
-              <p className="font-mono text-xs text-neon-pink">{t('contact.error')}</p>
+              <p className="font-mono text-xs text-error">{t('contact.error')}</p>
             )}
-            <button
+            <SpecularButton
               type="submit"
               disabled={status === 'sending'}
-              className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-carbon font-mono text-sm text-neon-blue transition-all hover:bg-slate/30 disabled:opacity-50 disabled:cursor-not-allowed"
+              size="lg"
+              className="w-full"
+              tint="#C084FF"
+              tintOpacity={0.1}
+              textColor="#ffffff"
+              lineColor="#C084FF"
+              baseColor="#1a1a2e"
+              intensity={1}
+              shineSize={15}
+              shineFade={30}
+              thickness={1.5}
+              speed={0.3}
+              followMouse
+              proximity={200}
+              radius={12}
             >
-              {status === 'sending' ? (
-                <>
-                  <Spinner size="w-4 h-4" />
-                  {t('contact.sending')}
-                </>
-              ) : (
-                <>
-                  <HiPaperAirplane className="w-4 h-4" />
-                  {t('contact.send')}
-                </>
-              )}
-            </button>
+              <span className="flex items-center justify-center gap-2 font-mono text-sm">
+                {status === 'sending' ? (
+                  <>
+                    <Spinner size="w-4 h-4" />
+                    {t('contact.sending')}
+                  </>
+                ) : (
+                  <>
+                    <HiPaperAirplane className="w-4 h-4" />
+                    {t('contact.send')}
+                  </>
+                )}
+              </span>
+            </SpecularButton>
           </form>
         )}
 
-        {/* Social icons — mobile only (desktop has floating bookmarks sidebar) */}
-        <div className="md:hidden mt-10 pt-6 border-t border-slate/20">
+        {/* Social icons — mobile only (desktop has floating bookmarks' sidebar) */}
+        <div className="md:hidden mt-10 pt-6 border-t border-white/10">
           <p className="text-center mb-4 font-mono text-[11px] tracking-widest uppercase text-text-secondary/60">
             {t('contact.find_me')}
           </p>
@@ -132,7 +149,7 @@ export default function Contact() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className={`w-10 h-10 flex items-center justify-center rounded-lg bg-slate/20 text-text-secondary transition-all hover:bg-slate/30 ${social.hoverColor}`}
+                  className={`w-10 h-10 flex items-center justify-center rounded-lg bg-white/4 text-text-secondary transition-all hover:bg-white/8 ${social.hoverColor}`}
                 >
                   <Icon className="w-4 h-4" />
                 </ExternalLink>

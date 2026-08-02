@@ -14,7 +14,7 @@ export interface SkillCategory {
   /** i18n key for category title: skills.categories.<key>.title */
   key: string
   icon: 'cpu' | 'wrench' | 'signal' | 'sparkles' | 'globe' | 'command' | 'puzzle' | 'film'
-  accent: 'neon-cyan' | 'neon-blue' | 'neon-purple' | 'neon-green'
+  accent: 'neon-cyan' | 'accent' | 'neon-purple' | 'neon-green'
   skills: readonly SkillItem[]
 }
 
@@ -40,7 +40,7 @@ const skills: readonly SkillCategory[] = [
   {
     key: 'machine_learning',
     icon: 'sparkles',
-    accent: 'neon-blue',
+    accent: 'accent',
     skills: [{ key: 'python' }, { key: 'pytorch' }, { key: 'llm_apis' }, { key: 'ai_agents' }],
   },
   {

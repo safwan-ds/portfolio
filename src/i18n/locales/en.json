@@ -1,8 +1,8 @@
 {
   "hero": {
     "title": "Safwan",
-    "subtitle": "Software Engineer & Interactive Media Developer",
-    "description": "Final-year Electrical & Electronics Engineering student and Software Developer. I develop integrated solutions combining physical hardware (Arduino, IoT) and AI (PyTorch, LLMs) with modern web development (React, TypeScript, Tailwind) and creative multimedia design.",
+    "subtitle": "Electronics Engineer, Software & Multimedia Developer",
+    "description": "Final-year Electrical & Electronics Engineering student and Software Developer. I develop integrated solutions bridging physical systems (Arduino, IoT) and AI technologies (PyTorch, LLMs) with modern web frameworks (React, TypeScript, Tailwind) and multimedia design — graphics, video, and interactive experiences.",
     "scroll": "Scroll"
   },
   "nav": {
@@ -16,9 +16,9 @@
   "about": {
     "label": "About Me",
     "title": "Professional Profile",
-    "bio_1": "I am a final-year Electrical and Electronics Engineering student based in Turkey. I specialize in designing highly efficient, integrated systems by leveraging a broad skill set across hardware engineering, artificial intelligence, software development, and multimedia design.",
-    "bio_2": "In the engineering domain, I leverage advanced analytical skills to diagnose complex circuits and design control systems, utilizing tools like Arduino, MATLAB/Simulink, and IoT sensors. Driven by the belief that the best solutions seamlessly blend physical hardware with intelligent software, I bridge engineering with Artificial Intelligence, using Python and PyTorch for machine learning, alongside LLM APIs and AI Agents to build smart, data-driven applications.",
-    "bio_3": "On the software front, I build robust applications with TypeScript, HTML/CSS, React, Tailwind CSS, and Vite, incorporating tools like Three.js and React Three Fiber for immersive graphics. I manage workflows using Git/GitHub, Docker, Linux/Bash, and LaTeX for documentation. Additionally, I am passionate about multimedia and game design, bringing interactive 3D and video experiences to life using Blender, After Effects, Premiere Pro, Illustrator, and the Godot Engine.",
+    "bio_1": "I am a final-year Electrical and Electronics Engineering student based in Turkey. I specialize in designing highly efficient, integrated systems by leveraging a broad skill set across electronics engineering, artificial intelligence, software development, and multimedia design.",
+    "bio_2": "In the engineering domain, I leverage advanced analytical skills to diagnose complex electronic circuits and design control systems, utilizing tools like Arduino and MATLAB/Simulink. Driven by the belief that the best technical solutions seamlessly blend physical hardware with intelligent software, I bridge engineering with Artificial Intelligence, using Python and PyTorch, alongside LLM APIs and AI Agents to build smart, effective applications.",
+    "bio_3": "On the software front, I develop web applications using frameworks like TypeScript, HTML/CSS, React, Tailwind CSS, and Vite, integrating tools like Three.js and React Three Fiber to create advanced interactive interfaces. I manage my projects using Git/GitHub and Docker. I also have a strong passion for multimedia and game design, where I work on interactive experiences and 3D graphics using Blender, After Effects, Premiere Pro, Illustrator, and the Godot Engine.",
     "name_label": "Name",
     "name_val": "Safwan Emad",
     "location_label": "Location",
@@ -136,7 +136,7 @@
       },
       "portfolio": {
         "title": "Portfolio Website",
-        "description": "An interactive, multilingual (EN/AR/TR) portfolio built with React, Tailwind, and Three.js. It features a retro aesthetic, custom paper shaders, and a fully localized edge-AI assistant for an immersive web experience."
+        "description": "An interactive, multilingual portfolio website built with React and Tailwind technologies. Features custom visual effects, along with an integrated AI-powered smart assistant for an interactive and unique browsing experience."
       },
       "boost_converter_pwm": {
         "title": "Boost Converter PWM",
@@ -177,7 +177,6 @@
     "sent_desc": "Your message has been successfully received and will be answered as soon as possible.",
     "send_another": "Send Another Message",
     "error": "An unexpected error occurred while sending the message. Please try again later or contact me directly via email.",
-    "email_direct": "Email Me Directly",
     "find_me": "Find me on"
   },
   "footer": {
@@ -190,29 +189,11 @@
     "ar": "العربية",
     "tr": "Türkçe"
   },
-  "settings": {
-    "effects": "Visual Effects",
-    "3d_scene": "3D Scene",
-    "effects_levels": {
-      "low": "Low",
-      "adaptive": "Adaptive",
-      "high": "High"
-    },
-    "3d_scene_levels": {
-      "off": "Off",
-      "adaptive": "Adaptive",
-      "on": "On"
-    }
-  },
   "ai_chat": {
     "welcome": "Hello, I am Safwan's smart assistant. How can I help you learn more about his experience and projects?",
     "placeholder": "Type your question here...",
     "title": "Smart Assistant",
-    "system_prompt": "You are a smart assistant integrated into Safwan Emad's personal website. Your task is to answer questions regarding his skills, projects, and experiences professionally and concisely based on the available data. If asked a question outside this scope, you must politely state that the information is unavailable and avoid guessing.",
+    "system_prompt": "You are a smart assistant integrated into Safwan Emad's personal website. Your task is to answer questions about his skills, projects, and experiences professionally and concisely based on the available data. If asked a question outside this scope, you must professionally clarify that the information is unavailable and avoid guessing.",
     "error_generic": "An unexpected error occurred. Please try again later."
-  },
-  "loading": {
-    "loading": "Loading",
-    "initializing": "Initializing"
   }
 }

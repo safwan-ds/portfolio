@@ -17,25 +17,25 @@ const projects: readonly Project[] = [
     key: 'portfolio',
     tags: ['react', 'tailwind_css', 'i18n', 'paper_shaders'],
     github: 'https://github.com/safwan-ds/portfolio',
-    image: '/portfolio/images/projects/portfolio.png',
+    image: '/portfolio/images/projects/portfolio.webp',
   },
   {
     key: 'sign2speech',
     tags: ['arduino', 'python', 'signal_processing', 'embedded'],
     github: 'https://github.com/safwan-ds/sign2speech',
-    image: '/portfolio/images/projects/sign2speech.jpg',
+    image: '/portfolio/images/projects/sign2speech.webp',
   },
   {
     key: 'boost_converter_pwm',
     tags: ['arduino', 'power_electronics'],
     github: 'https://github.com/safwan-ds/boost_converter_pwm',
-    image: '/portfolio/images/projects/boost_circuit.jpg',
+    image: '/portfolio/images/projects/boost_circuit.webp',
   },
   {
     key: 'astrododge-pygame',
     tags: ['python', 'pygame', 'game_design'],
     github: 'https://github.com/safwan-ds/AstroDodgePygame',
-    image: '/portfolio/images/projects/astrododge-pygame.png',
+    image: '/portfolio/images/projects/astrododge-pygame.webp',
   },
 ]
 

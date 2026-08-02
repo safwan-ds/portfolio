@@ -15,17 +15,19 @@ const markdownComponents: Components = {
   code: ({ className, children }) => {
     if (!className) {
       return (
-        <code className="px-1 py-0.5 rounded bg-void/50 text-neon-cyan text-xs">{children}</code>
+        <code className="px-1 py-0.5 rounded bg-white/[0.06] text-neon-cyan text-xs">
+          {children}
+        </code>
       )
     }
     return (
-      <pre className="p-3 rounded-xl bg-void/80 border border-slate/20 overflow-x-auto my-2 text-xs leading-relaxed">
+      <pre className="p-3 rounded-xl bg-white/[0.06] border border-white/[0.08] overflow-x-auto my-2 text-xs leading-relaxed">
         <code>{children}</code>
       </pre>
     )
   },
   a: ({ href, children }) => (
-    <ExternalLink href={href as string} className="text-neon-blue hover:underline">
+    <ExternalLink href={href as string} className="text-accent hover:underline">
       {children}
     </ExternalLink>
   ),
@@ -37,22 +39,22 @@ const markdownComponents: Components = {
   h3: ({ children }) => (
     <h3 className="text-sm font-semibold text-white mt-1 mb-0.5">{children}</h3>
   ),
-  hr: () => <hr className="border-slate/30 my-2" />,
+  hr: () => <hr className="border-white/[0.08] my-2" />,
 }
 
 const MessageBubble = memo(function MessageBubble({ msg }: { msg: ChatMessage }) {
   return (
     <div className={`flex items-start gap-2 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
       {msg.role === 'assistant' && (
-        <div className="w-7 h-7 rounded-full bg-neon-blue/20 border border-neon-blue/30 flex items-center justify-center shrink-0 mt-1">
-          <span className="text-[10px] font-bold text-neon-blue">AI</span>
+        <div className="w-7 h-7 rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center shrink-0 mt-1">
+          <span className="text-[10px] font-bold text-accent">AI</span>
         </div>
       )}
       <div
         className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-relaxed wrap-break-word ${
           msg.role === 'user'
-            ? 'bg-neon-blue/10 border border-neon-blue/20 rounded-ee-sm text-text-primary'
-            : 'bg-slate/10 border border-slate/20 rounded-es-sm text-text-primary'
+            ? 'bg-accent/10 border border-accent/20 rounded-ee-sm text-text-primary'
+            : 'bg-white/[0.04] border border-white/[0.08] rounded-es-sm text-text-primary'
         }`}
       >
         <ReactMarkdown components={markdownComponents}>{msg.content}</ReactMarkdown>
@@ -226,7 +228,8 @@ export default function AIChat() {
             <div
               ref={panelRef}
               key="chat-panel"
-              className="fixed bottom-5 right-5 z-50 pointer-events-auto flex flex-col w-90 max-w-[calc(100vw-40px)] h-120 rounded-2xl border border-slate/20 shadow-2xl overflow-hidden bg-carbon/90 backdrop-blur-2xl"
+              className="fixed bottom-5 z-50 pointer-events-auto flex flex-col w-90 max-w-[calc(100vw-40px)] h-120 rounded-2xl border border-white/[0.08] shadow-2xl overflow-hidden bg-white/[0.04] backdrop-blur-sm"
+              style={{ [isRtl ? 'left' : 'right']: 20 }}
             >
               <PanelContent
                 onResizeStart={onResizeStart}
@@ -252,7 +255,8 @@ export default function AIChat() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="fixed bottom-5 right-5 z-50 pointer-events-auto flex flex-col w-90 max-w-[calc(100vw-40px)] h-120 rounded-2xl border border-slate/20 shadow-2xl overflow-hidden bg-carbon/90 backdrop-blur-2xl"
+              className="fixed bottom-5 z-50 pointer-events-auto flex flex-col w-90 max-w-[calc(100vw-40px)] h-120 rounded-2xl border border-white/[0.08] shadow-2xl overflow-hidden bg-white/[0.04] backdrop-blur-sm"
+              style={{ [isRtl ? 'left' : 'right']: 20 }}
             >
               <PanelContent
                 onResizeStart={onResizeStart}
@@ -277,7 +281,8 @@ export default function AIChat() {
         <button
           ref={buttonRef}
           onClick={() => setOpen(true)}
-          className="fixed bottom-5 right-5 z-50 pointer-events-auto w-14 h-14 rounded-full bg-carbon/90 border border-neon-blue/40 backdrop-blur-xl flex items-center justify-center text-neon-blue hover:bg-neon-blue/10 hover:border-neon-blue/60 transition-all shadow-lg shadow-neon-blue/10 active:scale-95"
+          className="fixed bottom-5 z-50 pointer-events-auto w-14 h-14 rounded-full bg-white/[0.04] border border-accent/40 backdrop-blur-sm flex items-center justify-center text-accent hover:bg-accent/10 hover:border-accent/60 transition-all shadow-lg shadow-accent/10 active:scale-95"
+          style={{ [isRtl ? 'left' : 'right']: 20 }}
           aria-label="Toggle AI chat"
         >
           <HiChatBubbleLeftRight size={22} />
@@ -323,7 +328,7 @@ function PanelContent({
         className="absolute top-0 inset-s-0 z-10 w-8 h-8 flex items-start justify-start cursor-nwse-resize rtl:cursor-nesw-resize group select-none"
       >
         <svg
-          className="text-slate-500/50 group-hover:text-neon-blue/70 transition-colors rtl:scale-x-[-1]"
+          className="text-white/30 group-hover:text-accent/70 transition-colors rtl:scale-x-[-1]"
           width="18"
           height="18"
           viewBox="0 0 18 18"
@@ -335,13 +340,13 @@ function PanelContent({
         </svg>
       </div>
 
-      <div className="flex items-center justify-between px-4 py-3 border-b border-slate/20 shrink-0">
-        <span className="font-mono text-xs tracking-widest text-neon-blue uppercase">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.08] shrink-0">
+        <span className="font-mono text-xs tracking-widest text-accent uppercase">
           {t('ai_chat.title')}
         </span>
         <button
           onClick={onClose}
-          className="flex items-center justify-center w-9 h-9 rounded-md text-slate-400 hover:text-text-primary hover:bg-slate/20 transition-colors"
+          className="flex items-center justify-center w-9 h-9 rounded-md text-white/50 hover:text-text-primary hover:bg-white/[0.06] transition-colors"
           aria-label="Close"
         >
           <HiX size={18} />
@@ -355,10 +360,10 @@ function PanelContent({
       >
         {messages.length === 0 && !loading && streamText === null && (
           <div className="flex items-start gap-2">
-            <div className="w-7 h-7 rounded-full bg-neon-blue/20 border border-neon-blue/30 flex items-center justify-center shrink-0 mt-1">
-              <span className="text-[10px] font-bold text-neon-blue">AI</span>
+            <div className="w-7 h-7 rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center shrink-0 mt-1">
+              <span className="text-[10px] font-bold text-accent">AI</span>
             </div>
-            <div className="bg-slate/10 border border-slate/20 rounded-2xl rounded-es-sm px-3 py-2 text-sm text-text-primary leading-relaxed">
+            <div className="bg-white/[0.04] border border-white/[0.08] rounded-2xl rounded-es-sm px-3 py-2 text-sm text-text-primary leading-relaxed">
               {t('ai_chat.welcome')}
             </div>
           </div>
@@ -370,24 +375,24 @@ function PanelContent({
 
         {loading && streamText !== null && (
           <div className="flex items-start gap-2">
-            <div className="w-7 h-7 rounded-full bg-neon-blue/20 border border-neon-blue/30 flex items-center justify-center shrink-0 mt-1">
-              <span className="text-[10px] font-bold text-neon-blue">AI</span>
+            <div className="w-7 h-7 rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center shrink-0 mt-1">
+              <span className="text-[10px] font-bold text-accent">AI</span>
             </div>
-            <div className="bg-slate/10 border border-slate/20 rounded-2xl rounded-es-sm px-3 py-2 text-sm wrap-break-word">
+            <div className="bg-white/[0.04] border border-white/[0.08] rounded-2xl rounded-es-sm px-3 py-2 text-sm wrap-break-word">
               {streamText ? (
                 <ReactMarkdown components={markdownComponents}>{streamText}</ReactMarkdown>
               ) : (
                 <span className="inline-flex gap-1">
                   <span
-                    className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce"
+                    className="w-1.5 h-1.5 rounded-full bg-white/40 animate-bounce"
                     style={{ animationDelay: '0ms' }}
                   />
                   <span
-                    className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce"
+                    className="w-1.5 h-1.5 rounded-full bg-white/40 animate-bounce"
                     style={{ animationDelay: '150ms' }}
                   />
                   <span
-                    className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce"
+                    className="w-1.5 h-1.5 rounded-full bg-white/40 animate-bounce"
                     style={{ animationDelay: '300ms' }}
                   />
                 </span>
@@ -397,13 +402,13 @@ function PanelContent({
         )}
 
         {error && (
-          <div className="rounded-xl bg-neon-pink/10 border border-neon-pink/30 px-3 py-2 text-xs text-neon-pink">
+          <div className="rounded-xl bg-peach/10 border border-peach/30 px-3 py-2 text-xs text-peach">
             {error}
           </div>
         )}
       </div>
 
-      <div className="shrink-0 border-t border-slate/20 p-3">
+      <div className="shrink-0 border-t border-white/[0.08] p-3">
         <div className="flex items-end gap-2">
           <textarea
             ref={inputRef}
@@ -415,12 +420,12 @@ function PanelContent({
             disabled={loading}
             enterKeyHint="send"
             inputMode="text"
-            className="flex-1 resize-none rounded-xl bg-void/60 border border-slate/30 px-3 py-2.5 text-sm text-text-primary placeholder:text-text-secondary/40 focus:outline-none focus:border-neon-blue/50 transition-colors disabled:opacity-50"
+            className="flex-1 resize-none rounded-xl bg-white/[0.04] border border-white/[0.08] px-3 py-2.5 text-sm text-text-primary placeholder:text-text-secondary/40 focus:outline-none focus:border-accent/50 transition-colors disabled:opacity-50"
           />
           <button
             onClick={handleSend}
             disabled={loading || !input.trim()}
-            className="flex items-center justify-center shrink-0 w-10 h-10 rounded-xl bg-neon-blue/10 border border-neon-blue/30 text-neon-blue hover:bg-neon-blue/20 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+            className="flex items-center justify-center shrink-0 w-10 h-10 rounded-xl bg-accent/10 border border-accent/30 text-accent hover:bg-accent/20 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
             aria-label="Send"
           >
             <HiPaperAirplane size={16} className="rtl:rotate-180" />

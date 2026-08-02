@@ -41,10 +41,10 @@ export default function About() {
             <FlatCard>
               <div className="flex items-center gap-4">
                 <div className="shrink-0 w-12 h-12 flex items-center justify-center">
-                  <Logo className="w-8 h-auto" color={cssColor('neonPink')} />
+                  <Logo className="w-8 h-auto" color={cssColor('accent')} />
                 </div>
                 <div>
-                  <Label color="neon-blue" size="2xs" className="mb-0.5">
+                  <Label color="accent" size="2xs" className="mb-0.5">
                     {t('about.name_label')}
                   </Label>
                   <p className="font-display text-xl font-semibold text-text-primary">
@@ -62,7 +62,7 @@ export default function About() {
 
           <div className="space-y-5">
             <FlatCard>
-              <Label color="neon-blue" className="mb-1 flex items-center gap-1.5">
+              <Label color="accent" className="mb-1 flex items-center gap-1.5">
                 <HiOutlineMapPin className="w-4 h-4 -mt-0.5" />
                 {t('about.location_label')}
               </Label>

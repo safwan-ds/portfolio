@@ -4,6 +4,13 @@
  */
 
 import type { IconType } from 'react-icons'
+import {
+  HiOutlineBriefcase,
+  HiOutlineCodeBracket,
+  HiOutlineEnvelope,
+  HiOutlineLanguage,
+  HiOutlineUser,
+} from 'react-icons/hi2'
 
 export interface NavItem {
   /** Section id (matches the id attribute on <section>) */
@@ -15,11 +22,11 @@ export interface NavItem {
 }
 
 const navigation: readonly NavItem[] = [
-  { id: 'about', labelKey: 'nav.about' },
-  { id: 'skills', labelKey: 'nav.skills' },
-  { id: 'languages', labelKey: 'nav.languages' },
-  { id: 'projects', labelKey: 'nav.projects' },
-  { id: 'contact', labelKey: 'nav.contact' },
+  { id: 'about', labelKey: 'nav.about', icon: HiOutlineUser },
+  { id: 'skills', labelKey: 'nav.skills', icon: HiOutlineCodeBracket },
+  { id: 'languages', labelKey: 'nav.languages', icon: HiOutlineLanguage },
+  { id: 'projects', labelKey: 'nav.projects', icon: HiOutlineBriefcase },
+  { id: 'contact', labelKey: 'nav.contact', icon: HiOutlineEnvelope },
 ]
 
 export default navigation

@@ -8,7 +8,7 @@ interface ProgressBarProps {
 export default function ProgressBar({
   percent,
   height = 'h-1.5',
-  color = 'bg-linear-to-r from-neon-blue to-neon-purple',
+  color = 'bg-linear-to-r from-accent to-neon-purple',
   className = '',
 }: ProgressBarProps) {
   const w = `${Math.min(100, Math.max(0, percent))}%`

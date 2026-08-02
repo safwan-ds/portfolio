@@ -2,16 +2,18 @@ import { type ReactNode } from 'react'
 
 interface LabelProps {
   children: ReactNode
-  color?: 'neon-blue' | 'neon-cyan' | 'neon-purple' | 'text-secondary'
+  color?: 'accent' | 'neon-cyan' | 'neon-purple' | 'text-secondary' | 'warning' | 'accent-hover'
   size?: 'xs' | '2xs'
   className?: string
 }
 
 const COLOR_MAP: Record<NonNullable<LabelProps['color']>, string> = {
-  'neon-blue': 'text-neon-blue',
+  accent: 'text-accent',
   'neon-cyan': 'text-neon-cyan',
   'neon-purple': 'text-neon-purple',
   'text-secondary': 'text-text-secondary',
+  warning: 'text-warning',
+  'accent-hover': 'text-accent-hover',
 }
 
 const SIZE_MAP: Record<NonNullable<LabelProps['size']>, string> = {
@@ -21,7 +23,7 @@ const SIZE_MAP: Record<NonNullable<LabelProps['size']>, string> = {
 
 export default function Label({
   children,
-  color = 'neon-blue',
+  color = 'accent',
   size = 'xs',
   className = '',
 }: LabelProps) {

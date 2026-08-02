@@ -2,6 +2,7 @@ import './index.css'
 import Navbar from './components/ui/Navbar'
 import AIChat from './components/ai/AIChat'
 import SocialBookmarks from './components/ui/SocialBookmarks'
+import LanguageSwitcher from './components/ui/LanguageSwitcher'
 import About from './components/ui/About'
 import Skills from './components/ui/Skills'
 import Languages from './components/ui/Languages'
@@ -10,6 +11,7 @@ import Contact from './components/ui/Contact'
 import Footer from './components/ui/Footer'
 import Hero from './components/ui/Hero'
 import Spinner from './components/ui/Spinner'
+import ShapeGrid from './components/ui/ShapeGrid'
 import { useDeviceTier } from './hooks/useDeviceTier'
 import { useTranslation } from 'react-i18next'
 import { useEffect, useRef, useState } from 'react'
@@ -31,11 +33,11 @@ import { useEffect, useRef, useState } from 'react'
    explicitly triggers download of the specific unicode-range subset
    needed for the given sample text.                                */
 
-// Language → font-family + sample text that hits the right unicode range
-const fontSpecMap: Record<string, { family: string; text: string }> = {
-  ar: { family: 'Changa', text: 'مرحبا' },
-  tr: { family: 'Rajdhani', text: 'ĞğŞşçöüİıÇÖÜ' },
-  en: { family: 'Rajdhani', text: 'SAFWAN' },
+// Language → font families + sample text that hits the right unicode range
+const fontSpecMap: Record<string, { families: string[]; text: string }> = {
+  ar: { families: ['Changa', 'Aref Ruqaa'], text: 'مرحبا' },
+  tr: { families: ['Rajdhani', 'Satisfy'], text: 'ĞğŞşçöüİıÇÖÜ' },
+  en: { families: ['Rajdhani', 'Satisfy'], text: 'SAFWAN' },
 }
 
 export default function App() {
@@ -51,7 +53,6 @@ export default function App() {
 
       const lang = i18n.language
       const spec = fontSpecMap[lang] ?? fontSpecMap.en
-      const fontSpec = `1em ${spec.family}`
 
       // Timeout fallback so the overlay never gets permanently stuck
       const timeoutId = setTimeout(() => {
@@ -68,8 +69,11 @@ export default function App() {
 
       if (typeof document !== 'undefined' && document.fonts?.load) {
         // Explicitly trigger download of the unicode-range subset
-        // matching `spec.text` for the target font family.
-        document.fonts.load(fontSpec, spec.text).then(finish, finish)
+        // for each font family needed by this language.
+        Promise.all(spec.families.map((f) => document.fonts.load(`1em ${f}`, spec.text))).then(
+          finish,
+          finish,
+        )
       } else {
         // Fallback for environments without FontFaceSet
         requestAnimationFrame(() => {
@@ -86,6 +90,24 @@ export default function App() {
 
   return (
     <div className="relative bg-void text-text-primary font-body overflow-x-hidden">
+      {/* Language Switcher — top right on desktop, bottom right on mobile */}
+      <div className="fixed bottom-4 md:top-4 md:bottom-auto z-[60]" style={{ insetInlineEnd: 16 }}>
+        <LanguageSwitcher />
+      </div>
+
+      {/* Shape Grid — scrolls with page */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <ShapeGrid
+          speed={0.5}
+          squareSize={65}
+          direction="diagonal"
+          borderColor="#333"
+          hoverFillColor="#C084FF"
+          shape="square"
+          hoverTrailAmount={5}
+        />
+      </div>
+
       {/* Page content */}
       <Navbar />
       <div className="relative z-10 pointer-events-none">

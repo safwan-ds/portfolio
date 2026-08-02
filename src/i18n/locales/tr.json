@@ -1,8 +1,8 @@
 {
   "hero": {
     "title": "Safwan",
-    "subtitle": "Yazılım Mühendisi ve Etkileşimli Medya Geliştiricisi",
-    "description": "Elektrik Elektronik Mühendisliği son sınıf öğrencisi ve Yazılım Geliştirici. Fiziksel donanım (Arduino, IoT) ve Yapay Zekayı (PyTorch, LLM) modern web geliştirme (React, TypeScript, Tailwind) ve yaratıcı multimedya tasarımıyla birleştiren entegre çözümler geliştirmeye odaklanıyorum.",
+    "subtitle": "Elektronik Mühendisi, Yazılım ve Multimedya Geliştiricisi",
+    "description": "Elektrik Elektronik Mühendisliği son sınıf öğrencisiyim ve yazılım geliştiriciyim. Fiziksel sistemleri (Arduino, IoT) ve yapay zeka teknolojilerini (PyTorch, LLM) modern web çerçeveleri (React, TypeScript, Tailwind) ile multimedya tasarımını (grafik, video ve etkileşimli deneyimler) birleştiren entegre çözümler geliştiriyorum.",
     "scroll": "Kaydır"
   },
   "nav": {
@@ -16,9 +16,9 @@
   "about": {
     "label": "Hakkımda",
     "title": "Profesyonel Profil",
-    "bio_1": "Türkiye'de Elektrik ve Elektronik Mühendisliği son sınıf öğrencisiyim. Donanım mühendisliği, yapay zeka, yazılım geliştirme ve multimedya tasarımı alanlarındaki geniş beceri setimi kullanarak yüksek verimli, entegre sistemler tasarlama konusunda uzmanlaşıyorum.",
-    "bio_2": "Mühendislik alanında, karmaşık devreleri teşhis etmek ve kontrol sistemleri tasarlamak için Arduino, MATLAB/Simulink ve IoT sensörleri gibi araçları kullanarak gelişmiş analitik becerilerimi kullanıyorum. En iyi çözümlerin fiziksel donanım ile akıllı yazılımların kusursuz birleşiminden doğduğuna inanarak; makine öğreniminde Python ve PyTorch'un yanı sıra LLM API'leri ve Yapay Zeka Ajanları (AI Agents) kullanarak mühendisliği Yapay Zeka ile köprüleyen akıllı, veri odaklı uygulamalar geliştiriyorum.",
-    "bio_3": "Yazılım cephesinde, sürükleyici grafikler için Three.js ve React Three Fiber gibi araçları entegre ederek TypeScript, HTML/CSS, React, Tailwind CSS ve Vite ile sağlam uygulamalar geliştiriyorum. İş akışlarımı Git/GitHub, Docker, Linux/Bash ve dokümantasyon için LaTeX kullanarak yönetiyorum. Ayrıca multimedya ve oyun tasarımına tutkuyla bağlıyım; Blender, After Effects, Premiere Pro, Illustrator ve Godot Engine kullanarak etkileşimli 3D ve video deneyimlerine hayat veriyorum.",
+    "bio_1": "Türkiye'de Elektrik ve Elektronik Mühendisliği son sınıf öğrencisiyim. Elektronik mühendisliği, yapay zeka, yazılım geliştirme ve multimedya tasarımı alanlarındaki geniş beceri setimi kullanarak yüksek verimli, entegre sistemler tasarlama konusunda uzmanlaşıyorum.",
+    "bio_2": "Mühendislik alanında, karmaşık elektronik devreleri teşhis etmek ve kontrol sistemleri tasarlamak için Arduino ve MATLAB/Simulink gibi araçları kullanarak gelişmiş analitik becerilerimi kullanıyorum. En iyi teknik çözümlerin fiziksel donanım ile akıllı yazılımların kusursuz birleşiminden doğduğuna inanarak; Python ve PyTorch'un yanı sıra LLM API'leri ve Yapay Zeka Ajanları kullanarak mühendisliği Yapay Zeka ile köprüleyen akıllı ve etkili uygulamalar geliştiriyorum.",
+    "bio_3": "Yazılım cephesinde, TypeScript, HTML/CSS, React, Tailwind CSS ve Vite ile gelişmiş etkileşimli arayüzler oluşturmak için Three.js ve React Three Fiber gibi araçları entegre ederek web uygulamaları geliştiriyorum. Projelerimi Git/GitHub ve Docker kullanarak yönetiyorum. Ayrıca multimedya ve oyun tasarımına büyük bir tutkuyla bağlıyım; Blender, After Effects, Premiere Pro, Illustrator ve Godot Engine kullanarak etkileşimli deneyimler ve 3D grafikler üzerinde çalışıyorum.",
     "name_label": "İsim",
     "name_val": "Safwan Emad",
     "location_label": "Konum",
@@ -136,7 +136,7 @@
       },
       "portfolio": {
         "title": "Portfolio Website",
-        "description": "React, Tailwind ve Three.js ile oluşturulmuş etkileşimli, çok dilli (EN/AR/TR) portfolyo. Sürükleyici bir web deneyimi için retro estetiğe, özel kağıt gölgelendiricilere (paper shaders) ve tamamen yerelleştirilmiş uç yapay zeka asistanına sahiptir."
+        "description": "React ve Tailwind teknolojileriyle oluşturulmuş etkileşimli, çok dilli portfolyo web sitesi. Özel görsel efektlerin yanı sıra, etkileşimli ve benzersiz bir tarama deneyimi sunan entegre bir yapay zeka destekli akıllı asistana sahiptir."
       },
       "boost_converter_pwm": {
         "title": "Boost Converter PWM",
@@ -177,7 +177,6 @@
     "sent_desc": "Mesajınız başarıyla alındı ve en kısa sürede yanıtlanacaktır.",
     "send_another": "Başka Bir Mesaj Gönder",
     "error": "Mesaj gönderilirken beklenmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin veya doğrudan e-posta yoluyla benimle iletişime geçin.",
-    "email_direct": "Bana Doğrudan E-posta Gönder",
     "find_me": "Beni şurada bulun:"
   },
   "footer": {
@@ -190,29 +189,11 @@
     "ar": "العربية",
     "tr": "Türkçe"
   },
-  "settings": {
-    "effects": "Görsel Efektler",
-    "3d_scene": "3D Sahne",
-    "effects_levels": {
-      "low": "Düşük",
-      "adaptive": "Uyarlanabilir",
-      "high": "Yüksek"
-    },
-    "3d_scene_levels": {
-      "off": "Kapalı",
-      "adaptive": "Uyarlanabilir",
-      "on": "Açık"
-    }
-  },
   "ai_chat": {
     "welcome": "Merhaba, ben Safwan'ın akıllı asistanıyım. Onun deneyimleri ve projeleri hakkında daha fazla bilgi edinmenize nasıl yardımcı olabilirim?",
     "placeholder": "Sorunuzu buraya yazın...",
     "title": "Akıllı Asistan",
-    "system_prompt": "Sen, Safwan Emad'ın kişisel web sitesine entegre edilmiş akıllı bir asistansın. Görevin, onun yetenekleri, projeleri ve deneyimleriyle ilgili soruları mevcut verilere dayanarak profesyonel ve öz bir şekilde yanıtlamaktır. Bu kapsamın dışında bir soru sorulursa, bilgilerin mevcut olmadığını kibarca belirtmeli ve tahminde bulunmaktan kaçınmalısın.",
+    "system_prompt": "Sen, Safwan Emad'ın kişisel web sitesine entegre edilmiş akıllı bir asistansın. Görevin, onun yetenekleri, projeleri ve deneyimleriyle ilgili soruları mevcut verilere dayanarak profesyonel ve öz bir şekilde yanıtlamaktır. Bu kapsamın dışında bir soru sorulursa, bilgilerin mevcut olmadığını profesyonelce belirtmeli ve tahminde bulunmaktan kaçınmalısın.",
     "error_generic": "Beklenmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin."
-  },
-  "loading": {
-    "loading": "Yükleniyor",
-    "initializing": "Başlatılıyor"
   }
 }

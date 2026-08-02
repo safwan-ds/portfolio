@@ -111,10 +111,14 @@ const DotField = memo(({
       frameCount++;
       const dots = dotsRef.current;
       const m = mouseRef.current;
-      const { w, h } = sizeRef.current;
+      const { w, h, offsetX, offsetY } = sizeRef.current;
       const p = propsRef.current;
       const len = dots.length;
       const t = frameCount * 0.02;
+
+      // Convert viewport mouse to canvas-relative coordinates
+      const canvasX = m.x - (offsetX - window.scrollX);
+      const canvasY = m.y - (offsetY - window.scrollY);
 
       const targetEngagement = Math.min(m.speed / 5, 1);
       engagement.current += (targetEngagement - engagement.current) * 0.06;
@@ -124,8 +128,8 @@ const DotField = memo(({
       glowOpacity.current += (eng - glowOpacity.current) * 0.08;
 
       if (glowEl) {
-        glowEl.setAttribute('cx', m.x);
-        glowEl.setAttribute('cy', m.y);
+        glowEl.setAttribute('cx', canvasX);
+        glowEl.setAttribute('cy', canvasY);
         glowEl.style.opacity = glowOpacity.current;
       }
 
@@ -145,8 +149,8 @@ const DotField = memo(({
 
       for (let i = 0; i < len; i++) {
         const d = dots[i];
-        const dx = m.x - d.ax;
-        const dy = m.y - d.ay;
+        const dx = canvasX - d.ax;
+        const dy = canvasY - d.ay;
         const distSq = dx * dx + dy * dy;
 
         if (distSq < crSq && eng > 0.01) {
@@ -207,6 +211,10 @@ const DotField = memo(({
     doResize();
     window.addEventListener('resize', resize);
     window.addEventListener('mousemove', onMouseMove, { passive: true });
+
+    const ro = new ResizeObserver(() => doResize());
+    ro.observe(canvas.parentElement);
+
     rafRef.current = requestAnimationFrame(tick);
 
     rebuildRef.current = () => {
@@ -218,6 +226,7 @@ const DotField = memo(({
       cancelAnimationFrame(rafRef.current);
       clearInterval(speedInterval);
       clearTimeout(resizeTimer);
+      ro.disconnect();
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', onMouseMove);
     };

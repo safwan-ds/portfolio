@@ -21,7 +21,6 @@ import {
   HiOutlineWrenchScrewdriver,
 } from 'react-icons/hi2'
 import { type SkillCategory, skills } from '../../data'
-import RippleGrid from './RippleGrid'
 
 const ACCENT_CLASSES: Record<
   string,
@@ -33,11 +32,11 @@ const ACCENT_CLASSES: Record<
     tagBg: 'bg-neon-cyan/5',
     tagBorder: 'border-neon-cyan/10',
   },
-  'neon-blue': {
-    iconBg: 'bg-neon-blue/10',
-    iconColor: 'text-neon-blue',
-    tagBg: 'bg-neon-blue/5',
-    tagBorder: 'border-neon-blue/10',
+  accent: {
+    iconBg: 'bg-accent/10',
+    iconColor: 'text-accent',
+    tagBg: 'bg-accent/5',
+    tagBorder: 'border-accent/10',
   },
   'neon-purple': {
     iconBg: 'bg-neon-purple/10',
@@ -64,55 +63,41 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   film: HiOutlineFilm,
 }
 
-function SkillFlipCard({ category }: { category: SkillCategory }) {
+function SkillFlipCard({
+  category,
+  mobileFlipped,
+  onMobileToggle,
+}: {
+  category: SkillCategory
+  mobileFlipped: boolean
+  onMobileToggle: () => void
+}) {
   const { t } = useTranslation()
   const { isMobile } = useDeviceTier()
-  const [flipped, setFlipped] = useState(false)
+  const [hovered, setHovered] = useState(false)
   const Icon = ICON_MAP[category.icon]
   const ac = ACCENT_CLASSES[category.accent]
 
-  /* Desktop → hover flips. Mobile → click toggles. */
+  const flipped = isMobile ? mobileFlipped : hovered
 
   const hoverProps = isMobile
     ? {}
     : {
-        onMouseEnter: () => {
-          setFlipped(true)
-        },
-        onMouseLeave: () => {
-          setFlipped(false)
-        },
+        onMouseEnter: () => setHovered(true),
+        onMouseLeave: () => setHovered(false),
       }
 
   return (
     <div
       className="group relative h-75 w-full perspective-[2000px] transition-transform duration-300 hover:scale-[1.02] active:scale-[1.01]"
       {...hoverProps}
-      onClick={isMobile ? () => setFlipped((p) => !p) : undefined}
+      onClick={isMobile ? onMobileToggle : undefined}
     >
       <div
         className={`relative h-full w-full transform-3d transition-transform duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] motion-reduce:transition-none ${
           flipped ? 'transform-[rotateY(180deg)]' : 'transform-[rotateY(0deg)]'
         }`}
       >
-        {/* RippleGrid background — flips with the card */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-lg"
-          aria-hidden="true"
-        >
-          <RippleGrid
-            enableRainbow={false}
-            gridColor="#ffffff"
-            rippleIntensity={0.03}
-            gridSize={10}
-            gridThickness={20}
-            fadeDistance={3.5}
-            vignetteStrength={4.0}
-            glowIntensity={0.8}
-            opacity={1.0}
-            mouseInteraction={false}
-          />
-        </div>
         {/* ── Front face ── */}
         <div className="absolute inset-0 h-full w-full backface-hidden transform-[rotateY(0deg)] overflow-hidden rounded-lg bg-carbon/85 border border-slate/20 group-hover:border-text-primary/20 transition-all duration-300 p-6 flex flex-col">
           <div className="flex-1 flex flex-col items-center justify-center gap-4">
@@ -166,13 +151,23 @@ function SkillFlipCard({ category }: { category: SkillCategory }) {
 
 export default function Skills() {
   const { t } = useTranslation()
+  const [activeCard, setActiveCard] = useState<string | null>(null)
+
+  const handleToggle = (key: string) => {
+    setActiveCard((prev) => (prev === key ? null : key))
+  }
 
   return (
     <SectionWrapper id="skills" label={t('skills.label')} title={t('skills.title')}>
       <SectionReveal delay={0.15}>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 select-none">
           {skills.map((cat) => (
-            <SkillFlipCard key={cat.key} category={cat} />
+            <SkillFlipCard
+              key={cat.key}
+              category={cat}
+              mobileFlipped={activeCard === cat.key}
+              onMobileToggle={() => handleToggle(cat.key)}
+            />
           ))}
         </div>
       </SectionReveal>

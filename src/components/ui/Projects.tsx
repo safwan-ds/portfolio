@@ -107,7 +107,7 @@ function ProjectCard({ project, onActivate, isExpanded, background }: ProjectCar
           mouseX.set(0)
           mouseY.set(0)
         }}
-        className="group relative rounded-2xl bg-carbon/80 border border-neon-blue/10 p-6 transition-colors duration-300 hover:border-neon-blue/30 cursor-pointer overflow-hidden"
+        className="group relative rounded-2xl bg-carbon/80 border border-accent/10 p-6 transition-colors duration-300 hover:border-accent/30 cursor-pointer overflow-hidden"
       >
         {background && (
           <div
@@ -118,7 +118,7 @@ function ProjectCard({ project, onActivate, isExpanded, background }: ProjectCar
           </div>
         )}
         <div className="relative z-10">
-          <div className="absolute top-0 left-4 right-4 h-px bg-linear-to-r from-transparent via-neon-blue/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute top-0 left-4 right-4 h-px bg-linear-to-r from-transparent via-accent/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           {project.image && (
             <div
               ref={thumbRef}
@@ -154,7 +154,7 @@ function ProjectCard({ project, onActivate, isExpanded, background }: ProjectCar
               </div>
             </div>
           )}
-          <h3 className="font-display text-xl font-semibold text-text-primary group-hover:text-neon-blue transition-colors mb-3">
+          <h3 className="font-display text-xl font-semibold text-text-primary group-hover:text-accent transition-colors mb-3">
             {t(titleKey)}
           </h3>
           <p className="text-text-secondary text-sm leading-relaxed mb-4">{t(descKey)}</p>
@@ -162,7 +162,7 @@ function ProjectCard({ project, onActivate, isExpanded, background }: ProjectCar
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-2 py-0.5 rounded-sm bg-neon-blue/10 text-neon-blue/80 font-mono text-[11px]"
+                className="px-2 py-0.5 rounded-sm bg-accent/10 text-accent/80 font-mono text-[11px]"
               >
                 {t(`projects.tags.${tag}`)}
               </span>
@@ -172,7 +172,7 @@ function ProjectCard({ project, onActivate, isExpanded, background }: ProjectCar
             {project.github && (
               <ExternalLink
                 href={project.github}
-                className="inline-flex items-center gap-1.5 font-mono text-xs text-neon-blue hover:text-neon-cyan transition-colors"
+                className="inline-flex items-center gap-1.5 font-mono text-xs text-accent hover:text-neon-cyan transition-colors"
               >
                 GitHub <HiArrowUpRight className="w-3 h-3" />
               </ExternalLink>
@@ -180,7 +180,7 @@ function ProjectCard({ project, onActivate, isExpanded, background }: ProjectCar
             {project.link && (
               <ExternalLink
                 href={project.link}
-                className="inline-flex items-center gap-1.5 font-mono text-xs text-neon-purple hover:text-neon-pink transition-colors"
+                className="inline-flex items-center gap-1.5 font-mono text-xs text-neon-purple hover:text-peach transition-colors"
               >
                 Live <HiArrowUpRight className="w-3 h-3" />
               </ExternalLink>
