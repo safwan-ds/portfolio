@@ -13,7 +13,7 @@ export { default as navigation } from './navigation'
 export type { NavItem } from './navigation'
 
 export { default as skills } from './skills'
-export type { SkillCategory } from './skills'
+export type { SkillCategory, SkillItem, IconComponent } from './skills'
 
 export { default as projects } from './projects'
 export type { Project } from './projects'

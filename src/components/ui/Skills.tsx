@@ -10,16 +10,6 @@ import { useTranslation } from 'react-i18next'
 import { useDeviceTier } from '../../hooks/useDeviceTier'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
-import {
-  HiOutlineCommandLine,
-  HiOutlineCpuChip,
-  HiOutlineFilm,
-  HiOutlineGlobeAlt,
-  HiOutlinePuzzlePiece,
-  HiOutlineSignal,
-  HiOutlineSparkles,
-  HiOutlineWrenchScrewdriver,
-} from 'react-icons/hi2'
 import { type SkillCategory, skills } from '../../data'
 
 const ACCENT_CLASSES: Record<
@@ -52,17 +42,6 @@ const ACCENT_CLASSES: Record<
   },
 }
 
-const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
-  cpu: HiOutlineCpuChip,
-  wrench: HiOutlineWrenchScrewdriver,
-  signal: HiOutlineSignal,
-  sparkles: HiOutlineSparkles,
-  globe: HiOutlineGlobeAlt,
-  command: HiOutlineCommandLine,
-  puzzle: HiOutlinePuzzlePiece,
-  film: HiOutlineFilm,
-}
-
 function SkillFlipCard({
   category,
   mobileFlipped,
@@ -75,7 +54,7 @@ function SkillFlipCard({
   const { t } = useTranslation()
   const { isMobile } = useDeviceTier()
   const [hovered, setHovered] = useState(false)
-  const Icon = ICON_MAP[category.icon]
+  const CategoryIcon = category.icon
   const ac = ACCENT_CLASSES[category.accent]
 
   const flipped = isMobile ? mobileFlipped : hovered
@@ -104,7 +83,7 @@ function SkillFlipCard({
             <div
               className={`p-3 rounded-xl ${ac.iconBg} transition-transform duration-300 group-hover:scale-110`}
             >
-              <Icon className={`w-8 h-8 ${ac.iconColor}`} />
+              <CategoryIcon className={`w-8 h-8 ${ac.iconColor}`} />
             </div>
             <h3 className="font-display text-xl font-bold text-text-primary text-center leading-snug">
               {t(`skills.categories.${category.key}.title`)}
@@ -117,7 +96,7 @@ function SkillFlipCard({
           {/* Header */}
           <div className="flex items-center gap-2 mb-4">
             <div className={`p-1.5 rounded-lg ${ac.iconBg}`}>
-              <Icon className={`w-4 h-4 ${ac.iconColor}`} />
+              <CategoryIcon className={`w-4 h-4 ${ac.iconColor}`} />
             </div>
             <h3 className="font-display text-sm font-semibold text-text-primary leading-tight">
               {t(`skills.categories.${category.key}.title`)}
@@ -128,16 +107,18 @@ function SkillFlipCard({
           <div className="flex-1 flex flex-wrap content-start gap-2">
             {category.skills.map((skill, i) => {
               const skillKey = `skills.categories.${category.key}.skills.${skill.key}`
+              const SkillIcon = skill.icon
               return (
                 <div
                   key={skill.key}
-                  className={`px-2.5 py-1 rounded-md font-mono text-xs text-text-secondary ${ac.tagBg} ${ac.tagBorder} border transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]`}
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md font-mono text-xs text-text-secondary ${ac.tagBg} ${ac.tagBorder} border transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]`}
                   style={{
                     transform: flipped ? 'translateX(0)' : 'translateX(-8px)',
                     opacity: flipped ? 1 : 0,
                     transitionDelay: `${i * 40}ms`,
                   }}
                 >
+                  {SkillIcon && <SkillIcon className={`w-3.5 h-3.5 shrink-0 ${ac.iconColor}`} />}
                   {t(skillKey)}
                 </div>
               )
