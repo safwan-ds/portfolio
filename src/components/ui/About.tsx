@@ -4,10 +4,10 @@
  */
 
 import { useTranslation } from 'react-i18next'
-import { Dithering } from '@paper-design/shaders-react'
 import { HiOutlineAcademicCap, HiOutlineMapPin, HiOutlineSparkles } from 'react-icons/hi2'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
+import DitherBackground from './DitherBackground'
 import FlatCard from './FlatCard.tsx'
 import Label from './Label'
 import Logo from './Logo'
@@ -20,20 +20,11 @@ export default function About() {
   return (
     <SectionWrapper
       id="about"
+      wipe
+      zIndex="z-40"
       label={t('about.label')}
       title={t('about.title')}
-      background={
-        <Dithering
-          colorBack="#00000000"
-          colorFront={cssColor('carbon')}
-          shape="swirl"
-          type="8x8"
-          size={4.2}
-          speed={0.98}
-          scale={0.56}
-          className="w-full h-full"
-        />
-      }
+      background={<DitherBackground />}
     >
       <SectionReveal delay={0.15}>
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">

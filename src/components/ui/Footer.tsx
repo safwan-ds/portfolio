@@ -27,6 +27,16 @@ export default function Footer() {
       </div>
       <div className="mx-auto max-w-5xl mt-4 flex justify-center">
         <a
+          href="https://shaders.paper.design"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-[11px] text-text-secondary hover:text-accent transition-colors"
+        >
+          LiquidMetal {t('footer.and')} Dithering {t('footer.shaders_by')} Paper Shaders
+        </a>
+      </div>
+      <div className="mx-auto max-w-5xl mt-4 flex justify-center">
+        <a
           href="https://github.com/safwan-ds/portfolio"
           target="_blank"
           rel="noopener noreferrer"

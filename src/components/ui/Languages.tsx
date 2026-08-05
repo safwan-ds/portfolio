@@ -6,6 +6,7 @@
 import { useTranslation } from 'react-i18next'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
+import DitherBackground from './DitherBackground'
 import FlatCard from './FlatCard.tsx'
 import FlagIcon from './FlagIcon'
 import ProgressBar from './ProgressBar'
@@ -21,17 +22,24 @@ export default function Languages() {
   const { t } = useTranslation()
 
   return (
-    <SectionWrapper id="languages" label={t('languages.label')} title={t('languages.title')}>
+    <SectionWrapper
+      id="languages"
+      wipe
+      zIndex="z-20"
+      label={t('languages.label')}
+      title={t('languages.title')}
+      background={<DitherBackground shape="dots" />}
+    >
       <SectionReveal delay={0.15}>
-        <div className="space-y-5">
+        <div className="space-y-6 sm:space-y-8">
           {languages.map((lang) => {
             const bar = LEVEL_BAR[lang.levelKey]
             return (
-              <FlatCard key={lang.key}>
+              <FlatCard key={lang.key} className="p-7 sm:p-9">
                 {/* Mobile: stacked; sm+: horizontal row */}
-                <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                   {/* Language name + flag */}
-                  <p className="font-display text-sm sm:text-base font-semibold text-text-primary flex items-center gap-1.5 sm:gap-2 sm:w-32 shrink-0">
+                  <p className="font-display text-sm sm:text-base font-semibold text-text-primary flex items-center gap-1.5 sm:gap-2 sm:w-36 shrink-0">
                     <FlagIcon
                       lang={lang.key as 'arabic' | 'english' | 'turkish'}
                       className="w-5 h-3.5 sm:w-6 sm:h-4 rounded-sm shrink-0"
@@ -42,7 +50,7 @@ export default function Languages() {
                   <div className="flex items-center gap-2 sm:gap-4 flex-1">
                     <ProgressBar
                       percent={bar.width}
-                      height="h-2.5 sm:h-3"
+                      height="h-3 sm:h-4"
                       color={bar.color}
                       className="flex-1 min-w-0"
                     />

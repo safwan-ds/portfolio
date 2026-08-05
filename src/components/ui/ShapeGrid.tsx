@@ -13,7 +13,12 @@ interface ShapeGridProps {
   borderColor?: CanvasStrokeStyle
   squareSize?: number
   hoverFillColor?: CanvasStrokeStyle
-  shape?: 'square' | 'hexagon' | 'circle' | 'triangle'
+  shape?: 'square' | 'hexagon' | 'circle' | 'triangle' | 'logo'
+  /** Image to draw in each cell when shape="logo". Tinted with borderColor. */
+  logoUrl?: string
+  /** Vertical cell pitch (logo shape). Defaults to squareSize; taller than
+   *  squareSize adds breathing room between portrait logos. */
+  cellHeight?: number
   hoverTrailAmount?: number
 }
 
@@ -24,6 +29,8 @@ const ShapeGrid: React.FC<ShapeGridProps> = ({
   squareSize = 40,
   hoverFillColor = '#222',
   shape = 'square',
+  logoUrl = '',
+  cellHeight,
   hoverTrailAmount = 0,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -34,6 +41,8 @@ const ShapeGrid: React.FC<ShapeGridProps> = ({
   const hoveredSquareRef = useRef<GridOffset | null>(null)
   const trailCells = useRef<GridOffset[]>([])
   const cellOpacities = useRef<Map<string, number>>(new Map())
+  const visibleRef = useRef(true)
+  const logoCanvasRef = useRef<HTMLCanvasElement | null>(null)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -54,6 +63,26 @@ const ShapeGrid: React.FC<ShapeGridProps> = ({
 
     window.addEventListener('resize', resizeCanvas)
     resizeCanvas()
+
+    // Preload + tint the logo (SVG has no fill → renders black; tint with
+    // borderColor via source-in on an offscreen canvas so it's visible)
+    let logoCanvas: HTMLCanvasElement | null = null
+    if (shape === 'logo' && logoUrl) {
+      const img = new Image()
+      img.onload = () => {
+        logoCanvas = document.createElement('canvas')
+        logoCanvas.width = img.width
+        logoCanvas.height = img.height
+        const lctx = logoCanvas.getContext('2d')
+        if (!lctx) return
+        lctx.drawImage(img, 0, 0)
+        lctx.globalCompositeOperation = 'source-in'
+        lctx.fillStyle = borderColor
+        lctx.fillRect(0, 0, logoCanvas.width, logoCanvas.height)
+        logoCanvasRef.current = logoCanvas
+      }
+      img.src = logoUrl
+    }
 
     const drawHex = (cx: number, cy: number, size: number) => {
       if (!ctx) return
@@ -180,6 +209,42 @@ const ShapeGrid: React.FC<ShapeGridProps> = ({
             ctx.stroke()
           }
         }
+      } else if (shape === 'logo') {
+        const cellH = cellHeight ?? squareSize
+        const offsetX = ((gridOffset.current.x % squareSize) + squareSize) % squareSize
+        const offsetY = ((gridOffset.current.y % cellH) + cellH) % cellH
+
+        const cols = Math.ceil(canvas.width / squareSize) + 3
+        const rows = Math.ceil(canvas.height / cellH) + 3
+        const logo = logoCanvasRef.current
+
+        for (let col = -2; col < cols; col++) {
+          for (let row = -2; row < rows; row++) {
+            const sx = col * squareSize + offsetX
+            const sy = row * cellH + offsetY
+
+            const cellKey = `${col},${row}`
+            const alpha = cellOpacities.current.get(cellKey)
+            if (alpha) {
+              ctx.globalAlpha = alpha
+              ctx.fillStyle = hoverFillColor
+              ctx.fillRect(sx, sy, squareSize, squareSize)
+              ctx.globalAlpha = 1
+            }
+
+            if (logo) {
+              // Fit logo inside the cell, preserving aspect ratio
+              const scale = Math.min(squareSize / logo.width, squareSize / logo.height)
+              const w = logo.width * scale
+              const h = logo.height * scale
+              ctx.drawImage(logo, sx + (squareSize - w) / 2, sy + (squareSize - h) / 2, w, h)
+            } else {
+              // Fallback until the logo loads: draw a placeholder square
+              ctx.strokeStyle = borderColor
+              ctx.strokeRect(sx, sy, squareSize, squareSize)
+            }
+          }
+        }
       } else {
         const offsetX = ((gridOffset.current.x % squareSize) + squareSize) % squareSize
         const offsetY = ((gridOffset.current.y % squareSize) + squareSize) % squareSize
@@ -209,9 +274,20 @@ const ShapeGrid: React.FC<ShapeGridProps> = ({
     }
 
     const updateAnimation = () => {
+      if (!visibleRef.current) {
+        requestRef.current = null
+        return
+      }
+
       const effectiveSpeed = Math.max(speed, 0.1)
       const wrapX = isHex ? hexHoriz * 2 : squareSize
-      const wrapY = isHex ? hexVert : isTri ? squareSize * 2 : squareSize
+      const wrapY = isHex
+        ? hexVert
+        : isTri
+          ? squareSize * 2
+          : shape === 'logo'
+            ? (cellHeight ?? squareSize)
+            : squareSize
 
       switch (direction) {
         case 'right':
@@ -346,6 +422,29 @@ const ShapeGrid: React.FC<ShapeGridProps> = ({
           }
           hoveredSquareRef.current = { x: col, y: row }
         }
+      } else if (shape === 'logo') {
+        const cellH = cellHeight ?? squareSize
+        const offsetX = ((gridOffset.current.x % squareSize) + squareSize) % squareSize
+        const offsetY = ((gridOffset.current.y % cellH) + cellH) % cellH
+
+        const adjustedX = mouseX - offsetX
+        const adjustedY = mouseY - offsetY
+
+        const col = Math.floor(adjustedX / squareSize)
+        const row = Math.floor(adjustedY / cellH)
+
+        if (
+          !hoveredSquareRef.current ||
+          hoveredSquareRef.current.x !== col ||
+          hoveredSquareRef.current.y !== row
+        ) {
+          if (hoveredSquareRef.current && hoverTrailAmount > 0) {
+            trailCells.current.unshift({ ...hoveredSquareRef.current })
+            if (trailCells.current.length > hoverTrailAmount)
+              trailCells.current.length = hoverTrailAmount
+          }
+          hoveredSquareRef.current = { x: col, y: row }
+        }
       } else {
         const offsetX = ((gridOffset.current.x % squareSize) + squareSize) % squareSize
         const offsetY = ((gridOffset.current.y % squareSize) + squareSize) % squareSize
@@ -382,15 +481,42 @@ const ShapeGrid: React.FC<ShapeGridProps> = ({
 
     canvas.addEventListener('mousemove', handleMouseMove)
     canvas.addEventListener('mouseleave', handleMouseLeave)
+
+    // Pause the animation loop when the canvas is off-screen (mobile perf)
+    let visibleObserver: IntersectionObserver | null = null
+    if (typeof IntersectionObserver !== 'undefined') {
+      visibleObserver = new IntersectionObserver(([entry]) => {
+        visibleRef.current = entry.isIntersecting
+        if (entry.isIntersecting && requestRef.current === null) {
+          requestRef.current = requestAnimationFrame(updateAnimation)
+        } else if (!entry.isIntersecting && requestRef.current !== null) {
+          cancelAnimationFrame(requestRef.current)
+          requestRef.current = null
+        }
+      })
+      visibleObserver.observe(canvas)
+    }
+
     requestRef.current = requestAnimationFrame(updateAnimation)
 
     return () => {
       window.removeEventListener('resize', resizeCanvas)
       if (requestRef.current) cancelAnimationFrame(requestRef.current)
+      visibleObserver?.disconnect()
       canvas.removeEventListener('mousemove', handleMouseMove)
       canvas.removeEventListener('mouseleave', handleMouseLeave)
     }
-  }, [direction, speed, borderColor, hoverFillColor, squareSize, shape, hoverTrailAmount])
+  }, [
+    direction,
+    speed,
+    borderColor,
+    hoverFillColor,
+    squareSize,
+    shape,
+    hoverTrailAmount,
+    logoUrl,
+    cellHeight,
+  ])
 
   return (
     <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none"></canvas>

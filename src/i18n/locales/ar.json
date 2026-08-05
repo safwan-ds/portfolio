@@ -182,7 +182,9 @@
   "footer": {
     "copyright": "صفوان",
     "madewith": "صُنع بحب",
-    "source": "المصدر"
+    "source": "المصدر",
+    "shaders_by": "بواسطة",
+    "and": "و"
   },
   "language": {
     "en": "English",

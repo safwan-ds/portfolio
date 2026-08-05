@@ -182,7 +182,9 @@
   "footer": {
     "copyright": "Safwan",
     "madewith": "Made with love",
-    "source": "Source"
+    "source": "Source",
+    "shaders_by": "Shaders by",
+    "and": "and"
   },
   "language": {
     "en": "English",

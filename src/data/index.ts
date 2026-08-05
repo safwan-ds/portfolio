@@ -3,14 +3,11 @@
  * Import from '@/data' to access all content config.
  *
  * Example:
- *   import { profile, skills, projects, socials, navigation } from '@/data'
+ *   import { profile, skills, projects, socials } from '@/data'
  */
 
 export { default as profile } from './profile'
 export type { Profile } from './profile'
-
-export { default as navigation } from './navigation'
-export type { NavItem } from './navigation'
 
 export { default as skills } from './skills'
 export type { SkillCategory, SkillItem, IconComponent } from './skills'

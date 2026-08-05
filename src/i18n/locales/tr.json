@@ -182,7 +182,9 @@
   "footer": {
     "copyright": "Safwan",
     "madewith": "Sevgiyle yapıldı",
-    "source": "Kaynak"
+    "source": "Kaynak",
+    "shaders_by": "gölgelendiricileri:",
+    "and": "ve"
   },
   "language": {
     "en": "English",

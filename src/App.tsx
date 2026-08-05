@@ -1,5 +1,4 @@
 import './index.css'
-import Navbar from './components/ui/Navbar'
 import AIChat from './components/ai/AIChat'
 import SocialBookmarks from './components/ui/SocialBookmarks'
 import LanguageSwitcher from './components/ui/LanguageSwitcher'
@@ -95,7 +94,6 @@ export default function App() {
       </div>
 
       {/* Page content */}
-      <Navbar />
       <div className="relative z-10 pointer-events-none">
         <Hero />
         <About />

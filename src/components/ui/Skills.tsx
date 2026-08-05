@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next'
 import { useDeviceTier } from '../../hooks/useDeviceTier'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
+import DitherBackground from './DitherBackground'
 import { type SkillCategory, skills } from '../../data'
 
 const ACCENT_CLASSES: Record<
@@ -139,9 +140,16 @@ export default function Skills() {
   }
 
   return (
-    <SectionWrapper id="skills" label={t('skills.label')} title={t('skills.title')}>
+    <SectionWrapper
+      id="skills"
+      wipe
+      zIndex="z-30"
+      label={t('skills.label')}
+      title={t('skills.title')}
+      background={<DitherBackground shape="wave" />}
+    >
       <SectionReveal delay={0.15}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 select-none">
+        <div className="grid gap-4 select-none [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]">
           {skills.map((cat) => (
             <SkillFlipCard
               key={cat.key}

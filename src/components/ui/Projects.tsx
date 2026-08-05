@@ -11,6 +11,7 @@ import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from
 import { HiArrowUpRight, HiEye } from 'react-icons/hi2'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
+import DitherBackground from './DitherBackground'
 import NeonButton from './NeonButton'
 import ExternalLink from './ExternalLink'
 import { useDeviceTier } from '../../hooks/useDeviceTier'
@@ -350,9 +351,16 @@ export default function Projects() {
   const es = expandState
 
   return (
-    <SectionWrapper id="projects" label={t('projects.label')} title={t('projects.title')}>
+    <SectionWrapper
+      id="projects"
+      wipe
+      zIndex="z-10"
+      label={t('projects.label')}
+      title={t('projects.title')}
+      background={<DitherBackground shape="ripple" />}
+    >
       <SectionReveal delay={0.15}>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(340px,1fr))]">
           {projects.map((p) => (
             <ProjectCard
               key={p.key}
