@@ -1,8 +1,9 @@
-import { Suspense, useEffect } from 'react'
+import { Suspense, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import { motion, useMotionTemplate, useScroll, useTransform } from 'framer-motion'
 import { LiquidMetal } from '@paper-design/shaders-react'
-import DotField from './DotField'
 
+import ShapeGrid from './ShapeGrid'
 import { cssColor } from '../../utils/constants'
 
 const LOGO_URL = `${import.meta.env.BASE_URL}images/logo.svg`
@@ -40,38 +41,43 @@ function LiquidMetalReady() {
 
 export default function Hero() {
   const { t } = useTranslation()
+  const sectionRef = useRef<HTMLElement>(null)
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  })
+
+  const clipBottom = useTransform(scrollYProgress, (progress) => `${progress * 100}%`)
+  const contentY = useTransform(scrollYProgress, (progress) => `${-progress * 30}vh`)
+  const clipPath = useMotionTemplate`inset(0 0 ${clipBottom} 0)`
 
   return (
     <section
       id="home"
-      className="relative flex min-h-screen flex-col items-center justify-center px-4 sm:px-6 overflow-hidden"
+      ref={sectionRef}
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden"
       style={{ paddingTop: '80px' }}
     >
-      <div
-        className="text-center pointer-events-auto p-10 rounded-2xl relative overflow-hidden w-fit"
-        style={{
-          minWidth: '20rem',
-          background: 'rgba(20, 30, 58, 0.85)',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
-        }}
+      <motion.div
+        className="absolute inset-0 flex flex-col items-center justify-center"
+        style={{ clipPath }}
       >
-        <div
-          className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-2xl"
-          aria-hidden="true"
-        >
-          <DotField
-            dotRadius={2}
-            dotSpacing={14}
-            bulgeStrength={25}
-            glowRadius={0}
-            sparkle={false}
-            waveAmplitude={0}
-            gradientFrom="rgba(192, 132, 255, 0.6)"
-            gradientTo="rgba(74, 94, 138, 0.5)"
-            glowColor="#141E3A"
+        <div className="absolute inset-0" aria-hidden="true">
+          <ShapeGrid
+            speed={0.5}
+            squareSize={65}
+            direction="diagonal"
+            borderColor="#333"
+            hoverFillColor="#C084FF"
+            shape="square"
+            hoverTrailAmount={5}
           />
         </div>
-        <div className="relative z-10">
+        <motion.div
+          className="relative z-10 text-center px-4 sm:px-6"
+          style={{ y: contentY, willChange: 'transform' }}
+        >
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row mb-4">
             <Suspense fallback={<div style={{ width: 150, height: 200 }} />}>
               <LiquidMetalReady />
@@ -87,8 +93,8 @@ export default function Hero() {
           <p className="mt-6 mx-auto max-w-md font-body text-sm text-slate-300 sm:text-base">
             {t('hero.description')}
           </p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

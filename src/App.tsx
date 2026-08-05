@@ -11,7 +11,6 @@ import Contact from './components/ui/Contact'
 import Footer from './components/ui/Footer'
 import Hero from './components/ui/Hero'
 import Spinner from './components/ui/Spinner'
-import ShapeGrid from './components/ui/ShapeGrid'
 import { useDeviceTier } from './hooks/useDeviceTier'
 import { useTranslation } from 'react-i18next'
 import { useEffect, useRef, useState } from 'react'
@@ -89,23 +88,10 @@ export default function App() {
   }, [i18n])
 
   return (
-    <div className="relative bg-void text-text-primary font-body overflow-x-hidden">
+    <div className="relative bg-void text-text-primary font-body">
       {/* Language Switcher — top right on desktop, bottom right on mobile */}
       <div className="fixed bottom-4 md:top-4 md:bottom-auto z-[60]" style={{ insetInlineEnd: 16 }}>
         <LanguageSwitcher />
-      </div>
-
-      {/* Shape Grid — scrolls with page */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <ShapeGrid
-          speed={0.5}
-          squareSize={65}
-          direction="diagonal"
-          borderColor="#333"
-          hoverFillColor="#C084FF"
-          shape="square"
-          hoverTrailAmount={5}
-        />
       </div>
 
       {/* Page content */}

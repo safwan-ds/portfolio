@@ -58,7 +58,7 @@ export default function Navbar() {
           mixBlendMode="overlay"
           style={{ minHeight: 64 }}
         >
-          <div className="flex flex-col">
+          <div className="flex flex-col w-full">
             {/* Desktop navbar */}
             <div className="hidden md:flex items-center gap-2 px-4">
               <a
@@ -108,8 +108,11 @@ export default function Navbar() {
                       e.preventDefault()
                       handleClick(item.id)
                     }}
-                    className="text-slate-200 hover:text-accent transition-colors font-mono uppercase tracking-wider whitespace-nowrap shrink-0"
-                    style={{ fontSize: 'clamp(9px, 3vw, 13px)', padding: '0 clamp(2px, 1vw, 6px)' }}
+                    className="text-slate-200 hover:text-accent transition-colors font-mono uppercase tracking-wider text-center leading-tight min-w-0"
+                    style={{
+                      fontSize: 'clamp(7px,3vw, 13px)',
+                      padding: '0 clamp(1px, 0.5vw, 4px)',
+                    }}
                   >
                     {t(item.labelKey)}
                   </a>
