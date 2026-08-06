@@ -9,7 +9,6 @@ import { motion } from 'framer-motion'
 import { HiPaperAirplane } from 'react-icons/hi2'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
-import DitherBackground from './DitherBackground'
 import FormInput from './FormInput'
 import SpecularButton from './SpecularButton'
 import ExternalLink from './ExternalLink'
@@ -47,10 +46,10 @@ export default function Contact() {
     <SectionWrapper
       id="contact"
       zIndex="z-5"
+      bgClass="bg-section-contact"
       maxWidth="max-w-xl"
       label={t('contact.label')}
       title={t('contact.title')}
-      background={<DitherBackground shape="sphere" />}
     >
       <SectionReveal delay={0.1}>
         {status === 'sent' ? (

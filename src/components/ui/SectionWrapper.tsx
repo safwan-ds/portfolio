@@ -13,13 +13,15 @@ interface SectionWrapperProps {
   className?: string
   background?: ReactNode
   /** Exit wipe like the hero: clips from the bottom as the section scrolls
-   *  past, and pulls the next section up underneath so it's revealed by the
+   *   past and pulls the next section up underneath so it's revealed by the
    *  wipe. Requires a zIndex below the section above and above the one below. */
   wipe?: boolean
   /** Stacking position in the wipe chain (strictly decreasing down the page). */
   zIndex?: string
-  /** Content column width (applies to header + children). Default max-w-7xl. */
+  /** Content column width (applies to header and children). Default max-w-7xl. */
   maxWidth?: string
+  /** Solid background color class for the section (default bg-void). */
+  bgClass?: string
 }
 
 export default function SectionWrapper({
@@ -33,6 +35,7 @@ export default function SectionWrapper({
   wipe = false,
   zIndex = 'z-0',
   maxWidth = 'max-w-7xl',
+  bgClass = 'bg-void',
 }: SectionWrapperProps) {
   const sectionRef = useRef<HTMLElement>(null)
   const { clipPath } = useWipe(sectionRef)
@@ -69,7 +72,7 @@ export default function SectionWrapper({
     <section
       id={id}
       ref={sectionRef}
-      className={`relative ${zIndex} overflow-hidden ${useWipeMotion ? '' : 'py-32 md:py-44'} ${className}`}
+      className={`relative ${zIndex} overflow-hidden ${className}`}
       style={
         useWipeMotion
           ? {
@@ -81,13 +84,13 @@ export default function SectionWrapper({
     >
       {useWipeMotion ? (
         <motion.div
-          className="relative w-full py-32 md:py-44 bg-void"
+          className={`relative w-full py-32 md:py-44 ${bgClass}`}
           style={{ clipPath, willChange: 'clip-path' }}
         >
           {content}
         </motion.div>
       ) : (
-        <div className="relative w-full">{content}</div>
+        <div className={`relative w-full py-32 md:py-44 ${bgClass}`}>{content}</div>
       )}
     </section>
   )

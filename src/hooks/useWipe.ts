@@ -1,5 +1,5 @@
 import { type RefObject } from 'react'
-import { easeOut, useMotionTemplate, useScroll, useTransform } from 'framer-motion'
+import { useMotionTemplate, useScroll, useTransform } from 'framer-motion'
 import { HERO_WIPE_EXTRA_VH } from '../utils/constants'
 
 type WipeScrollOffset = NonNullable<Parameters<typeof useScroll>[0]>['offset']
@@ -29,9 +29,7 @@ export function useWipe(target: RefObject<HTMLElement | null>, extraVh = HERO_WI
     target,
     offset,
   })
-  const clipBottom = useTransform(scrollYProgress, [0, 1], ['0vh', '100vh'], {
-    ease: easeOut,
-  })
+  const clipBottom = useTransform(scrollYProgress, [0, 1], ['0vh', '100vh'])
   const clipPath = useMotionTemplate`inset(0 0 ${clipBottom} 0)`
   return { clipPath }
 }

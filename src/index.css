@@ -40,6 +40,13 @@
   --color-text-secondary: #94a3b8;
   --color-text-muted: #64748b;
 
+  /* ── Section backgrounds (void tinted with neon accents) ── */
+  --color-section-about: color-mix(in srgb, var(--color-accent) 12%, var(--color-void));
+  --color-section-skills: color-mix(in srgb, var(--color-neon-cyan) 8%, var(--color-void));
+  --color-section-languages: color-mix(in srgb, var(--color-neon-purple) 10%, var(--color-void));
+  --color-section-projects: color-mix(in srgb, var(--color-neon-green) 8%, var(--color-void));
+  --color-section-contact: color-mix(in srgb, var(--color-accent) 14%, var(--color-void));
+
   /* ── Font stacks ── */
   --font-display: 'Rajdhani', sans-serif;
   --font-body: 'Rajdhani', sans-serif;

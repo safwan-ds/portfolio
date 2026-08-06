@@ -10,7 +10,6 @@ import { useTranslation } from 'react-i18next'
 import { useDeviceTier } from '../../hooks/useDeviceTier'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
-import DitherBackground from './DitherBackground'
 import { type SkillCategory, skills } from '../../data'
 
 const ACCENT_CLASSES: Record<
@@ -144,9 +143,9 @@ export default function Skills() {
       id="skills"
       wipe
       zIndex="z-30"
+      bgClass="bg-section-skills"
       label={t('skills.label')}
       title={t('skills.title')}
-      background={<DitherBackground shape="wave" />}
     >
       <SectionReveal delay={0.15}>
         <div className="grid gap-4 select-none [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]">

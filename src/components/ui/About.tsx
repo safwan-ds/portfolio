@@ -22,6 +22,7 @@ export default function About() {
       id="about"
       wipe
       zIndex="z-40"
+      bgClass="bg-section-about"
       label={t('about.label')}
       title={t('about.title')}
       background={<DitherBackground />}

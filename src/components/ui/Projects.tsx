@@ -11,7 +11,6 @@ import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from
 import { HiArrowUpRight, HiEye } from 'react-icons/hi2'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
-import DitherBackground from './DitherBackground'
 import NeonButton from './NeonButton'
 import ExternalLink from './ExternalLink'
 import { useDeviceTier } from '../../hooks/useDeviceTier'
@@ -355,9 +354,9 @@ export default function Projects() {
       id="projects"
       wipe
       zIndex="z-10"
+      bgClass="bg-section-projects"
       label={t('projects.label')}
       title={t('projects.title')}
-      background={<DitherBackground shape="ripple" />}
     >
       <SectionReveal delay={0.15}>
         <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(340px,1fr))]">
