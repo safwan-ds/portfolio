@@ -9,18 +9,18 @@
 
 import { useState } from 'react'
 import { socials } from '../../data'
-import { useDeviceTier } from '../../hooks/useDeviceTier'
+import { useIsTouch } from '../../hooks/useIsTouch'
 import { useRtl } from '../../hooks/useRtl'
 
 /** Fixed depth of the triangular point, in px */
 const PT = 14
 
 export default function SocialBookmarks() {
-  const { isMobile } = useDeviceTier()
+  const isTouch = useIsTouch()
   const isRtl = useRtl()
   const [hovered, setHovered] = useState<string | null>(null)
 
-  if (isMobile) return null
+  if (isTouch) return null
 
   const onEnter = (label: string) => setHovered(label)
   const onLeave = () => setHovered(null)

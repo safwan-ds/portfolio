@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { easeInOut, motion, useMotionTemplate, useScroll, useTransform } from 'framer-motion'
+import { motion, useMotionTemplate, useScroll, useTransform } from 'framer-motion'
 import { LiquidMetal } from '@paper-design/shaders-react'
 
 import ShapeGrid from './ShapeGrid'
@@ -9,34 +9,59 @@ import { cssColor, HERO_WIPE_EXTRA_VH, WIPE_OVERLAP_VH } from '../../utils/const
 
 const LOGO_URL = `${import.meta.env.BASE_URL}images/logo.svg`
 
+/**
+ * Suspense fallback while LiquidMetal processes the logo. Renders the static
+ * SVG logo so the hero is never a blank gap if the shader stalls — it is a
+ * visual backstop only; it deliberately does NOT signal the preloader, which
+ * must wait for the actual shader frame.
+ */
+function StaticLogoFallback() {
+  return (
+    <img src={LOGO_URL} alt="" width={150} height={200} draggable={false} className="select-none" />
+  )
+}
+
 function LiquidMetalReady() {
+  const wrapRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
+    // Wait for the shader's first painted frames, not just mount: on slow
+    // phones GLSL compile + first raster can exceed a 2-frame window, so the
+    // preloader must not reveal until the liquid-metal logo is actually drawn.
+    let raf = 0
+    let frames = 0
+    const tick = () => {
+      if (wrapRef.current?.querySelector('canvas')) frames++
+      if (frames >= 8) {
         window._preloaderReady?.()
-      })
-    })
+        return
+      }
+      raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
   }, [])
 
   return (
-    <LiquidMetal
-      width={150}
-      height={200}
-      image={LOGO_URL}
-      suspendWhenProcessingImage
-      colorBack="#FFFFFF00"
-      colorTint={cssColor('peach')}
-      repetition={1.5}
-      softness={1}
-      shiftRed={0}
-      shiftBlue={0}
-      distortion={0}
-      contour={0.8}
-      angle={70}
-      speed={1}
-      scale={1}
-      fit="contain"
-    />
+    <div ref={wrapRef}>
+      <LiquidMetal
+        width={150}
+        height={200}
+        image={LOGO_URL}
+        suspendWhenProcessingImage
+        colorBack="#FFFFFF00"
+        colorTint={cssColor('peach')}
+        repetition={1.5}
+        softness={1}
+        shiftRed={0}
+        shiftBlue={0}
+        distortion={0}
+        contour={0.8}
+        angle={70}
+        speed={1}
+        scale={1}
+        fit="contain"
+      />
+    </div>
   )
 }
 
@@ -53,9 +78,7 @@ export default function Hero() {
     offset: ['start start', `end -${HERO_WIPE_EXTRA_VH * 100}vh`],
   })
 
-  const clipBottom = useTransform(scrollYProgress, [0, 1], ['0%', '100%'], {
-    ease: easeInOut,
-  })
+  const clipBottom = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
   const contentY = useTransform(scrollYProgress, (progress) => `${-progress * 30}vh`)
   const clipPath = useMotionTemplate`inset(0 0 ${clipBottom} 0)`
 
@@ -95,7 +118,7 @@ export default function Hero() {
           style={motionEnabled ? { y: contentY, willChange: 'transform' } : undefined}
         >
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row mb-4">
-            <Suspense fallback={<div style={{ width: 150, height: 200 }} />}>
+            <Suspense fallback={<StaticLogoFallback />}>
               <LiquidMetalReady />
             </Suspense>
 

@@ -22,6 +22,8 @@ interface SectionWrapperProps {
   maxWidth?: string
   /** Solid background color class for the section (default bg-void). */
   bgClass?: string
+  /** Bottom padding class override (default pb-32 md:pb-44, matching the top). */
+  pbClass?: string
 }
 
 export default function SectionWrapper({
@@ -36,6 +38,7 @@ export default function SectionWrapper({
   zIndex = 'z-0',
   maxWidth = 'max-w-7xl',
   bgClass = 'bg-void',
+  pbClass = 'pb-32 md:pb-44',
 }: SectionWrapperProps) {
   const sectionRef = useRef<HTMLElement>(null)
   const { clipPath } = useWipe(sectionRef)
@@ -84,13 +87,13 @@ export default function SectionWrapper({
     >
       {useWipeMotion ? (
         <motion.div
-          className={`relative w-full py-32 md:py-44 ${bgClass}`}
+          className={`relative w-full pt-32 md:pt-44 ${pbClass} ${bgClass}`}
           style={{ clipPath, willChange: 'clip-path' }}
         >
           {content}
         </motion.div>
       ) : (
-        <div className={`relative w-full py-32 md:py-44 ${bgClass}`}>{content}</div>
+        <div className={`relative w-full pt-32 md:pt-44 ${pbClass} ${bgClass}`}>{content}</div>
       )}
     </section>
   )

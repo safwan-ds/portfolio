@@ -47,6 +47,7 @@ export default function Contact() {
       id="contact"
       zIndex="z-5"
       bgClass="bg-section-contact"
+      pbClass="pb-24 md:pb-32"
       maxWidth="max-w-xl"
       label={t('contact.label')}
       title={t('contact.title')}
@@ -143,8 +144,11 @@ export default function Contact() {
           </form>
         )}
 
-        {/* Social icons — mobile only (desktop has floating bookmarks' sidebar) */}
-        <div className="md:hidden mt-10 pt-6 border-t border-white/10">
+        {/* Social icons — shown when there's no floating bookmarks sidebar:
+            touch devices (sidebar hidden) and desktop fallback; hidden on
+            pointer-fine desktops where the sidebar is present. Width-agnostic —
+            landscape phones/tablets (>=768px, coarse pointer) get these too. */}
+        <div className="hidden [@media(pointer:coarse)]:block mt-10 pt-6 border-t border-white/10">
           <p className="text-center mb-4 font-mono text-[11px] tracking-widest uppercase text-text-secondary/60">
             {t('contact.find_me')}
           </p>

@@ -172,7 +172,7 @@ export default function AIChat() {
     }
   }
 
-  function onResizeStart(e: React.MouseEvent) {
+  function onResizeStart(e: React.PointerEvent) {
     e.preventDefault()
     const panel = panelRef.current
     if (!panel) return
@@ -183,7 +183,7 @@ export default function AIChat() {
     panel.style.height = `${h}px`
     panel.style.userSelect = 'none'
 
-    function onMove(me: MouseEvent) {
+    function onMove(me: PointerEvent) {
       const p = panelRef.current
       if (!p) return
       const newW = Math.max(
@@ -200,11 +200,11 @@ export default function AIChat() {
     function onUp() {
       const p = panelRef.current
       if (p) p.style.userSelect = ''
-      document.removeEventListener('mousemove', onMove)
-      document.removeEventListener('mouseup', onUp)
+      document.removeEventListener('pointermove', onMove)
+      document.removeEventListener('pointerup', onUp)
     }
-    document.addEventListener('mousemove', onMove)
-    document.addEventListener('mouseup', onUp)
+    document.addEventListener('pointermove', onMove)
+    document.addEventListener('pointerup', onUp)
   }
 
   const panelVariants = isReduced
@@ -307,7 +307,7 @@ function PanelContent({
   handleSend,
   inputRef,
 }: {
-  onResizeStart: (e: React.MouseEvent) => void
+  onResizeStart: (e: React.PointerEvent) => void
   onClose: () => void
   t: (key: string) => string
   listRef: React.RefObject<HTMLDivElement | null>
@@ -324,8 +324,8 @@ function PanelContent({
   return (
     <>
       <div
-        onMouseDown={onResizeStart}
-        className="absolute top-0 inset-s-0 z-10 w-8 h-8 flex items-start justify-start cursor-nwse-resize rtl:cursor-nesw-resize group select-none"
+        onPointerDown={onResizeStart}
+        className="absolute top-0 inset-s-0 z-10 w-8 h-8 flex items-start justify-start cursor-nwse-resize rtl:cursor-nesw-resize group select-none touch-none"
       >
         <svg
           className="text-white/30 group-hover:text-accent/70 transition-colors rtl:scale-x-[-1]"

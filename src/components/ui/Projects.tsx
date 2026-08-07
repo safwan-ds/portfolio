@@ -4,7 +4,7 @@
  * Edit projects.ts to add/remove entries, edit locale files for translations.
  */
 
-import { type MouseEvent, type ReactNode, useEffect, useRef, useState } from 'react'
+import React, { type MouseEvent, type ReactNode, useEffect, useRef, useState } from 'react'
 import { createPortal, flushSync } from 'react-dom'
 import { useTranslation } from 'react-i18next'
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
@@ -14,6 +14,7 @@ import SectionWrapper from './SectionWrapper'
 import NeonButton from './NeonButton'
 import ExternalLink from './ExternalLink'
 import { useDeviceTier } from '../../hooks/useDeviceTier'
+import { useIsTouch } from '../../hooks/useIsTouch'
 import { profile, type Project, projects } from '../../data'
 
 interface Origin {
@@ -46,6 +47,7 @@ function ProjectCard({ project, onActivate, isExpanded, background }: ProjectCar
   const thumbRef = useRef<HTMLDivElement>(null)
   const [naturalRatio, setNaturalRatio] = useState(1)
   const { isMobile } = useDeviceTier()
+  const isTouch = useIsTouch()
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
@@ -63,7 +65,7 @@ function ProjectCard({ project, onActivate, isExpanded, background }: ProjectCar
   }, [isExpanded, mouseX, mouseY])
 
   function handleMouseMove(e: MouseEvent<HTMLDivElement>) {
-    if (isExpanded || !cardRef.current) return
+    if (isExpanded || isTouch || !cardRef.current) return
     const rect = cardRef.current.getBoundingClientRect()
     mouseX.set((e.clientX - rect.left) / rect.width - 0.5)
     mouseY.set((e.clientY - rect.top) / rect.height - 0.5)
@@ -101,7 +103,7 @@ function ProjectCard({ project, onActivate, isExpanded, background }: ProjectCar
     <>
       <motion.div
         ref={cardRef}
-        style={{ rotateX, rotateY }}
+        style={isTouch ? undefined : { rotateX, rotateY }}
         onMouseMove={handleMouseMove}
         onMouseLeave={() => {
           mouseX.set(0)
@@ -359,7 +361,7 @@ export default function Projects() {
       title={t('projects.title')}
     >
       <SectionReveal delay={0.15}>
-        <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(340px,1fr))]">
+        <div className="grid gap-6 grid-cols-[repeat(auto-fit,minmax(340px,1fr))]">
           {projects.map((p) => (
             <ProjectCard
               key={p.key}

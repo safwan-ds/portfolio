@@ -233,11 +233,20 @@ const SpecularButton = ({
     let bright = 0
     let last = performance.now()
     let raf = 0
+    // Off-screen pause: the loop only renders while the button is near the
+    // viewport. Without this the WebGL renderer burns GPU at 60fps from mount,
+    // which on mobile adds constant pressure that shows up as scroll lag and
+    // can help evict other WebGL contexts.
+    const visibleRef = { current: true }
 
     const lineC = new Color()
     const baseC = new Color()
 
     const update = (now: number) => {
+      if (!visibleRef.current) {
+        raf = 0
+        return
+      }
       raf = requestAnimationFrame(update)
       const dt = Math.min((now - last) / 1000, 0.05)
       last = now
@@ -264,10 +273,30 @@ const SpecularButton = ({
       program.uniforms.uThickness.value = p.thickness * dpr
       renderer.render({ scene: mesh })
     }
-    raf = requestAnimationFrame(update)
+    let observer: IntersectionObserver | null = null
+    if (typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          visibleRef.current = entry.isIntersecting
+          if (entry.isIntersecting && raf === 0) {
+            raf = requestAnimationFrame(update)
+          } else if (!entry.isIntersecting && raf !== 0) {
+            cancelAnimationFrame(raf)
+            raf = 0
+          }
+        },
+        // Start slightly before the button scrolls in so the first visible
+        // frame is already rendered
+        { rootMargin: '100px' },
+      )
+      observer.observe(btn)
+    } else {
+      raf = requestAnimationFrame(update)
+    }
 
     return () => {
       cancelAnimationFrame(raf)
+      observer?.disconnect()
       ro.disconnect()
       window.removeEventListener('pointermove', onPointerMove)
       if (gl.canvas.parentNode === fx) fx.removeChild(gl.canvas)

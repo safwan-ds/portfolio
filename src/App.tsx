@@ -10,7 +10,7 @@ import Contact from './components/ui/Contact'
 import Footer from './components/ui/Footer'
 import Hero from './components/ui/Hero'
 import Spinner from './components/ui/Spinner'
-import { useDeviceTier } from './hooks/useDeviceTier'
+import { useIsTouch } from './hooks/useIsTouch'
 import { useTranslation } from 'react-i18next'
 import { useEffect, useRef, useState } from 'react'
 
@@ -39,7 +39,7 @@ const fontSpecMap: Record<string, { families: string[]; text: string }> = {
 }
 
 export default function App() {
-  const { isMobile } = useDeviceTier()
+  const isTouch = useIsTouch()
   const { i18n } = useTranslation()
   const [fontLoading, setFontLoading] = useState(false)
   const fontLoadRef = useRef<number>(0)
@@ -103,8 +103,8 @@ export default function App() {
         <Contact />
         <Footer />
       </div>
-      {!isMobile && <AIChat />}
-      {!isMobile && <SocialBookmarks />}
+      {!isTouch && <AIChat />}
+      {!isTouch && <SocialBookmarks />}
 
       {/* ── Font-loading overlay ── */}
       <div

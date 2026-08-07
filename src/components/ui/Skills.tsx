@@ -7,7 +7,7 @@
 
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useDeviceTier } from '../../hooks/useDeviceTier'
+import { useIsTouch } from '../../hooks/useIsTouch'
 import SectionReveal from './SectionReveal'
 import SectionWrapper from './SectionWrapper'
 import { type SkillCategory, skills } from '../../data'
@@ -52,14 +52,14 @@ function SkillFlipCard({
   onMobileToggle: () => void
 }) {
   const { t } = useTranslation()
-  const { isMobile } = useDeviceTier()
+  const isTouch = useIsTouch()
   const [hovered, setHovered] = useState(false)
   const CategoryIcon = category.icon
   const ac = ACCENT_CLASSES[category.accent]
 
-  const flipped = isMobile ? mobileFlipped : hovered
+  const flipped = isTouch ? mobileFlipped : hovered
 
-  const hoverProps = isMobile
+  const hoverProps = isTouch
     ? {}
     : {
         onMouseEnter: () => setHovered(true),
@@ -70,7 +70,7 @@ function SkillFlipCard({
     <div
       className="group relative h-75 w-full perspective-[2000px] transition-transform duration-300 hover:scale-[1.02] active:scale-[1.01]"
       {...hoverProps}
-      onClick={isMobile ? onMobileToggle : undefined}
+      onClick={isTouch ? onMobileToggle : undefined}
     >
       <div
         className={`relative h-full w-full transform-3d transition-transform duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] motion-reduce:transition-none ${
